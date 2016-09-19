@@ -1,0 +1,29 @@
+package com.cmpe273.homework1.java;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+public class Stack_JUnit 
+{
+	private String img1 = "image1";
+	private String img2 = "image2";
+	private Stack_Logic ql = new Stack_Logic();
+	
+	@Test
+	public void testAddQueue() throws Exception
+	{
+		ql.addString(img1);
+		ql.addString(img2);
+		assertEquals(img1,ql.getElement());
+	}
+	
+	@Test
+	public void testRemoveQueue() throws Exception
+	{
+		ql.addString(img1);
+		ql.addString(img2);
+		ql.removeObject();
+		assertEquals(img2, ql.getElement());
+	}
+}

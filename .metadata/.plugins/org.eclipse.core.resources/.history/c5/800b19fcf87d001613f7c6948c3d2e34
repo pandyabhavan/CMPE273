@@ -1,0 +1,13 @@
+package com.cmpe273.homework1.java;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+
+public class Queues {
+
+	public static void main(String[] args) 
+	{
+		
+	}
+
+}

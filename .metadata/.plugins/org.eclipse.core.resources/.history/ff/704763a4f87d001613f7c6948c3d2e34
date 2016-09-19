@@ -1,0 +1,20 @@
+package com.cmpe273.homework1.java;
+
+import java.util.*;
+
+public class Queues_Logic 
+{ 	
+	Queue queue = new LinkedList<String>();
+	public void addString(String s)
+	{
+		queue.add(s);
+	}
+	
+	public String getElement(int i)
+	{
+		return queue.element().toString();
+	}
+	
+	public void removeObject
+
+}

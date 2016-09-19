@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>Input Types</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+    <form>
+        <!-- This panel is for login -->
+        <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Login</div>
+            <div class="panel-body">
+                    <div class="form-group">
+                        <label for="name" class="colsm-2 control-label pull-left">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="formcontrol" id="name" placeholder="Name" required>
+                        </div>
+                    </div>
+                <br /><br />
+                <div class="form-group">
+                    <label for="email" class="colsm-2 control-label pull-left">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="formcontrol" id="email" placeholder="Email" required>
+                    </div>
+                </div>
+                <br /><br />
+                <div class="form-group">
+                    <label for="age" class="colsm-2 control-label pull-left">Age</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="formcontrol" id="age" placeholder="Age" required>
+                    </div>
+                </div>
+                <br /><br />
+                <div class="form-group">
+                    <label for="password" class="colsm-2 control-label pull-left">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="formcontrol" id="password" placeholder="Password" required>
+                    </div>
+                </div>
+                <br /><br />
+                <div class="form-group">
+                    <label for="occupation" class="colsm-2 control-label pull-left">Occupation</label>
+                    <div class="col-sm-10">
+                        <input type="radio" class="formcontrol" name="occupation" value="Student" checked="checked"> Student
+                        <input type="radio" class="formcontrol" name="occupation" value="Job"> Job
+                        <input type="radio" class="formcontrol" name="occupation" value="Entrepreneur"> Entrepreneur
+                    </div>
+                </div>
+                    <br /><br />
+                    <div class="form-group">
+                        <div class="pull-left signIn">
+                            <button type="submit" class="btn btnprimary" onsubmit="window.alert('Validation Successful!')">
+                               Submit
+                            </button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

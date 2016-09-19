@@ -1,0 +1,18 @@
+package com.cmpe273.homework1.java;
+
+public class ShapeFactory 
+{
+	public void draw(String str)
+	{
+		if(str.equals("circle"))
+		{
+			Shape circle = new Circle();
+			circle.draw();
+		}
+		if(str.equals("circle"))
+		{
+			Shape circle = new Circle();
+			circle.draw();
+		}
+	}
+}

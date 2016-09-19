@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Objects</title>
+<script type="text/javascript">
+var mattress = {
+		length:80,
+		width:76,
+		height:12,
+		area: function(){
+			return this.length*this.width*this.height;
+		}
+};
+</script>
+</head>
+<body>
+<h1>Enter dimensions for mattress</h1>
+<form>
+<table>
+<tr>
+<td><label for=assignment1>Assignment1</label></td>
+<td><input type=text id=assignment1><br></td>
+</tr>
+<tr>
+<td><label for=assignment2>Assignment2</label></td>
+<td><input type=text id=assignment2><br></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

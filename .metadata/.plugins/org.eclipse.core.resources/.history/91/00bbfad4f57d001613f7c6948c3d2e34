@@ -1,0 +1,21 @@
+package com.cmpe273.homework1.java;
+import junit.framework.TestCase;
+
+public class Queues_JUnit extends TestCase 
+{
+	private String img1 = "image1";
+	private String img2 = "image2";
+	
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		
+	}
+	
+	public void testAddQueue()
+	{
+		int size = 1;
+		int first_element = "image1";
+		int second_element = "image2";
+	}
+}

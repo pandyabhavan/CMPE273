@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Arrays_JUnit" project="homework1" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.cmpe273.homework1.java.Arrays_JUnit" time="0.0">
+    <testcase name="testConversion" classname="com.cmpe273.homework1.java.Arrays_JUnit" time="0.0"/>
+  </testsuite>
+</testrun>

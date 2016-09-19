@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Errors</title>
+    <script type="text/javascript">
+        function calculatePercentage() {
+            try
+            {
+                var assignment1 = Number(document.getElementById("assignment1").value);
+                var assignment2 = Number(document.getElementById("assignment2").value);
+                var lab1 = Number(document.getElementById("lab1").value);
+                var lab2 = Number(document.getElementById("lab2").value);
+                if((assignment1 > 100 || assignment1 < 0) || (assignment2 > 100 || assignment2 < 0) || (lab1 > 100 || lab1 < 0) || (lab2 > 100 || lab2 < 0))
+                    throw "Invalid Number";
+                var percentage = ((+assignment1 + +assignment2) * 0.1) + ((+lab1 + +lab2) * 0.4);
+                document.getElementById("output").innerHTML = "Score :" + percentage;
+            }
+            catch(err)
+            {
+                document.getElementById("output").innerHTML = "Please enter a valid number";
+            }
+            finally
+            {
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Enter marks for below Assignment and Labs</h1>
+    <form>
+        <table>
+            <tr>
+                <td><label for=assignment1>Assignment1</label></td>
+                <td><input type=text id=assignment1><br></td>
+            </tr>
+            <tr>
+                <td><label for=assignment2>Assignment2</label></td>
+                <td><input type=text id=assignment2><br></td>
+            </tr>
+            <tr>
+                <td><label for=lab1>Lab1</label></td>
+                <td><input type=text id=lab1><br></td>
+            </tr>
+            <tr>
+                <td><label for=lab2>Lab2</label></td>
+                <td><input type=text id=lab2><br></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" id="percentage" value="Calculate Percentage"
+                           onclick="calculatePercentage()" />
+                    <h3 id="output">Your score would be displayed here </h3>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

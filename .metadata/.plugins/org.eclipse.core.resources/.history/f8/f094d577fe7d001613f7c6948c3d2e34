@@ -1,0 +1,20 @@
+package com.cmpe273.homework1.java;
+import java.util.*;
+
+
+public class Stack_Logic 
+{
+	Stack<String> stack = new Stack<String>();
+	public Stack_Logic()
+	{
+		
+	}
+	
+	public void pushItem(String st)
+	{
+		stack.push(st);
+		System.out.println("Stack :"+stack);
+	}
+	
+	
+}

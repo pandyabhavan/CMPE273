@@ -1,0 +1,14 @@
+package com.cmpe273.homework1.java;
+
+public class Generic_Class<T> 
+{
+	private T type;
+	public T get()
+	{
+		return this.type;
+	}
+	public static void main(String[] args)
+	{
+		
+	}
+}

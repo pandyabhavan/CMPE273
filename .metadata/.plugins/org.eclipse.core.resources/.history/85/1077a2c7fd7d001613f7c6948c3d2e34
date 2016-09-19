@@ -1,0 +1,13 @@
+package com.cmpe273.homework1.java;
+
+
+public class Stack_Logic 
+{
+	Stack s;
+	public Stack_Logic()
+	{
+		s = new Stack();
+	}
+	
+	public 
+}

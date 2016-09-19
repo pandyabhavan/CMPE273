@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrays</title>
+    <script type="text/javascript">
+        var Mouse = function () {
+            this.company = "Logitech";
+            this.numberOfButtons = 2;
+            this.scrollable = true;
+            alert('Hi');
+        }
+        Mouse.prototype.getBestMouse = function () {
+            var wireless = document.getElementById('wireless');
+            var horizontalScroll = document.getElementById('horizontalScroll');
+            var gaming = document.getElementById('gaming');
+        }
+        var WirelessMouse = function () {
+            this.isWireless = true;
+        }
+        inheritsFrom(WirelessMouse, Mouse);
+        WirelessMouse.prototype.getBestMouse = function () {
+            Mouse.prototype.getBestMouse.call(this);
+        }
+
+        var GamingMouse = function () {
+            var horizontalScroll = true;
+        }
+        inheritsFrom(GamingMouse, WirelessMouse);
+        GamingMouse.prototype.getBestMouse = function () {
+            WirelessMouse.prototype.getBestMouse.call(this);
+            if (wireless.checked == false && horizontalScroll.checked == false && gaming.checked == false)
+                window.alert('Logitech M100 USB Optical Wired Mouse is the best choice for you');
+            else if (wireless.checked == true && gaming.checked == false)
+                window.alert('Logitech M510 Wireless Mouse is the best choice for you');
+            else
+                window.alert('Logitech MX Master Wireless Mouse is the best choice for you');
+        }
+        function getMouse()
+        {
+            var c = new GamingMouse();
+            c.getBestMouse();
+        }
+    </script>
+</head>
+<body>
+    <h1>Enter functions you would recommend in the mouse</h1>
+    <form>
+        <table>
+            <tr>
+                <td><input type="checkbox" id="wireless" name="wireless" value="wireless">Wireless Mouse<br></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="horizontalScroll" name="horizontalScroll" value="horizontalScroll">Horizontal Scroll Available<br></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="gaming" name="gaming" value="gaming">Gaming Mouse<br></td>
+            </tr>
+            <!--<tr>
+                <td><label for="passport">Passport Number</label></td>
+                <td><input type="text" id="passport" required><br></td>
+            </tr>-->
+            <tr>
+                <td>
+                    <input type="submit" id="validate" value="Get the best mouse available"
+                           onclick="getMouse()" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+package com.cmpe273.homework1.java;
+
+import java.util.*;
+
+public class Queues_Logic 
+{ 	
+	Queue queue = new `
+	public void addString(String s)
+	{
+	}
+	
+	public String getStringAt(int i)
+	{
+		return "";
+	}
+
+}

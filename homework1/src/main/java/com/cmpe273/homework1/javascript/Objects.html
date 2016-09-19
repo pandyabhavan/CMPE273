@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Objects</title>
+</head>
+<body>
+    <h1>Enter dimensions for mattress</h1>
+    <form>
+        <table>
+            <tr>
+                <td><label for=length>Length</label></td>
+                <td><input type="number" id="length" value="80"><br></td>
+            </tr>
+            <tr>
+                <td><label for = "width">Width</label></td>
+                <td><input type="number" id="width" value="76"><br></td>
+            </tr>
+            <tr>
+                <td><label for= "height">Height</label></td>
+                <td><input type="number" id="height" value="12"><br></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" id="cost" value="Calculate Estimated Cost"
+                           onclick="mattress.cost()" />
+                    <h3 id="output">Your estimated cost would be displayed here </h3>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+    <script type="text/javascript">
+    var mattress = {
+        length1: document.getElementById("length").value,
+        width1: document.getElementById("width").value,
+        height1: document.getElementById("height").value,
+        cost: function () {
+        	this.length1= document.getElementById("length").value;
+        	this.width1= document.getElementById("width").value;
+        	this.height1= document.getElementById("height").value;
+            var costs = this.length1 * this.width1 * this.height1 / 50;
+            document.getElementById("output").innerHTML = "Estimated Cost :" + costs +" $";
+            return costs;
+        }
+    };
+    </script>
+</body>
+</html>

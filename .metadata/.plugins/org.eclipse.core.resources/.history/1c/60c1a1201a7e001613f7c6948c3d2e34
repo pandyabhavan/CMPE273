@@ -1,0 +1,22 @@
+package com.cmpe273.homework1.java;
+
+public class MultiThreadingRabbit implements Runnable
+{
+	Thread t;
+	public public MultiThreadingRabbit() {
+		// TODO Auto-generated constructor stub
+	}()
+	{
+		t = new Thread(this);
+		t.setPriority(5);
+		t.start();
+	}
+	
+	public void run()
+	{
+		for(int i=0;i<100;i++)
+		{
+			System.out.println("Tortoise Covered: "+i);
+		}
+	} 
+}

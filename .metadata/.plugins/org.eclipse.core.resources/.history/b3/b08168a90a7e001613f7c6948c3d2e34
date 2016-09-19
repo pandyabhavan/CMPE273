@@ -1,0 +1,6 @@
+package com.cmpe273.homework1.java;
+
+public interface Shape 
+{
+public void draw();
+}

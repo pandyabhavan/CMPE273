@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+ <html>
+<head>
+    <title>Functions</title>
+    <script type="text/javascript">
+        function calculatePerimeterArea() {
+            var height = document.getElementById("height").value;
+            var width = document.getElementById("width").value;
+            var perimeter = calculatePerimeter(height, width);
+            var area = calculateArea(height, width);
+            document.getElementById("output").innerHTML = "Perimeter:" + perimeter + "\n Area:" + area;
+        }
+        function calculatePerimeter(a,b)
+        {
+            var c = +a + +b;
+            return 2 * c;
+        }
+        function calculateArea(a,b)
+        {
+            return a * b;
+        }
+    </script>
+</head>
+<body>
+    <h1>Enter Dimensions for Rectangle below</h1>
+    <form>
+        <table>
+            <tr>
+                <td><label for="height">Height</label></td>
+                <td><input type="number" id="height"><br></td>
+            </tr>
+            <tr>
+                <td><label for="width">Width</label></td>
+                <td><input type="number" id="width"><br></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" id="percentage" value="Calculate Perimeter & Area"
+                           onclick="calculatePerimeterArea()" />
+                    <h3 id="output">Your Perimeter and area would be displayed here </h3>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

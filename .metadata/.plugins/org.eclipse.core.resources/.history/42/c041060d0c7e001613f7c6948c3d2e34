@@ -1,0 +1,14 @@
+package com.cmpe273.homework1.java;
+
+import org.junit.Test;
+
+public class ShapeJUnit 
+{
+	@Test
+	public void test()
+	{
+		ShapeFactory sf = new ShapeFactory();
+		String s = sf.draw("circle");
+		assertEquals("");
+	}
+}
