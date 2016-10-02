@@ -1,7 +1,0 @@
-package com.cmpe273.homework1.java;
-
-public class MultiThreadingTortoise implements Runnable
-{
-	Thread t;
-	
-}

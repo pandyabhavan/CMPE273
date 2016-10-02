@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="HashMapJUnit" project="homework1" tests="2" started="2" failures="0" errors="0" ignored="0">
-  <testsuite name="com.cmpe273.homework1.java.HashMapJUnit" time="0.0">
-    <testcase name="testAdd" classname="com.cmpe273.homework1.java.HashMapJUnit" time="0.0"/>
-    <testcase name="testRemove" classname="com.cmpe273.homework1.java.HashMapJUnit" time="0.0"/>
-  </testsuite>
-</testrun>

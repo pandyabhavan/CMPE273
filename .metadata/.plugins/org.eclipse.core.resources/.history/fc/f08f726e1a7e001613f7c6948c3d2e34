@@ -1,9 +1,0 @@
-package com.cmpe273.homework1.java;
-
-public class MultiThreading 
-{
-	public static void main(String[] args)
-	{
-		MultiThreadingTortoise tortoise = new  MultiThreadingTortoise()
-	}
-}

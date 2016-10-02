@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Lab1_Calculator/views/calculator&apos; to &apos;calculator.ejs&apos;" description="Rename resource &apos;calculator&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="views/calculator" name="calculator.ejs" stamp="1475167638868" updateReferences="true"/>
+</session>

@@ -1,0 +1,5 @@
+function calculate(req,res)
+{
+}
+
+exports.calculate = calculate;

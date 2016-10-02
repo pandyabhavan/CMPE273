@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="Stack_JUnit" project="homework1" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="com.cmpe273.homework1.java.Stack_JUnit" time="0.0">
-    <testcase name="testRemoveStack" classname="com.cmpe273.homework1.java.Stack_JUnit" time="0.0"/>
-    <testcase name="testReverseString" classname="com.cmpe273.homework1.java.Stack_JUnit" time="0.0"/>
-    <testcase name="testAddStack" classname="com.cmpe273.homework1.java.Stack_JUnit" time="0.0"/>
-  </testsuite>
-</testrun>

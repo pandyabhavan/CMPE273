@@ -1,0 +1,10 @@
+function calculate(req,res)
+{
+	var number1 = req.param("number1");
+	var number2 = req.param("number2");
+	var operation = req.param("operation");
+	
+	
+}
+
+exports.calculate = calculate;

@@ -1,9 +1,0 @@
-package com.cmpe273.homework1.java;
-
-public class Queues_Logic 
-{
-	public int addString(String s)
-	{
-	}
-
-}

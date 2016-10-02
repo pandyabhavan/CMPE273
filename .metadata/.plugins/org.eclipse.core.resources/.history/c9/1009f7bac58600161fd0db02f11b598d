@@ -1,0 +1,21 @@
+function calculate(req,res)
+{
+	var number1 = req.param("number1");
+	var number2 = req.param("number2");
+	var operation = req.param("operation");
+	var returnObj = returnObj = {"statusCode":401,"data":0};
+	
+	
+	if(operation == "Addition")
+	{
+		returnObj.statusCode = 200;
+		returnObj.data = number1 + number2;
+	}
+	else if(operaion == "Substraction")
+	{
+		returnObj.statusCode = 200;
+		returnObj.data = number1 + number2;
+	}
+}
+
+exports.calculate = calculate;

@@ -1,2 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="junit.framework.TestCase"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.Queues_Logic"/>
+<fullyQualifiedTypeName name="java.util.Queue"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.Queues_JUnit"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.Stack"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.Stack_JUnit"/>
+<fullyQualifiedTypeName name="java.lang.Character"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.Stack_Logic"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.Arrays_Logic"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.Circle"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.Rect"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.ShapeFactory"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.HashMapJUnit"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.HashMap_Logic"/>
+<fullyQualifiedTypeName name="org.junit.Assert"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.Generic_Class"/>
+<fullyQualifiedTypeName name="java.lang.Boolean"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.MultiThreadingRabbit"/>
+<fullyQualifiedTypeName name="com.cmpe273.homework1.java.MultiThreadingTortoise"/>
+</qualifiedTypeNameHistroy>
