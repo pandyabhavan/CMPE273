@@ -1,6 +1,0 @@
-function calculate(req,res)
-{
-	var number1 = req.param("");
-}
-
-exports.calculate = calculate;

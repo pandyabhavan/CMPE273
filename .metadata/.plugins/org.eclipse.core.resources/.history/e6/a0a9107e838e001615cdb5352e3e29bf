@@ -1,0 +1,17 @@
+    <footer class="" style="background-color:white;">
+        <hr style="color:black;" />
+        <div class="col-md-offset-1 col-md-10">
+            <ul class="list-inline" style="list-style-type:none;">
+                <li class="col-md-2"><a href="#" style="color:grey">Buy</a></li>
+                <li class="col-md-2"><a href="#" style="color:grey">Sell</a></li>
+                <li class="col-md-2"><a href="Login.html#register" style="color:grey">Registration</a></li>
+                <li class="col-md-2"><a href="#" style="color:grey">Login</a></li>
+                <li class="col-md-2"><a href="#" style="color:grey">Bidding Help</a></li>
+                <li class="col-md-2"><a href="#" style="color:grey">Go to Top</a></li>
+            </ul>
+        </div>
+        <br /><br />
+        <div class="col-md-offset-7" style="color:grey">
+            <label><span class="glyphicon glyphicon-copyright-mark"></span> Designed & Developed by Bhavan Pandya</label>
+        </div>
+    </footer>

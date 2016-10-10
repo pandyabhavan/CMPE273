@@ -1,6 +1,0 @@
-function calculate(req,res)
-{
-	var 
-}
-
-exports.calculate = calculate;

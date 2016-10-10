@@ -1,0 +1,16 @@
+var ebay = angular.module('ebay', ['ui.router']);
+ebay.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+		$locationProvider.html5Mode(true);
+		$stateProvider.state('login', {	
+			url : '/',
+			views: {
+	            'header': {
+	                templateUrl : 'templates/header.html',
+	            },
+	            'content': {
+	                templateUrl : 'templates/login.html',
+	            },
+			}
+		})
+		$urlRouterProvider.otherwise('/');
+	});
