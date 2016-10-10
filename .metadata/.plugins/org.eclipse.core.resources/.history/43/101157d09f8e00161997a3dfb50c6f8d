@@ -1,0 +1,10 @@
+var ejs = require("ejs");
+var mysql = require("./mysql")
+
+function Login(req,res)
+{
+	var username = req.param('username');
+	var password = req.param('password');
+}
+
+exports.Login = Login;

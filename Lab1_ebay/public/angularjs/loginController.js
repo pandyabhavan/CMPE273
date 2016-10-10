@@ -1,6 +1,27 @@
 ﻿ebay.controller('loginController', function ($scope, $http, $window,$state) {
+	
+	$scope.invalid_login = true;
 	$scope.login = function (username, password) {
-		$window.alert(username + '\n' + password);
+		$http({
+            method: "POST",
+            url: "/login",
+            data: {
+                "username": username,
+                "password": password
+            }
+        }).success(function (data) {
+            if(data.statusCode == 401)
+            {
+                $scope.invalid_login = false;
+            }
+            else
+            {
+                $scope.invalid_login = true;
+                $window.alert('Login Successful '+data.data[0].first_name);
+            }
+        }).error(function (error) {
+            $scope.invalid_login = false;
+        });
 	};
 
 	$scope.forgotPassword = function (emailId) {

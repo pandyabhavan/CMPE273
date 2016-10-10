@@ -1,0 +1,7 @@
+var ejs = require("ejs");
+
+function Login(req,res)
+{
+	var username = req.param('username');
+	var password = req.param('password');
+}

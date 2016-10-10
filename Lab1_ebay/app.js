@@ -7,9 +7,19 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , session = require('client-sessions')
+  , login = require('./routes/login');
 
 var app = express();
+
+app.use(session({   
+	  
+	cookieName: 'session',    
+	secret: 'cmpe273_test_string',    
+	duration: 30 * 60 * 1000,    //setting the time for active session
+	activeDuration: 5 * 60 * 1000,  })); // setting time for the session to be active when the window is open // 5 minutes set currently
+
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -29,6 +39,8 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+
+app.post('/login',login.Login);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
