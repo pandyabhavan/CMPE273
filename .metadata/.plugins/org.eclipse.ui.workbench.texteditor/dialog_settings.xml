@@ -2,15 +2,24 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Percentage" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="post"/>
+			<item value="session"/>
+			<item value="root"/>
+			<item value="items"/>
+			<item value="ng-hide"/>
+			<item value="Sign In or Register"/>
+			<item value="getLoginPage"/>
 			<item value="percentage"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Sign In"/>
+			<item value="getHomePage"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

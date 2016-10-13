@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+<script src="angularjs/config.js"></script>
+<script src="angularjs/homeController.js"></script>
+<title>ebay Home</title>
+</head>
+<body ng-app="ebay" ng-controller="homeController">
+	<div class="container-fluid" style="background-color: #f3f3f3">
+		<div ng-include src="'templates/header.html'"></div>
+		<br />
+		<br />
+		<div class="row">
+			<div class="col-md-offset-1 col-md-10"
+				style="background-color: white;">
+				<div class="navbar-header  col-md-12 "
+					style="background-color: lightgrey; margin: 5px 5px 0px 0px;">
+					Seller Bhavan</div>
+				<br /> <br />
+				<div style="background-color: white; border: 1px solid lightgrey">
+					<div class="col-md-3">
+						<br /> <img src="images/logo.png"
+							style="height: 150px; width: 150px; border: 1px solid lightgrey" />
+						<br />
+					</div>
+					<div class="col-md-4">
+						<br /> <label style="font-size: 20px;">Item Name</label> <label
+							class="text-justify"> dkfjsa;lf lfjda;s fjalskdj jdlaf;
+							US $19.99 dlfjafjdalk;fjdalkj jdslfj;a oaicndon i fdajf ifafh;
+							fda;jfdiaoj jaj a fiae;</label>
+					</div>
+					<div class="col-md-5">
+						<br />
+						<div class="col-md-offset-4 col-md-2 text-right">
+							<label>Quantity</label>
+						</div>
+						<div class="col-sm-2 text-right">
+							<input type="text" class="form-control" />
+						</div>
+						<div class="text-right">
+							<div>
+								<label>$19.99</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bottom-right col-md-offset-3 col-md-9 text-right">
+					<input type="button" class="btn btn-default"
+						value="Remove from cart" /> <br /> <br />
+				</div>
+			</div>
+			<div class="col-md-12">
+				<br /> <br />
+				<div class="col-md-3 col-md-offset-8 text-right"
+					style="background-color: white;">
+					<div class="col-md-9">
+						<label>Subtotal</label>
+					</div>
+					<div class="col-md-3">
+						<label>$19.99</label>
+					</div>
+					<div class="col-md-9">
+						<label>Sales Tax</label>
+					</div>
+					<div class="col-md-3">
+						<label>$19.99</label>
+					</div>
+					<div class="col-md-12">
+						<hr />
+						<div class="col-md-9">
+							<label>Total</label>
+						</div>
+						<div class="col-md-3">
+							<label>$19.99</label>
+						</div>
+						<hr />
+					</div>
+					<div class="col-md-7 col-md-offset-5">
+						<br /> <input type="button" value="Proceed to Checkout"
+							class="btn btn-primary" /> <br /> <br />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-include src="'templates/header.html'"></div>
+	</div>
+</body>
+</html>

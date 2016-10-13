@@ -1,0 +1,4 @@
+ebay.controller('searchController', function ($scope, $http, $windowsharedProperties) {
+	$scope.items_scope = [{"id":1,"name":"laptop","description":"dfaafa","price":19.99}];
+	$window.alert('in Search Controller'+sharedProperties.getProperty());
+});

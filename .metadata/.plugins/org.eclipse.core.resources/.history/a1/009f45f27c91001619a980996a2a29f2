@@ -1,0 +1,21 @@
+ebay.controller('searchController', function ($scope, $http, $window,$state,$rootScope) {
+	$http({
+        method: "POST",
+        url: "/getSearchSession",
+    }).success(function (data) {
+        if(data.statusCode == 401)
+        {
+        	$scope.mylink = "/";
+        	$scope.logout_lbl = true;
+        }
+        else if(data.statusCode == 200)
+        {
+        	$scope.items = false;
+        }
+        else
+    	{
+        	$scope.header_name = "Sign In";
+        	$scope.mylink = "/login";
+        	$scope.logout_lbl = true;
+    	}
+});

@@ -1,0 +1,37 @@
+var ebay = angular.module('ebay', ['ngRoute']);
+
+
+ebay.config(['$routeProvider',
+            function($routeProvider) {
+                $routeProvider.
+                  when('/', {
+                      templateUrl: '/templates/login.html',
+                  }).
+                  when('/home', {
+                      templateUrl: '/templates/header.html',
+                  }).
+                  when('/batch/:batch', {
+                      templateUrl: 'components/batch_add_admin.html',
+                  }).
+                  when('/operation/:operation', {
+                      templateUrl: 'components/batch_operation_admin.html',
+                  }).
+                  when('/calendar/:calendar', {
+                      templateUrl: 'components/calendar_admin.html',
+                  }).
+                  when('/admission/:admission', {
+                      templateUrl: 'components/admission_process.html',
+                  }).
+                  when('/admin/:admin', {
+                      templateUrl: 'components/admin_manage.html',
+                  }).
+                  when('/faculty/:faculty', {
+                      templateUrl: 'components/faculty_manage.html',
+                  }).
+                  when('/broadcast/:broadcast', {
+                      templateUrl: 'components/broadcast.html',
+                  }).
+                  otherwise({
+                      redirectTo: '/dashboard/d'
+                  });
+            }]);

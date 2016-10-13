@@ -1,0 +1,16 @@
+var ebay = angular.module('ebay', ['ui.router','ngRoute'])
+.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "/views/Home.ejs"
+    })
+    .when("/red", {
+        templateUrl : "/templates/footer.html"
+    })
+    .when("/green", {
+        templateUrl : "/templates/login.html"
+    })
+    .when("/blue", {
+        templateUrl : "blue.htm"
+    });
+});

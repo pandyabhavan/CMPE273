@@ -1,6 +1,0 @@
-var ejs = require("ejs");
-
-function Login(req,res)
-{
-	var username = req.param('');
-}

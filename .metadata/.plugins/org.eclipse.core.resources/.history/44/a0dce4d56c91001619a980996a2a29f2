@@ -1,0 +1,9 @@
+ebay.controller('searchController', function ($scope, $http, $window,$state,$rootScope) {
+	$window.alert('in Search Controller');
+	$scope.$on('searchResults', function(event, args) {
+		$window.alert('in Search Controller'+args);
+		console.log('args data '+args);
+		$scope.items_scope = args;
+	});
+	$window.alert('in Search Controller'+$scope.items_scope);
+});

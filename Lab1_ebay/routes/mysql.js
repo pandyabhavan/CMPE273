@@ -30,5 +30,5 @@ function getConnection(){
 		 }); 
 	 	console.log("\nConnection closed.."); 
 	 	connection.end();
-	 	} 
+ 	} 
  exports.fetchData=fetchData;

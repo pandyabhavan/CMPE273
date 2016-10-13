@@ -1,0 +1,21 @@
+function getLoginSessionValues(req,res)
+{
+	var json_response;
+	if(req.session.login)
+		json_response = {"statusCode":200,"data":req.session.login};
+	else
+		json_response = {"statusCode":401,"data":null};
+	
+	res.send(JSON.stringify(json_response));
+}
+
+function logout(req,res)
+{
+	var response;
+	req.session.destroy();
+	response = {"statusCode":200,"data":null};
+	res.send(JSON.stringify(response));
+}
+
+exports.getLoginSessionValues = getLoginSessionValues;
+exports.logout = logout;

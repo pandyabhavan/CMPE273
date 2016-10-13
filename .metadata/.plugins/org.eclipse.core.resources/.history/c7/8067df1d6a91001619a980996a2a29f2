@@ -1,0 +1,4 @@
+var ebay = angular.module('ebay', ['ui.router'])
+.run(function($rootScope) {
+    $rootScope.items = new Date();
+});

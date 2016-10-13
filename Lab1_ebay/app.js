@@ -9,7 +9,9 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , session = require('client-sessions')
-  , login = require('./routes/login');
+  , login = require('./routes/login')
+  , header = require('./routes/header')
+  , home = require('./routes/home');
 
 var app = express();
 
@@ -39,8 +41,16 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+app.get('/home',login.getHomePage);
+app.get('/login',home.getLoginPage);
+app.get('/search',header.getSearchPage);
 
-app.post('/login',login.Login);
+app.post('/Login',login.Login);
+app.post('/Register',login.register);
+app.post('/getLoginSessionValues',header.getLoginSessionValues);
+app.post('/logout',header.logout);
+app.post('/searchQ',header.search);
+app.post('/getSearchSession',header.getSearchSession);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

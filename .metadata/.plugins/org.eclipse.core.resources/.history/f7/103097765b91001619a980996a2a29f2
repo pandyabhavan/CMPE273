@@ -1,0 +1,61 @@
+function getLoginSessionValues(req,res)
+{
+	var json_response;
+	if(req.session.login)
+		json_response = {"statusCode":200,"data":req.session.login};
+	else
+		json_response = {"statusCode":401,"data":null};
+	
+	res.send(JSON.stringify(json_response));
+}
+
+function logout(req,res)
+{
+	var response;
+	req.session.destroy();
+	response = {"statusCode":200,"data":null};
+	res.send(JSON.stringify(response));
+}
+
+function search(req,res)
+{
+	var search_txt = req.param('search_txt');
+	var search_category = req.param('search_category');
+	var json_response,query;
+	
+	if(search_category != "All Categories")
+		query = "select id,name,desc,price from item where name like '%"+search_txt+"%' category_id = (select id from category where name = '"+search_category+"')";
+	else
+		query = "select id,name,desc,price from item where name like '%"+search_txt+"%'";
+	
+	mysql.fetchData(function(err,results){
+		if(err)
+		{
+			console.log('in error');
+			response = {"statusCode":403,"data":null};
+			res.send(JSON.stringify(response));
+		}
+		else
+		{
+			if(results.length > 0)
+			{
+				console.log('in if');
+				var rows = results;
+				console.log(results);
+				req.session.login = results[0];
+				response = {"statusCode":200,"data":results[0]};
+				res.send(JSON.stringify(response));
+			}
+			else
+			{
+				console.log('in else');
+				response = {"statusCode":401,"data":null};
+				res.send(JSON.stringify(response));
+			}
+		}
+	},query);
+}
+
+exports.getLoginSessionValues = getLoginSessionValues;
+exports.logout = logout;
+exports.search = search;

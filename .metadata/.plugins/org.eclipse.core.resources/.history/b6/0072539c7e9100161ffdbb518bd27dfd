@@ -1,0 +1,24 @@
+ebay.controller('searchController', function ($scope, $http, $window,$state) {
+
+	$window.alert('In search controller');
+	$http({
+        method: "POST",
+        url: "/getSearchSession",
+    }).success(function (data) {
+        if(data.statusCode == 401)
+        {
+        	$scope.mylink = "/";
+        }
+        else if(data.statusCode == 200)
+        {
+        	$scope.items = data.data;
+        	$window.alert($scope.items);
+        }
+        else
+    	{
+        	$scope.mylink = "/home";
+    	}
+    	}).error(function (error) {
+        	$scope.mylink = "/";
+    	});	
+});

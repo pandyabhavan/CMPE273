@@ -1,5 +1,0 @@
-var ejs = require("ejs");
-
-function Login(req,res)
-{
-	}

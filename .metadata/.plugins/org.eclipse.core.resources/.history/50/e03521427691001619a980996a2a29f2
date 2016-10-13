@@ -1,0 +1,32 @@
+var ebay = angular.module('ebay', ['ui.router','ngRoute']);
+ebay.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "/templates/home.html"
+    })
+    .when("/login", {
+        templateUrl : "/views/cart.html"
+    })
+    .when("/green", {
+        templateUrl : "/templates/login.html"
+    })
+    .when("/blue", {
+        templateUrl : "blue.htm"
+    });
+});
+
+login.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+	$locationProvider.html5Mode(true);
+	$stateProvider.state('login', {	
+		url : '/',
+		views: {
+            'header': {
+                templateUrl : 'templates/header.html',
+            },
+            'content': {
+                templateUrl : 'templates/login.html',
+            },
+		}
+	})
+	$urlRouterProvider.otherwise('/');
+});
