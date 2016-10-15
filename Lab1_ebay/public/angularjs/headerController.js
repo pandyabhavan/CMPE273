@@ -1,9 +1,9 @@
-ebay.controller('headerController', function ($scope, $http, $window,$state,$rootScope) {
+ebay.controller('headerController', function ($scope, $http, $window,$state) {
 	$scope.search_category = "All Categories";
 	$scope.mylink = "/login";
 	$scope.header_name = "Sign In";
 	$scope.logout_lbl = true;
-	$rootScope.items = null;
+	$scope.total = 0;
 	
 	$http({
         method: "POST",
@@ -18,7 +18,7 @@ ebay.controller('headerController', function ($scope, $http, $window,$state,$roo
         else if(data.statusCode == 200)
         {
         	$scope.header_name = "Hi " + data.data.first_name;
-        	$scope.mylink = "/"+data.data.handle;
+        	$scope.mylink = "/user/"+data.data.handle;
         	$scope.logout_lbl = false;
         }
         else
@@ -30,6 +30,26 @@ ebay.controller('headerController', function ($scope, $http, $window,$state,$roo
     }).error(function (error) {
     	$scope.header_name = "Sign In";
     	$scope.mylink = "/login";
+    });
+	
+	$http({
+        method: "POST",
+        url: "/getCartNumber",
+    }).success(function (data) {
+        if(data.statusCode == 401)
+        {
+        	$scope.total = 0;	
+        }
+        else if(data.statusCode == 200)
+        {
+        	$scope.total = data.data;
+        }
+        else
+    	{
+        	$scope.total = 0;
+    	}
+    }).error(function (error) {
+    	$scope.total = 0;
     });
 	
 	$scope.logout = function () {

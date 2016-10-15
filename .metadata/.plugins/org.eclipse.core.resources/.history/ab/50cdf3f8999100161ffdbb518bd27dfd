@@ -1,0 +1,10 @@
+var mysql = require("./mysql");
+var ejs = require("ejs");
+
+
+function getCartPage(req,res)
+{
+	
+}
+
+exports.getCartPage = getCartPage;

@@ -11,7 +11,10 @@ var express = require('express')
   , session = require('client-sessions')
   , login = require('./routes/login')
   , header = require('./routes/header')
-  , home = require('./routes/home');
+  , home = require('./routes/home')
+  , product = require('./routes/product')
+  , cart = require('./routes/cart')
+  , checkout = require('./routes/checkout');
 
 var app = express();
 
@@ -44,6 +47,11 @@ app.get('/users', user.list);
 app.get('/home',login.getHomePage);
 app.get('/login',home.getLoginPage);
 app.get('/search',header.getSearchPage);
+app.get('/product',product.getProductPage);
+app.get('/cart',cart.getCartPage);
+app.get('/checkout',checkout.getCheckoutPage);
+app.get('/user/*',checkout.test);
+
 
 app.post('/Login',login.Login);
 app.post('/Register',login.register);
@@ -51,6 +59,15 @@ app.post('/getLoginSessionValues',header.getLoginSessionValues);
 app.post('/logout',header.logout);
 app.post('/searchQ',header.search);
 app.post('/getSearchSession',header.getSearchSession);
+app.post('/getProductDetails',product.getProductDetails);
+app.post('/getProductSession',product.getProductSession);
+app.post('/addtocart',product.add_to_cart);
+app.post('/getCartNumber',header.getCartNumber);
+app.post('/getCart',cart.getCart);
+app.post('/removeFromCart',cart.removeFromCart);
+app.post('/checkOut',cart.checkout);
+app.post('/getCheckoutSession',checkout.getCheckoutSession);
+app.post('/productSold',checkout.productSold);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

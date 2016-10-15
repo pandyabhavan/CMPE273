@@ -1,0 +1,23 @@
+var mysql = require("./mysql");
+var ejs = require("ejs");
+
+
+function getCartPage(req,res)
+{
+	ejs.renderFile('./views/cart.ejs',function(err, result) {
+		if (!err) {
+			res.end(result);
+		}
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
+}
+
+function getCart(req,res)
+{
+}
+
+exports.getCartPage = getCartPage;
+exports.getCart = getCart

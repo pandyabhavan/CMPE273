@@ -1,0 +1,7 @@
+
+function getCheckoutSession(req,res)
+{
+	
+}
+
+exports.getCheckoutSession = getCheckoutSession;

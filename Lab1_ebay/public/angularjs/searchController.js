@@ -24,7 +24,10 @@ ebay.controller('searchController', function ($scope, $http, $window,$state) {
 	{
 		$http({
 	        method: "POST",
-	        url: "/getSearchSession",
+	        url: "/getProductDetails",
+	        data: {
+	        	"item_id":item_id
+	        }
 	    }).success(function (data) {
 	        if(data.statusCode == 401)
 	        {
@@ -32,7 +35,7 @@ ebay.controller('searchController', function ($scope, $http, $window,$state) {
 	        }
 	        else if(data.statusCode == 200)
 	        {
-	        	$scope.items = data.data;
+	        	$window.location = "/product";
 	        }
 	        else
 	    	{

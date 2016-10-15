@@ -1,0 +1,89 @@
+ebay.controller('productController', function ($scope, $http, $window,$state) {
+	$scope.quantity = 1;
+
+	$http({
+		method: "POST",
+		url: "/getProductSession",
+	}).success(function (data) {
+		if(data.statusCode == 401)
+		{
+			$window.location = "/";
+		}
+		else if(data.statusCode == 200)
+		{
+			$scope.product = data.data[0];
+			$window.alert($scope.product[0].name);
+		}
+		else
+		{
+			$window.location = "/";
+		}
+	}).error(function (error) {
+		$window.location = "/";
+	});
+
+	$scope.change = function(value) {
+		if ($scope.quantity> $scope.product.quantity_remaining){
+			$window.alert('Quantity can\'t be greater than remaining items.');
+			$scope.quantity = 1;
+		}
+	};
+
+	$scope.buy_now = function()	{
+		$http({
+			method: "POST",
+			url: "/buynow",
+			data : {
+				"item_id":$scope.product.id,
+				"quantity":$scope.quantity
+			}
+		}).success(function (data) {
+			if(data.statusCode == 401)
+			{
+				$window.alert('You need to login first.');
+				$window.location = "/login";
+			}
+			else if(data.statusCode == 200)
+			{
+				$window.location = "/checkout";
+			}
+			else
+			{
+				$window.location = "/product";
+			}
+		}).error(function (error) {
+			$window.alert('Something went wrong.Please try again.');
+		});
+	}
+	
+	$scope.add_to_cart = function()
+	{
+		$scope.success = false;
+		$scope.failure = true;
+		$http({
+			method: "POST",
+			url: "/addtocart",
+			data : {
+				"item_id":$scope.product.id,
+				"quantity":$scope.quantity
+			}
+		}).success(function (data) {
+			if(data.statusCode == 401)
+			{
+				$window.alert('You need to login first.');
+				$window.location = "/login";
+			}
+			else if(data.statusCode == 200)
+			{
+				$scope.success = false;
+				$scope.failure = true;
+			}
+			else
+			{
+				$window.location = "/product";
+			}
+		}).error(function (error) {
+			$window.alert('Something went wrong.Please try again.');
+		});		
+	}
+});

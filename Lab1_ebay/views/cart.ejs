@@ -3,32 +3,35 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script	src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
 <script src="angularjs/config.js"></script>
-<script src="angularjs/homeController.js"></script>
-<title>ebay Home</title>
+<script src="angularjs/headerController.js"></script>
+<script src="angularjs/cartController.js"></script>
+
+<title>Cart</title>
 </head>
-<body ng-app="ebay" ng-controller="homeController">
+<body ng-app="ebay">
 	<div class="container-fluid" style="background-color: #f3f3f3">
 		<div ng-include src="'templates/header.html'"></div>
 		<br />
 		<br />
-		<div class="row">
-			<div class="col-md-offset-1 col-md-10"
-				style="background-color: white;">
+		<br />
+		<br />
+		<div class="row"  ng-controller="cartController">
+		<h1 class="col-md-offset-2 col-md-8" ng-hide="no_item">No items in the cart...</h1>
+		<div class="col-md-offset-2 col-md-8 alert alert-success" ng-hide="deleted">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Item Deleted Successfully.</strong>
+		</div>
+			<div class="col-md-offset-2 col-md-8" style="background-color: white;" ng-hide="div" ng-repeat="i in carts")>
 				<div class="navbar-header  col-md-12 "
 					style="background-color: lightgrey; margin: 5px 5px 0px 0px;">
-					Seller Bhavan</div>
+					<strong>Seller </strong> {{i.first_name}}</div>
 				<br /> <br />
 				<div style="background-color: white; border: 1px solid lightgrey">
 					<div class="col-md-3">
@@ -37,46 +40,45 @@
 						<br />
 					</div>
 					<div class="col-md-4">
-						<br /> <label style="font-size: 20px;">Item Name</label> <label
-							class="text-justify"> dkfjsa;lf lfjda;s fjalskdj jdlaf;
-							US $19.99 dlfjafjdalk;fjdalkj jdslfj;a oaicndon i fdajf ifafh;
-							fda;jfdiaoj jaj a fiae;</label>
+						<br /> <label style="font-size: 20px;">{{i.name}}</label> <label
+							class="text-justify"> {{i.description}}</label>
 					</div>
 					<div class="col-md-5">
 						<br />
 						<div class="col-md-offset-4 col-md-2 text-right">
-							<label>Quantity</label>
+							<label><strong>Quantity </strong></label>
 						</div>
-						<div class="col-sm-2 text-right">
-							<input type="text" class="form-control" />
+						<div class="col-sm-3 text-right">
+							<label>{{i.quantity}}</label> 
 						</div>
 						<div class="text-right">
 							<div>
-								<label>$19.99</label>
+								<label>{{i.price}}</label>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="bottom-right col-md-offset-3 col-md-9 text-right">
 					<input type="button" class="btn btn-default"
-						value="Remove from cart" /> <br /> <br />
+						value="Remove from cart" ng-click="removeFromCart(i.id);" /> <br /> <br />
 				</div>
+				<br />
 			</div>
-			<div class="col-md-12">
+			<div class="col-md-12" ng-hide="div">
 				<br /> <br />
-				<div class="col-md-3 col-md-offset-8 text-right"
+				<div class="col-md-3 col-md-offset-7 text-right"
 					style="background-color: white;">
 					<div class="col-md-9">
 						<label>Subtotal</label>
 					</div>
 					<div class="col-md-3">
-						<label>$19.99</label>
+						<label>${{subtotal}}</label>
 					</div>
 					<div class="col-md-9">
 						<label>Sales Tax</label>
 					</div>
 					<div class="col-md-3">
-						<label>$19.99</label>
+						<label>${{sales_tax}}</label>
 					</div>
 					<div class="col-md-12">
 						<hr />
@@ -84,17 +86,20 @@
 							<label>Total</label>
 						</div>
 						<div class="col-md-3">
-							<label>$19.99</label>
+							<label>${{total}}</label>
 						</div>
 						<hr />
 					</div>
 					<div class="col-md-7 col-md-offset-5">
-						<br /> <input type="button" value="Proceed to Checkout"
-							class="btn btn-primary" /> <br /> <br />
+						<br /> <input type="submit" value="Proceed to Checkout"
+							class="btn btn-primary" ng-click="checkout();" /> <br /> <br />
 					</div>
 				</div>
 			</div>
 		</div>
+		<br />
+		<br />
+		<br />
 		<div ng-include src="'templates/footer.html'"></div>
 	</div>
 </body>

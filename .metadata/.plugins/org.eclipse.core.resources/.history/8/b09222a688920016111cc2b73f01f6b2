@@ -1,0 +1,72 @@
+var mysql = require("./mysql");
+var ejs = require("ejs");
+
+function getCheckoutSession(req,res)
+{
+	var response;
+	if(req.session.login)
+	{
+		response = {"statusCode":200,"data":req.session.checkout.total};
+		res.send(JSON.stringify(response));
+	}
+	else
+	{
+		response = {"statusCode":401,"data":null};
+		res.send(JSON.stringify(response));
+	}
+}
+
+function getCheckoutPage(req,res)
+{
+	ejs.renderFile('./views/checkout.ejs',function(err, result) {
+		if (!err) {
+			res.end(result);
+		}
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
+}
+
+function productSold(req,res)
+{
+	var cart = true,item = true, buy_sell = true;
+	if(req.session.login)
+	{
+		var item_quantity = req.session.checkout.quantity;
+		for(var i=0;i<)
+		var query = "";
+		mysql.fetchData(function(err,results){
+			if(err)
+			{
+				console.log('in error');
+				response = {"statusCode":401,"data":null};
+				res.send(JSON.stringify(response));
+			}
+			else
+			{
+				if(results.length > 0)
+				{
+					console.log(results);
+					response = {"statusCode":200,"data":results};
+					res.send(JSON.stringify(response));
+				}
+				else
+				{
+					response = {"statusCode":401,"data":null};
+					res.send(JSON.stringify(response));
+				}
+			}
+		},query);
+	}
+	else
+	{
+		response = {"statusCode":401,"data":null};
+		res.send(JSON.stringify(response));
+	}
+}
+
+exports.getCheckoutSession = getCheckoutSession;
+exports.getCheckoutPage = getCheckoutPage;
+exports.productSold = productSold;

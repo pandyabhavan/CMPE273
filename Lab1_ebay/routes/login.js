@@ -7,7 +7,7 @@ function Login(req,res)
 	var password = req.param('password');
 	var response;
 	
-	var query = "select first_name,email,handle,last_login from user where handle='"+username+"' and password = '"+password+"'";
+	var query = "select id,first_name,email,handle,last_login from user where handle='"+username+"' and password = '"+password+"'";
 	mysql.fetchData(function(err,results){
 		if(err)
 		{

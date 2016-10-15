@@ -20,7 +20,8 @@ function getConnection(){
 	 console.log('Connection established');
 	 connection.query(sqlQuery, function(err, rows, fields) {
 		 if(err){ 
-			 console.log("ERROR: " + err.message);  
+			 console.log("ERROR: " + err.message);
+			 callback(err, err.message);
 			 }
 		 else   {
 			 // return err or result   

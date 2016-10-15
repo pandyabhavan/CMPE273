@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+<script src="angularjs/config.js"></script>
+<script src="angularjs/headerController.js"></script>
+<script src="angularjs/checkoutController.js"></script>
+
+<title>Checkout</title>
+</head>
+<body ng-app="ebay">
+	<div class="container-fluid" style="background-color: #f3f3f3">
+		<div id="header" ng-include src="'/templates/header.html'"></div>
+		<br /> <br /> <br /> <br />
+		<div ng-controller="checkoutController">
+			<h1 class=" col-md-offset-3 col-md-6">Total amount payable is
+				${{total}}</h1>
+			<div class=" col-md-offset-3 col-md-6">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Credit Card Details</div>
+					<div class="panel-body">
+						<div class="form-group">
+							<label class=" text-center colsm-2 control-label pull-left">Card
+								Number</label>
+							<div class="col-xs-4 ">
+								<input type="number" class="form-control" ng-model="card_number" placeholder="Card Number" required="required"
+									maxlength="16" />
+							</div>
+						</div>
+						<br /> <br />
+						<div class="form-group">
+							<label class="colsm-2 control-label pull-left">CVV
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<div class="col-xs-2">
+								<input type="number" class="form-control" ng-model="cvv" placeholder="CVV" required="required" maxlength="3">
+							</div>
+						</div>
+						<br />
+						<br />
+						<div class="form-group">
+							<label class="colsm-2 control-label pull-left">Expiry Date &nbsp;&nbsp;</label>
+							<div class="col-xs-3">
+								<input type="month" class="form-control" ng-model="expiry_year" placeholder="yyyy" required="required">
+							</div>
+						</div>
+						<br />
+						<br />
+						<div class="form-group ">
+							<div class="col-sm-2 col-md-offset-1">
+								<button type="submit" class="btn btnprimary" ng-click="checkout();">Checkout</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br />
+			<br />
+			<br />
+			<br />
+		</div>
+		<div ng-include src="'templates/footer.html'"></div>
+</body>
+</html>
