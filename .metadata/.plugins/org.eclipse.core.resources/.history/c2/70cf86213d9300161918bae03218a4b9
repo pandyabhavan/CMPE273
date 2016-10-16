@@ -1,0 +1,3 @@
+ebay.controller('profileController', function ($scope, $http, $window,$state) {
+	$window.alert('Done');
+});

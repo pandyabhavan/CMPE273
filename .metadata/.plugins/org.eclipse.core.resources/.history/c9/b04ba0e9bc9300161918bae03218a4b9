@@ -1,0 +1,3 @@
+var log = require('simple-node-logger').createSimpleLogger('project.log');
+
+log.setLevel('warn');

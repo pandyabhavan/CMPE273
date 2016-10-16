@@ -12,7 +12,7 @@ ebay.controller('headerController', function ($scope, $http, $window,$state) {
         if(data.statusCode == 401)
         {
         	$scope.header_name = "Sign In";
-        	$scope.mylink = "/login";
+        	$scope.mylink = "../login";
         	$scope.logout_lbl = true;
         }
         else if(data.statusCode == 200)
@@ -91,5 +91,31 @@ ebay.controller('headerController', function ($scope, $http, $window,$state) {
 	    }).error(function (error) {
 	    	$window.alert('Something went wrong. Please try again.');
 	    });
-	}
+	};
+	
+	$scope.search_category = function(search1) {
+		$http({
+	        method: "POST",
+	        url: "/searchQ",
+	        data : {
+	        	"search_txt":"",
+	        	"search_category": search1
+	        }
+	    }).success(function (data) {
+        	if(data.statusCode == 200)
+    		{
+        		$window.location = '/search';
+    		}
+        	else if(data.statusCode == 403)
+    		{
+        		$window.alert('No items found for search category. Please try again.');
+    		}
+        	else
+    		{
+        		$window.alert('Something went wrong. Please try again.');
+    		}
+	    }).error(function (error) {
+	    	$window.alert('Something went wrong. Please try again.');
+	    });
+	};
 });

@@ -1,0 +1,27 @@
+ebay.controller('profileController', function ($scope, $http, $window,$state) {
+	$http({
+        method: "POST",
+        url: "/getPurchaseHistory",
+    }).success(function (data) {
+        if(data.statusCode == 401)
+        {
+        	$window.alert('You need to login first. To view this page');
+        	$window.location = "/login";
+        }
+        else if(data.statusCode == 200)
+        {
+        	$scope.header_name = "Hi " + data.data.first_name;
+        	$scope.mylink = "/user/"+data.data.handle;
+        	$scope.logout_lbl = false;
+        }
+        else
+    	{
+        	$scope.header_name = "Sign In";
+        	$scope.mylink = "/login";
+        	$scope.logout_lbl = true;
+    	}
+    }).error(function (error) {
+    	$scope.header_name = "Sign In";
+    	$scope.mylink = "/login";
+    });
+});

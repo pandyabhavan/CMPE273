@@ -1,0 +1,41 @@
+ebay.controller('homeController',function($scope, $http,$state,$window) {
+	$("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+	    $("#success-alert").slideUp(500);
+	});
+	
+	$scope.last_login1 = true;
+	
+	$http({
+		method: "POST",
+		url: "/getLastLogin",
+	}).success(function (data) {
+		if(data.statusCode == 401)
+		{
+			$scope.last_login1 = true;
+		}
+		else if(data.statusCode == 200)
+		{
+			$scope.last_login1 = false;
+			$scope.last_login = data.data[0].last_login;
+		}
+	}).error(function (error) {
+		$window.alert('Something went wrong.Please try again.');
+	});
+	
+	$http({
+		method: "POST",
+		url: "/getLastLogin",
+	}).success(function (data) {
+		if(data.statusCode == 401)
+		{
+			$scope.last_login1 = true;
+		}
+		else if(data.statusCode == 200)
+		{
+			$scope.last_login1 = false;
+			$scope.last_login = data.data[0].last_login;
+		}
+	}).error(function (error) {
+		$window.alert('Something went wrong.Please try again.');
+	});
+});

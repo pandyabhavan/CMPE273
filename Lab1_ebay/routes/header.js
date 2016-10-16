@@ -27,9 +27,9 @@ function search(req,res)
 	var response,query;
 
 	if(search_category != "All Categories")
-		query = "select id,name,description,price from item where name like '%"+search_txt+"%' and category_id = (select id from category where name = '"+search_category+"') and quantity_remaining >0 order by id desc";
+		query = "select id,name,description,price from item where name like '%"+search_txt+"%' and category_id = (select id from category where name = '"+search_category+"') and quantity_remaining >0 and view=1 order by id desc";
 	else
-		query = "select id,name,description,price from item where name like '%"+search_txt+"%' and quantity_remaining >0 order by id desc";
+		query = "select id,name,description,price from item where name like '%"+search_txt+"%' and quantity_remaining >0 and view=1 order by id desc";
 
 	mysql.fetchData(function(err,results){
 		if(err)

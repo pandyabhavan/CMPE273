@@ -1,0 +1,7 @@
+
+function getPurchaseHistory(req,res)
+{
+	
+}
+
+exports.getPurchaseHistory = getPurchaseHistory;

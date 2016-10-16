@@ -1,0 +1,41 @@
+var mysql = require("./mysql");
+var ejs = require("ejs");
+
+
+function getPurchaseHistory(req,res)
+{
+	var response;
+	if(req.session.login)
+	{
+		var query = "select u.first_name,i.name,i.description,i.price,b.quantity,b.purchase_date from user u,item i,buy_sell b where b.buyer_id = "+req.session.login.id+" and u.id = i.user_id and i.id = b.item_id";
+		mysql.fetchData(function(err,results){
+			if(err)
+			{
+				response = {"statusCode":403,"data":null};
+				res.send(JSON.stringify(response));
+			}
+			else
+			{
+				response = {"statusCode":200,"data":results};
+				res.send(JSON.stringify(response));
+			}
+		},query);
+	}
+	else
+	{
+		response = {"statusCode":401,"data":null};
+		res.send(JSON.stringify(response));
+	}
+}
+
+function getProfilePage(req,res)
+{
+	var url = req.originalUrl.split('/')[1];
+	if(req.session.login)
+	{
+		
+	}
+}
+
+exports.getPurchaseHistory = getPurchaseHistory;
+exports.getProfilePage = getProfilePage;

@@ -114,12 +114,6 @@ function productSold(req,res)
 	}
 }
 
-function test(req,res)
-{
-	console.log(req.originalUrl);
-}
-
 exports.getCheckoutSession = getCheckoutSession;
 exports.getCheckoutPage = getCheckoutPage;
 exports.productSold = productSold;
-exports.test = test;

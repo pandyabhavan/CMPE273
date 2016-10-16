@@ -1,13 +1,17 @@
 var ejs = require("ejs");
 var mysql = require("./mysql");
+var bcrypt = require('bcryptjs');
+var log = require('./log'); 
 
 function Login(req,res)
 {
 	var username = req.param('username');
 	var password = req.param('password');
 	var response;
-	
-	var query = "select id,first_name,email,handle,last_login from user where handle='"+username+"' and password = '"+password+"'";
+	console.log(password);
+
+	var query = "select id,first_name,email,handle,last_login,password from user where (handle='"+username+"' or email='"+username+"')";
+	log.info('Query at'+ new Date().toJSON());
 	mysql.fetchData(function(err,results){
 		if(err)
 		{
@@ -19,12 +23,33 @@ function Login(req,res)
 		{
 			if(results.length > 0)
 			{
-				console.log('in if');
-				var rows = results;
-				console.log(results);
-				req.session.login = results[0];
-				response = {"statusCode":200,"data":results[0]};
-				res.send(JSON.stringify(response));
+				if(bcrypt.compareSync(password,results[0].password))
+				{
+					console.log('in if');
+					var rows = results;
+					console.log(results);
+					req.session.login = results[0];
+					var query1 = "update user set last_login = now() where id="+req.session.login.id+"";
+					mysql.fetchData(function(err,resultsq){
+						if(err)
+						{
+							response = {"statusCode":403,"data":null};
+							res.send(JSON.stringify(response));
+						}
+						else
+						{
+							response = {"statusCode":200,"data":results[0]};
+							res.send(JSON.stringify(response));
+	
+						}
+					},query1);
+				}
+				else
+				{
+					console.log('in else');
+					response = {"statusCode":401,"data":null};
+					res.send(JSON.stringify(response));
+				}
 			}
 			else
 			{
@@ -58,9 +83,10 @@ function Register(req,res)
 	var first_name = req.param('first_name');
 	var last_name = req.param('last_name');
 	var handle = req.param('handle');
+	var passwordToSave = bcrypt.hashSync(password);
 	var response;
-	
-	var query = "insert into user(first_name,last_name,email,password,handle,last_login) values('"+first_name+"','"+last_name+"','"+email+"','"+password+"','"+handle+"',now())";
+
+	var query = "insert into user(first_name,last_name,email,password,handle,last_login) values('"+first_name+"','"+last_name+"','"+email+"','"+passwordToSave+"','"+handle+"',now())";
 	mysql.fetchData(function(err,results){
 		if(err)
 		{

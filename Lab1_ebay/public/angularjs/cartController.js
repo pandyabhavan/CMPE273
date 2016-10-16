@@ -29,7 +29,7 @@ ebay.controller('cartController', function ($scope, $http, $window,$state) {
 					$scope.subtotal += Number(data.data[i].price);
 				}
 				$scope.sales_tax = Number((0.09*$scope.subtotal).toFixed(2));
-				$scope.total = $scope.subtotal + $scope.sales_tax;
+				$scope.total = Number(($scope.subtotal + $scope.sales_tax).toFixed(2));
 			}
 			else
 			{

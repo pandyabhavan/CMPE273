@@ -1,0 +1,10 @@
+var mysql = require("./mysql");
+var ejs = require("ejs");
+
+
+function getPurchaseHistory(req,res)
+{
+	
+}
+
+exports.getPurchaseHistory = getPurchaseHistory;

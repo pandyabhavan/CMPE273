@@ -1,9 +1,0 @@
-var mysql = require("./mysql");
-var ejs = require("ejs");
-
-function getCheckoutSession(req,res)
-{
-	
-}
-
-exports.getCheckoutSession = getCheckoutSession;

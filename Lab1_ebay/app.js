@@ -1,8 +1,3 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
@@ -14,7 +9,8 @@ var express = require('express')
   , home = require('./routes/home')
   , product = require('./routes/product')
   , cart = require('./routes/cart')
-  , checkout = require('./routes/checkout');
+  , checkout = require('./routes/checkout')
+  , profile = require('./routes/profile');
 
 var app = express();
 
@@ -50,7 +46,7 @@ app.get('/search',header.getSearchPage);
 app.get('/product',product.getProductPage);
 app.get('/cart',cart.getCartPage);
 app.get('/checkout',checkout.getCheckoutPage);
-app.get('/user/*',checkout.test);
+app.get('/user/*',profile.getProfilePage);
 
 
 app.post('/Login',login.Login);
@@ -68,6 +64,12 @@ app.post('/removeFromCart',cart.removeFromCart);
 app.post('/checkOut',cart.checkout);
 app.post('/getCheckoutSession',checkout.getCheckoutSession);
 app.post('/productSold',checkout.productSold);
+app.post('/getPurchaseHistory',profile.getPurchaseHistory);
+app.post('/getSellingHistory',profile.getSellingHistory);
+app.post('/removeItem',profile.removeItem);
+app.post('/addItem',profile.addItem);
+app.post('/getLastLogin',home.getLastLogin);
+app.post('/getTwoItems',home.getTwoItems);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
