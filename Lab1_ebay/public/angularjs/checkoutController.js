@@ -58,5 +58,21 @@ ebay.controller('checkoutController', function ($scope, $http, $window,$state) {
 				$window.alert('Something went wrong. Please try agian.');
 			});
 		}
-	}
+	};
+	
+	$scope.logData = function(file,place)
+	{
+		$http({
+			method: "POST",
+			url: "/logData",
+			data:{
+				"file":file,
+				"place":place
+			}
+		}).success(function (data) {
+			
+		}).error(function (error) {
+			
+		});
+	};
 });

@@ -1,0 +1,20 @@
+ebay.controller('logController', function ($scope, $http, $window,$state) {
+	$window.alert('q');
+	
+	$scope.logData = function(file,place)
+	{
+		$window.alert('1');
+		$http({
+			method: "POST",
+			url: "/logData",
+			data:{
+				"file":file,
+				"place":place
+			}
+		}).success(function (data) {
+			
+		}).error(function (error) {
+			
+		});
+	}
+});

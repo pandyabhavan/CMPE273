@@ -44,5 +44,21 @@ ebay.controller('searchController', function ($scope, $http, $window,$state) {
 	    	}).error(function (error) {
 	    		$window.location = "/";
 	    	});
+	};
+	
+	$scope.logData = function(file,place)
+	{
+		$http({
+			method: "POST",
+			url: "/logData",
+			data:{
+				"file":file,
+				"place":place
+			}
+		}).success(function (data) {
+			
+		}).error(function (error) {
+			
+		});
 	}
 });

@@ -1,6 +1,6 @@
 var mysql = require("./mysql");
 var ejs = require("ejs");
-
+var log = require('./log');
 
 function getCartPage(req,res)
 {
@@ -9,6 +9,7 @@ function getCartPage(req,res)
 			res.end(result);
 		}
 		else {
+			log.warn('Unable to load cart page');
 			res.end('An error occurred');
 			console.log(err);
 		}

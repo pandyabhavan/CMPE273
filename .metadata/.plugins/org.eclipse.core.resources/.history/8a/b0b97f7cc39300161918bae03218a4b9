@@ -1,0 +1,3 @@
+ebay.controller('logController', function ($scope, $http, $window,$state) {
+	
+});

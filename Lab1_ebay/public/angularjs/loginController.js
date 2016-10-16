@@ -69,6 +69,22 @@
 	};
 
 	$scope.forgotPassword = function (emailId) {
-		$window.alert(emailId);
+		$window.alert('If you are registered customer, you should receive email shortly.');
+	};
+	
+	$scope.logData = function(file,place)
+	{
+		$http({
+			method: "POST",
+			url: "/logData",
+			data:{
+				"file":file,
+				"place":place
+			}
+		}).success(function (data) {
+			
+		}).error(function (error) {
+			
+		});
 	};
 });

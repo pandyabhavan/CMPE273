@@ -9,10 +9,10 @@
 					style="margin: 10px 10px 10px 10px; background-color: white; border: 1px solid black">
 					<ul class="nav navbar-nav"
 						style="background-color: white; margin-top: 10px;">
-						<li class=" active"><a href="#login" role="tab"
+						<li class=" active" ng-click="logData('login','login_tab')"><a href="#login" role="tab"
 							data-toggle="tab"><span
 								class="glyphicon glyphicon-chevron-right"></span> Login</a></li>
-						<li><a href="#register" role="tab" data-toggle="tab"><span
+						<li  ng-click="logData('login','register_tab')"><a href="#register" role="tab" data-toggle="tab"><span
 								class="glyphicon glyphicon-plus-sign"></span> Register</a></li>
 					</ul>
 
@@ -34,7 +34,7 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<div class="col-sm-offset-1 col-sm-10">
+									<div class="col-sm-offset-1 col-sm-10" ng-click="logData('login','sign_in')">
 										<button class="btn btn-primary col-md-12" type="submit">
 											<strong> Sign In </strong>
 										</button>
@@ -55,7 +55,7 @@
 							<div class="modal fade" role="dialog" id="forgotPassword">
 								<div class="modal-dialog">
 									<div class="modal-content">
-										<div class="modal-header">
+										<div class="modal-header"  ng-click="logData('login','forgot_password')">
 											<button type="button" class="close" data-dismiss="modal">&times;</button>
 											<label class="modal-title">Forgot Password</label>
 										</div>
@@ -72,7 +72,7 @@
 													</div>
 												</div>
 												<div class="form-group">
-													<div class="col-sm-4 col-sm-offset-4">
+													<div class="col-sm-4 col-sm-offset-4"  ng-click="logData('login','get_password')">
 														<button class="btn btn-primary" type="submit">
 															<i class="glyphicon glyphicon-question-sign"></i> Get
 															Password
@@ -117,7 +117,7 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<div class="col-sm-offset-1 col-sm-10">
+									<div class="col-sm-offset-1 col-sm-10" ng-click="logData('login','register')">
 										<button class="btn btn-primary col-md-12" type="submit">
 											<strong> Register </strong>
 										</button>

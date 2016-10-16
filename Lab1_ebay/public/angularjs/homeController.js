@@ -65,4 +65,45 @@ ebay.controller('homeController',function($scope, $http,$state,$window) {
 	    });
 	};
 	
+	$scope.product = function(item_id)
+	{
+		$http({
+	        method: "POST",
+	        url: "/getProductDetails",
+	        data: {
+	        	"item_id":item_id
+	        }
+	    }).success(function (data) {
+	        if(data.statusCode == 401)
+	        {
+	        	$window.location = "/";
+	        }
+	        else if(data.statusCode == 200)
+	        {
+	        	$window.location = "/product";
+	        }
+	        else
+	    	{
+	        	$window.location = "/";
+	    	}
+	    	}).error(function (error) {
+	    		$window.location = "/";
+	    	});
+	};
+	
+	$scope.logData = function(file,place)
+	{
+		$http({
+			method: "POST",
+			url: "/logData",
+			data:{
+				"file":file,
+				"place":place
+			}
+		}).success(function (data) {
+			
+		}).error(function (error) {
+			
+		});
+	};
 });

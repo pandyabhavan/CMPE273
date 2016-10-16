@@ -34,7 +34,7 @@
 			</div>
 			<div class="col-md-offset-2 col-md-8"
 				style="background-color: white;" ng-hide="div"
-				ng-repeat="i in carts")>
+				ng-repeat="i in carts"  ng-click="logData('cart','item');">
 				<div class="navbar-header  col-md-12 "
 					style="background-color: lightgrey; margin: 5px 5px 0px 0px;">
 					<strong>Seller </strong> {{i.first_name}}
@@ -65,7 +65,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="bottom-right col-md-offset-3 col-md-9 text-right">
+				<div class="bottom-right col-md-offset-3 col-md-9 text-right"   ng-click="logData('cart','remove_item');">
 					<input type="button" class="btn btn-default"
 						value="Remove from cart" ng-click="removeFromCart(i.id);" /> <br />
 					<br />
@@ -98,7 +98,7 @@
 						</div>
 						<hr />
 					</div>
-					<div class="col-md-7 col-md-offset-5">
+					<div class="col-md-7 col-md-offset-5"   ng-click="logData('cart','checkout');">
 						<br /> <input type="submit" value="Proceed to Checkout"
 							class="btn btn-primary" ng-click="checkout();" /> <br /> <br />
 					</div>

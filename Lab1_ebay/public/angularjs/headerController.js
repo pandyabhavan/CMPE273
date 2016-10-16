@@ -73,7 +73,7 @@ ebay.controller('headerController', function ($scope, $http, $window,$state) {
 	        url: "/searchQ",
 	        data : {
 	        	"search_txt":$scope.search_txt,
-	        	"search_category": $scope.search_category
+	        	"search_category": $scope.	search_category
 	        }
 	    }).success(function (data) {
         	if(data.statusCode == 200)
@@ -117,5 +117,21 @@ ebay.controller('headerController', function ($scope, $http, $window,$state) {
 	    }).error(function (error) {
 	    	$window.alert('Something went wrong. Please try again.');
 	    });
+	};
+	
+	$scope.logData = function(file,place)
+	{
+		$http({
+			method: "POST",
+			url: "/logData",
+			data:{
+				"file":file,
+				"place":place
+			}
+		}).success(function (data) {
+			
+		}).error(function (error) {
+			
+		});
 	};
 });

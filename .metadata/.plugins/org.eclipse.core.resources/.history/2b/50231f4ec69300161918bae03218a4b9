@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+<script src="angularjs/config.js"></script>
+<script src="angularjs/headerController.js"></script>
+<script src="angularjs/homeController.js"></script>
+<script src="angularjs/logController.js"></script>
+<title>ebay Home</title>
+</head>
+<body ng-app="ebay">
+	<div class="container-fluid" style="background-color: #f3f3f3">
+		<div ng-include src="'/templates/header.html'"></div>
+		<div class="row" ng-controller="homeController">
+			<div class="col-md-offset-2 col-md-8">
+				<div class="alert alert-success" id="success-alert"
+					ng-hide="last_login1">
+					<button type="button" class="close" data-dismiss="alert">x</button>
+					<strong>Your last login time was {{last_login}} </strong>
+				</div>
+				<table class="table" ng-click="logData('home','header-table');">
+					<tbody>
+						<tr style="font-size: 10px;">
+							<td><label ng-click="search_category1('Electronics');">Electronics</label></td>
+							<td><label ng-click="search_category1('Music & Media')">Music & Media</label></td>
+							<td><label ng-click="search_category1('Fashion')">Fashion</label></td>
+							<td><label ng-click="search_category1('Collectible & Art')">Collectible & Art</label></td>
+							<td><label ng-click="search_category1('Home & Garden')">Home & Garden</label></td>
+							<td><label ng-click="search_category1('Motors')">Motors</label></td>
+							<td><label ng-click="search_category1('Sporting Goods')">Sporting Goods</label></td>
+							<td><label ng-click="search_category1('Business & Industrial')">Business & Industrial</label></td>
+							<td><label ng-click="search_category1('Toys & Hobbies')">Toys & Hobbies</label></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row">
+				<div class="col-md-offset-2 col-md-8">
+					<div id="myCarousel" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel" data-slide-to="1"></li>
+							<li data-target="#myCarousel" data-slide-to="2"></li>
+						</ol>
+
+						<div class="carousel-inner" role="listbox">
+							<div class="item active">
+								<a ng-click="search_category1('Electronics')"><img src="images/OCT05_HALO_HPBB-Static_Large_Macbook.jpg"
+									alt="Chania" style="margin: auto;"></a>
+							</div>
+
+							<div class="item">
+								<a ng-click="search_category1('Sporting Goods')"><img src="images/02185HalHub1_HPBB-Static_Large.jpg"
+									alt="Chania" style="margin: auto;"></a>
+							</div>
+
+							<div class="item">
+								<a ng-click="search_category1('Fashion')"><img src="images/100316_FYP_Generic_BAU-Billboard-LARGE_r3.jpg"
+									alt="Flower" style="margin: auto;"></a>
+							</div>
+						</div>
+
+						<a class="left carousel-control" href="#myCarousel" role="button"
+							data-slide="prev"> <span
+							class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a> <a class="right carousel-control" href="#myCarousel"
+							role="button" data-slide="next"> <span
+							class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="row col-md-offset-2 col-md-8" style="overflow: hidden;">
+				<h2>
+					<small>Recently Added Items</small>
+				</h2>
+				<hr />
+				<div class="col-md-5">
+					<table class="table">
+						<tr>
+							<td colspan="5"><img src="images/logo.png"
+								style="height: 350px; width: 350px; border: 1px solid lightgrey" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="5">{{items[0].name}}</td>
+						</tr>
+						<tr>
+							<td>{{items[0].quantity}} items</td>
+							<td>by {{items[0].first_name}}</td>
+							<td>Buy Now</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-md-2"></div>
+				<div class="col-md-5">
+					<table class="table">
+						<tr>
+							<td colspan="5"><img src="images/logo.png"
+								style="height: 350px; width: 350px; border: 1px solid lightgrey" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="5">{{items[1].name}}</td>
+						</tr>
+						<tr>
+							<td>{{items[1].quantity}} items</td>
+							<td>by {{items[1].first_name}}</td>
+							<td>Buy Now</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-include src="'templates/footer.html'"></div>
+</body>
+</html>

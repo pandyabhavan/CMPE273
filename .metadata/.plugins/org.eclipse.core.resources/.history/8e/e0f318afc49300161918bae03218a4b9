@@ -1,0 +1,30 @@
+ebay.controller('logController', function ($scope, $http, $window,$state) {
+	$scope.logData = function(file,place)
+	{
+		$http({
+			method: "POST",
+			url: "/logData",
+			data:{
+				"file":file,
+				"place":place
+			}
+		}).success(function (data) {
+			if(data.statusCode == 401)
+			{
+				$window.alert('Something went wrong. Please try agian.');
+			}
+			else if(data.statusCode == 200)
+			{
+				$scope.deleted = false;
+				$scope.getCart();
+			}
+			else
+			{
+				$window.alert('Something went wrong. Please try agian.');
+			}
+		}).error(function (error) {
+			$window.alert('Something went wrong. Please try agian.');
+			$window.location = "/";
+		});
+	}
+});

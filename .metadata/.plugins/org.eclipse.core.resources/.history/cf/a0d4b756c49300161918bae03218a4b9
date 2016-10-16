@@ -1,0 +1,27 @@
+var winston = require('winston');
+
+var logger = new (winston.Logger)({
+  transports: [
+    new (winston.transports.Console)({ json: false, timestamp: true }),
+    new winston.transports.File({ filename: './event_log.log', json: false })
+  ],
+  exceptionHandlers: [
+    new (winston.transports.Console)({ json: false, timestamp: true }),
+    new winston.transports.File({ filename: './exceptions.log', json: false })
+  ],
+  exitOnError: false
+});
+
+function logData(req,res)
+{
+	if(req.session.login)
+	{
+		logger.info('User with id '+req.sesison.login.handle+' clicked at '+req.param('place')+' in file '+req.param('file'));
+	}
+	else
+	{
+		logger.info('Guest user clicked at '+req.param('place')+' in file '+req.param('file'));
+	}
+}
+
+module.exports = logger;

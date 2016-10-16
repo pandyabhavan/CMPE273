@@ -17,6 +17,7 @@
 <script src="angularjs/config.js"></script>
 <script src="angularjs/headerController.js"></script>
 <script src="angularjs/homeController.js"></script>
+<script src="angularjs/logController.js"></script>
 <title>ebay Home</title>
 </head>
 <body ng-app="ebay">
@@ -29,7 +30,7 @@
 					<button type="button" class="close" data-dismiss="alert">x</button>
 					<strong>Your last login time was {{last_login}} </strong>
 				</div>
-				<table class="table">
+				<table class="table" ng-click="logData('home','header-table');">
 					<tbody>
 						<tr style="font-size: 10px;">
 							<td><label ng-click="search_category1('Electronics');">Electronics</label></td>
@@ -47,7 +48,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-offset-2 col-md-8">
-					<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					<div id="myCarousel" class="carousel slide" data-ride="carousel"  ng-click="logData('home','slideshow');">
 						<ol class="carousel-indicators">
 							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 							<li data-target="#myCarousel" data-slide-to="1"></li>
@@ -56,7 +57,7 @@
 
 						<div class="carousel-inner" role="listbox">
 							<div class="item active">
-								<a ng-click="search_category1('Electronics')"><img src="images/OCT05_HALO_HPBB-Static_Large_Macbook.jpg"
+								<a ng-click="search_category1('Electronics');"><img src="images/OCT05_HALO_HPBB-Static_Large_Macbook.jpg"
 									alt="Chania" style="margin: auto;"></a>
 							</div>
 
@@ -83,7 +84,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row col-md-offset-2 col-md-8" style="overflow: hidden;">
+			<div class="row col-md-offset-2 col-md-8" style="overflow: hidden;"   ng-click="logData('home','recently added items');">
 				<h2>
 					<small>Recently Added Items</small>
 				</h2>
@@ -101,7 +102,7 @@
 						<tr>
 							<td>{{items[0].quantity}} items</td>
 							<td>by {{items[0].first_name}}</td>
-							<td>Buy Now</td>
+							<td><a ng-click="product(items[0].id);">Buy Now</a></td>
 							<td></td>
 							<td></td>
 						</tr>
@@ -121,7 +122,7 @@
 						<tr>
 							<td>{{items[1].quantity}} items</td>
 							<td>by {{items[1].first_name}}</td>
-							<td>Buy Now</td>
+							<td><a ng-click="product(items[1].id);">Buy Now</a></td>
 							<td></td>
 							<td></td>
 						</tr>
@@ -130,6 +131,6 @@
 			</div>
 		</div>
 	</div>
-	<div ng-include src="'templates/footer.html'"></div>
+	<div ng-include src="'templates/footer.html'" ></div>
 </body>
 </html>

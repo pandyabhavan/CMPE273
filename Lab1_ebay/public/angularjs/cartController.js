@@ -96,4 +96,20 @@ ebay.controller('cartController', function ($scope, $http, $window,$state) {
 			$window.location = "/";
 		});
 	};
+	
+	$scope.logData = function(file,place)
+	{
+		$http({
+			method: "POST",
+			url: "/logData",
+			data:{
+				"file":file,
+				"place":place
+			}
+		}).success(function (data) {
+			
+		}).error(function (error) {
+			
+		});
+	};
 });

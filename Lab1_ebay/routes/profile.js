@@ -1,6 +1,6 @@
 var mysql = require("./mysql");
 var ejs = require("ejs");
-
+var log = require('./log');
 
 function getPurchaseHistory(req,res)
 {

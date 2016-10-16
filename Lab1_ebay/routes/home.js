@@ -1,5 +1,6 @@
 var ejs = require("ejs");
 var mysql = require("./mysql");
+var log = require('./log');
 
 function getLoginPage(req,res)
 {
@@ -58,6 +59,19 @@ function getTwoItems(req,res)
 	},query);
 }
 
+function logData(req,res)
+{
+	if(req.session.login)
+	{
+		log.info('User with id '+req.session.login.handle+' clicked at '+req.param('place')+' in file '+req.param('file'));
+	}
+	else
+	{
+		log.info('Guest user clicked at '+req.param('place')+' in file '+req.param('file'));
+	}
+}
+
 exports.getLoginPage = getLoginPage;
 exports.getLastLogin = getLastLogin;
 exports.getTwoItems = getTwoItems;
+exports.logData = logData;

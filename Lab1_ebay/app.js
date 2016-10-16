@@ -70,6 +70,7 @@ app.post('/removeItem',profile.removeItem);
 app.post('/addItem',profile.addItem);
 app.post('/getLastLogin',home.getLastLogin);
 app.post('/getTwoItems',home.getTwoItems);
+app.post('/logData',home.logData);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
