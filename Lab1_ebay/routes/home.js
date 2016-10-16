@@ -64,10 +64,12 @@ function logData(req,res)
 	if(req.session.login)
 	{
 		log.info('User with id '+req.session.login.handle+' clicked at '+req.param('place')+' in file '+req.param('file'));
+		res.send(JSON.stringify({"statusCode":200}));
 	}
 	else
 	{
 		log.info('Guest user clicked at '+req.param('place')+' in file '+req.param('file'));
+		res.send(JSON.stringify({"statusCode":200}));
 	}
 }
 

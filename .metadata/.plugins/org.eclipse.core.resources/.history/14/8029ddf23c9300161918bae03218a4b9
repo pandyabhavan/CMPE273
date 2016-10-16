@@ -1,3 +1,0 @@
-ebay.controller('headerController', function ($scope, $http, $window,$state) {
-	
-});

@@ -5,7 +5,7 @@ var log = require('./log');
 function getProductDetails(req,res)
 {
 	var item_id = req.param('item_id');
-	query = "select id,name,description,price,quantity_remaining from item where id="+item_id+"";
+	query = "select i.id,name,description,price,quantity_remaining,u.first_name,ud.state from item i,user u, user_details ud where i.user_id = u.id and u.id = ud.user_id and  i.id = "+item_id+"";
 
 	mysql.fetchData(function(err,results){
 		if(err)

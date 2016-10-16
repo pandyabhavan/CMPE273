@@ -39,3 +39,114 @@
 2016-10-16T19:34:53.808Z - info: Guest user clicked at profile_link in file header
 2016-10-16T19:34:57.738Z - info: Guest user clicked at sign_in in file login
 2016-10-16T19:34:57.741Z - info: Query at2016-10-16T19:34:57.741Z
+2016-10-16T19:51:32.318Z - info: User with id pb clicked at profile_link in file header
+2016-10-16T19:51:34.438Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T19:51:35.355Z - info: User with id pb clicked at purchase in file profile
+2016-10-16T19:51:35.840Z - info: User with id pb clicked at sell in file profile
+2016-10-16T19:51:36.268Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T19:52:35.911Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T19:54:27.434Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T19:54:35.613Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T19:54:52.919Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T19:55:54.685Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T19:56:02.048Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T19:56:42.240Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T19:56:55.916Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T19:57:16.466Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T19:57:25.069Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T19:57:35.623Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T19:58:19.971Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:00:19.977Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:00:26.755Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:00:40.903Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:02:40.910Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:05:22.600Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:07:21.809Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:09:01.777Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:11:01.784Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:32:48.295Z - info: Guest user clicked at profile_link in file header
+2016-10-16T20:32:51.567Z - info: Guest user clicked at sign_in in file login
+2016-10-16T20:32:51.571Z - info: Query at2016-10-16T20:32:51.571Z
+2016-10-16T20:32:53.952Z - info: User with id pb clicked at profile_link in file header
+2016-10-16T20:32:56.550Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:33:36.623Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:35:36.625Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:41:33.759Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:43:33.765Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:52:13.631Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:52:20.295Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T20:52:35.269Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T20:54:13.634Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T20:54:20.299Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T20:54:35.275Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T20:56:13.639Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T21:04:32.729Z - info: Guest user clicked at update_profile_details in file profile
+2016-10-16T21:05:11.344Z - info: Guest user clicked at update_profile_details in file profile
+2016-10-16T21:05:30.680Z - info: Guest user clicked at profile_link in file header
+2016-10-16T21:05:33.361Z - info: Guest user clicked at sign_in in file login
+2016-10-16T21:05:33.364Z - info: Query at2016-10-16T21:05:33.364Z
+2016-10-16T21:05:35.247Z - info: User with id pb clicked at profile_link in file header
+2016-10-16T21:05:37.282Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T21:05:52.476Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T21:05:52.492Z - warn: Error in query ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''dlas','sfla','123')' at line 1
+2016-10-16T21:05:56.366Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T21:05:56.380Z - warn: Error in query ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''dlas','sfla','123')' at line 1
+2016-10-16T21:06:07.751Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T21:06:07.774Z - warn: Error in query ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''dlas','sfla','123')' at line 1
+2016-10-16T21:08:07.641Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T21:08:07.682Z - warn: Error in query ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''dlas','sfla',123)' at line 1
+2016-10-16T21:09:12.749Z - info: User with id pb clicked at purchase in file profile
+2016-10-16T21:09:13.859Z - info: User with id pb clicked at sell in file profile
+2016-10-16T21:09:21.194Z - info: Guest user clicked at profile_link in file header
+2016-10-16T21:09:26.997Z - info: Guest user clicked at sign_in in file login
+2016-10-16T21:09:27.000Z - info: Query at2016-10-16T21:09:27.000Z
+2016-10-16T21:09:52.346Z - info: User with id pb clicked at profile_link in file header
+2016-10-16T21:09:54.063Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T21:09:57.684Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T21:10:08.366Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T21:10:08.382Z - warn: Error in query ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''ddsl','sal',123)' at line 1
+2016-10-16T21:12:55.422Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T21:13:10.829Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T21:13:10.844Z - warn: Error in query ER_DUP_ENTRY: Duplicate entry '1' for key 'PRIMARY'
+2016-10-16T21:13:45.608Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T21:13:45.658Z - warn: Error in query ER_DUP_ENTRY: Duplicate entry '1' for key 'PRIMARY'
+2016-10-16T21:14:02.564Z - info: User with id pb clicked at update_profile_details in file profile
+2016-10-16T21:14:02.582Z - warn: Error in query ER_DUP_ENTRY: Duplicate entry '1' for key 'PRIMARY'
+2016-10-16T21:17:03.812Z - info: User with id pb clicked at logo in file header
+2016-10-16T21:17:26.414Z - info: User with id pb clicked at item in file product
+2016-10-16T21:17:51.143Z - info: User with id pb clicked at product_details in file product
+2016-10-16T21:22:51.706Z - info: User with id pb clicked at logo in file header
+2016-10-16T21:23:01.609Z - info: User with id pb clicked at item in file product
+2016-10-16T21:23:02.246Z - warn: Error in query ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id=5' at line 1
+2016-10-16T21:23:02.247Z - info: User with id pb clicked at item in file product
+2016-10-16T21:24:57.386Z - info: User with id pb clicked at dropdown_shop in file header
+2016-10-16T21:24:58.313Z - info: User with id pb clicked at dropdown_search in file header
+2016-10-16T21:24:58.317Z - info: User with id pb clicked at dropdown_shop in file header
+2016-10-16T21:25:01.188Z - info: User with id pb clicked at item in file product
+2016-10-16T21:28:04.568Z - info: User with id pb clicked at add_to_cart in file product
+2016-10-16T21:28:04.570Z - info: User with id pb clicked at product_details in file product
+2016-10-16T21:28:08.800Z - info: User with id pb clicked at myebay in file header
+2016-10-16T21:28:10.238Z - info: User with id pb clicked at sell in file profile
+2016-10-16T21:28:13.267Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T21:28:17.066Z - info: User with id pb clicked at sell in file profile
+2016-10-16T21:30:16.502Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T21:30:17.520Z - info: User with id pb clicked at sell in file profile
+2016-10-16T21:30:19.146Z - info: User with id pb clicked at purchase in file profile
+2016-10-16T21:30:20.707Z - info: User with id pb clicked at logo in file header
+2016-10-16T21:34:44.105Z - info: Guest user clicked at logo in file header
+2016-10-16T21:34:47.150Z - info: Guest user clicked at header-table in file home
+2016-10-16T21:34:49.311Z - info: Guest user clicked at logo in file header
+2016-10-16T21:35:00.536Z - info: Guest user clicked at dropdown_shop in file header
+2016-10-16T21:35:01.566Z - info: Guest user clicked at dropdown_search in file header
+2016-10-16T21:35:01.568Z - info: Guest user clicked at dropdown_shop in file header
+2016-10-16T21:35:04.792Z - info: Guest user clicked at header-table in file home
+2016-10-16T21:35:07.206Z - info: Guest user clicked at item in file product
+2016-10-16T21:35:09.068Z - info: Guest user clicked at add_to_cart in file product
+2016-10-16T21:35:09.070Z - info: Guest user clicked at product_details in file product
+2016-10-16T21:35:14.304Z - info: Guest user clicked at sign_in in file login
+2016-10-16T21:35:14.308Z - info: Query at2016-10-16T21:35:14.308Z
+2016-10-16T21:35:19.301Z - info: User with id pb clicked at myebay in file header
+2016-10-16T21:35:23.376Z - info: User with id pb clicked at profile_update in file profile
+2016-10-16T21:35:24.297Z - info: User with id pb clicked at sell in file profile
+2016-10-16T21:35:25.717Z - info: User with id pb clicked at purchase in file profile
+2016-10-16T21:35:27.878Z - info: User with id pb clicked at sell in file profile

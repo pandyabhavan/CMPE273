@@ -45,6 +45,27 @@ ebay.controller('profileController', function ($scope, $http, $window,$state) {
 		}).error(function (error) {
 			$window.alert('Something went wrong.Please try again.');
 		});
+		
+		$http({
+			method: "POST",
+			url: "/getProfile",
+		}).success(function (data) {
+			if(data.statusCode == 401)
+			{
+				$window.alert('You need to login first. To view this page');
+				$window.location = "/login";
+			}
+			else if(data.statusCode == 200)
+			{
+				$scope.profile = data.data;
+			}
+			else
+			{
+				$window.alert('Something went wrong.Please try again.');
+			}
+		}).error(function (error) {
+			$window.alert('Something went wrong.Please try again.');
+		});
 	};
 	$scope.basic();
 
@@ -98,12 +119,40 @@ ebay.controller('profileController', function ($scope, $http, $window,$state) {
 				$window.alert('Item added successfully');
 				$scope.basic();
 			}
+			else if(data.statusCode == 405)
+			{
+				$window.alert('You need to complete the profile first to sell the product.');
+			}
 			else
 			{
 				$window.alert('Something went wrong.Please try again.');
 			}
 		}).error(function (error) {
 			$window.alert('Something went wrong.Please try again.');
+		});
+	};
+	
+	$scope.updateProfile = function()
+	{
+		$http({
+			method: "POST",
+			url: "/updateProfile",
+			data:{
+				"profile":$scope.profile
+			}
+		}).success(function (data) {
+			if(data.statusCode == 401)
+			{
+				$window.alert('Your session expired. Please Login again.');
+				$window.location = '/login';
+			}
+			else
+			{
+				$window.alert('Profile Updated Successfully.');
+				$scope.basic();
+			}
+		}).error(function (error) {
+			$window.alert('Something went wrong. Please try again');
 		});
 	};
 	
@@ -117,9 +166,7 @@ ebay.controller('profileController', function ($scope, $http, $window,$state) {
 				"place":place
 			}
 		}).success(function (data) {
-			
 		}).error(function (error) {
-			
 		});
 	};
 });

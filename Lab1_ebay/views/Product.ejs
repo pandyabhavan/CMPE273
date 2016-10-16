@@ -27,7 +27,7 @@
 				<img src="images/logo.png"
 					style="height: 250px; width: 250px; border: 1px solid lightgrey" />
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-7">
 				<h3>{{product.name}}</h3>
 				<hr />
 				<form>
@@ -46,6 +46,16 @@
 						<label class="col-md-3 text-right" style="color: lightgrey">Item
 							Description:</label> <label class="text-justify col-md-9">
 							{{product.description}}
+					</div>
+					<div class="form-group col-md-12">
+						<label class="col-md-3 text-right" style="color: lightgrey">Item
+							Seller:</label> <label class="text-justify col-md-9">
+							{{product.first_name}}
+					</div>
+					<div class="form-group col-md-12">
+						<label class="col-md-3 text-right" style="color: lightgrey">Item
+							Shipping from:</label> <label class="text-justify col-md-9">
+							{{product.state}}
 					</div>
 					<div class="form-group col-md-12" ng-click="logData('product','add_to_cart');">
 						<input type="submit" value="Add to cart" ng-click="add_to_cart();"

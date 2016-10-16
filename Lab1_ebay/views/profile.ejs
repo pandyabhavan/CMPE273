@@ -33,13 +33,18 @@
 									style="margin: 10px 10px 10px 10px; background-color: white; border: 1px solid black">
 									<ul class="nav navbar-nav"
 										style="background-color: white; margin-top: 10px;">
-										<li class=" active" ng-click="logData('profile','purchase');"><a href="#purchase" role="tab"
-											data-toggle="tab"><span
+										<li class=" active" ng-click="logData('profile','purchase');"><a
+											href="#purchase" role="tab" data-toggle="tab"><span
 												class="glyphicon glyphicon-chevron-right"></span>Purchase
 												History</a></li>
-										<li ng-click="logData('profile','sell');"><a href="#sell" role="tab" data-toggle="tab"><span
+										<li ng-click="logData('profile','sell');"><a href="#sell"
+											role="tab" data-toggle="tab"><span
 												class="glyphicon glyphicon-chevron-right"></span> Selling
 												History</a></li>
+										<li ng-click="logData('profile','profile_update');"><a
+											href="#profile_update" role="tab" data-toggle="tab"><span
+												class="glyphicon glyphicon-chevron-right"></span> Update
+												Profile</a></li>
 									</ul>
 
 									<div class="tab-content" style="background-color: white;">
@@ -85,6 +90,110 @@
 												<br /> <br />
 											</div>
 										</div>
+										<div class="tab-pane" id="profile_update" class="col-md-12">
+											<div class="navbar-header col-md-12"></div>
+											<form class="form-horizontal" role="form"
+												ng-submit="updateProfile()">
+												<div class="form-group"></div>
+												<div class="form-group">
+													<div class="col-sm-3 text-right">
+														<label>First Name : </label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" class="form-control"
+															placeholder="First Name" ng-model="profile.first_name" required />
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-sm-3 text-right">
+														<label>Last Name : </label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" class="form-control"
+															placeholder="Last Name" ng-model="profile.last_name" required />
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-sm-3 text-right">
+														<label>Email : </label>
+													</div>
+													<div class="col-sm-6">
+														<input type="email" class="form-control"
+															placeholder="Email" ng-model="profile.email" disabled="disabled" required />
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-sm-3 text-right">
+														<label>Birth Date : </label>
+													</div>
+													<div class="col-sm-6">
+														<input type="date" class="form-control" ng-model="profile.birth_day" required />
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-sm-3 text-right">
+														<label>Contact : </label>
+													</div>
+													<div class="col-sm-6">
+														<input type="number" class="form-control" maxlength="10"
+															placeholder="Contact Number" ng-model="profile.contact" required />
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-sm-3 text-right">
+														<label>Address1 : </label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" class="form-control"
+															placeholder="Address1" ng-model="profile.address1" required /	>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-sm-3 text-right">
+														<label>Address2 : </label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" class="form-control"
+															placeholder="Address2" ng-model="profile.address2" required />
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-sm-3 text-right">
+														<label>City : </label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" class="form-control"
+															placeholder="City" ng-model="profile.city" required />
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-sm-3 text-right">
+														<label>State : </label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" class="form-control"
+															placeholder="State" ng-model="profile.state" required />
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-sm-3 text-right">
+														<label>Pin Code : </label>
+													</div>
+													<div class="col-sm-6">
+														<input type="number" class="form-control" maxlength="5"
+															placeholder="Pin Code" ng-model="profile.pin_code" required />
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-sm-4 col-sm-offset-4"
+														ng-click="logData('profile','update_profile_details');">
+														<button class="btn btn-primary" type="submit">
+															<i class="glyphicon glyphicon-plus"></i> Update Profile
+														</button>
+													</div>
+												</div>
+											</form>
+										</div>
 										<div class="tab-pane" id="sell">
 											<div style="background-color: white;"
 												ng-repeat="i in selling">
@@ -117,7 +226,8 @@
 													</div>
 												</div>
 												<div
-													class="bottom-right col-md-offset-3 col-md-9 text-right"  ng-click="logData('profile','remove_item');">
+													class="bottom-right col-md-offset-3 col-md-9 text-right"
+													ng-click="logData('profile','remove_item');">
 													<input type="button" class="btn btn-default"
 														value="Remove Item" ng-click="removeItem(i.id);" /> <br />
 													<br />
@@ -126,7 +236,8 @@
 											</div>
 											<br /> <br />
 											<div class="col-md-12">
-												<div class="col-md-offset-3 col-md-2"  ng-click="logData('profile','add_item');">
+												<div class="col-md-offset-3 col-md-2"
+													ng-click="logData('profile','add_item');">
 													<input type="button" value="Sell New Item"
 														data-toggle="modal" data-target="#addItem"
 														class="btn btn-primary" /> <br /> <br />
@@ -189,23 +300,23 @@
 																			<option label="Music & Media" value="2">Music
 																				& Media</option>
 																			<option label="Fashion" value="3">Fashion</option>
-																			<option label="Collectible & Art"
-																				value="4">Collectible & Art</option>
+																			<option label="Collectible & Art" value="4">Collectible
+																				& Art</option>
 																			<option label="Home & Garden" value="5">Home
 																				& Garden</option>
 																			<option label="Motors" value="6">Motors</option>
 																			<option label="Sporting Goods" value="Sporting Goods">Sporting
 																				Goods</option>
-																			<option label="Business & Industrial"
-																				value="7">Business &
-																				Industrial</option>
+																			<option label="Business & Industrial" value="7">Business
+																				& Industrial</option>
 																			<option label="Toys & Hobbies" value="8">Toys
 																				& Hobbies</option>
 																		</select>
 																	</div>
 																</div>
 																<div class="form-group">
-																	<div class="col-sm-4 col-sm-offset-4"  ng-click="logData('profile','item_added');">
+																	<div class="col-sm-4 col-sm-offset-4"
+																		ng-click="logData('profile','item_added');">
 																		<button class="btn btn-primary" type="submit">
 																			<i class="glyphicon glyphicon-plus"></i> Add Item
 																		</button>
