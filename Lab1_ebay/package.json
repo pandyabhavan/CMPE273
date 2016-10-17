@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "test": "mocha"
   },
   "dependencies": {
     "bcryptjs": "^2.3.0",
     "ejs": "*",
     "express": "3.2.6",
+    "request": "^2.75.0",
     "simple-node-logger": "^0.93.12"
   }
 }

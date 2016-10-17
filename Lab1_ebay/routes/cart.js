@@ -21,7 +21,7 @@ function getCart(req,res)
 	var response;
 	if(req.session.login)
 	{
-		var query = "select c.quantity,i.name,i.description,u.first_name,i.price,i.id from cart c,item i,user u where u.id = i.user_id and c.item_id = i.id and u.id = "+req.session.login.id+" and i.view=1";
+		var query = "select c.quantity,i.name,i.description,u.first_name,i.price,i.id from cart c,item i,user u where u.id = i.user_id and c.item_id = i.id and u.id = "+req.session.login.id+" and ((i.view=1 and i.bid=0) or (i.view =0 and bid=1))";
 		mysql.fetchData(function(err,results){
 			if(err)
 			{

@@ -123,6 +123,7 @@ function addItem(req,res)
 	var price = req.param('price');
 	var quantity = req.param('quantity');
 	var category = req.param('category');
+	var bidding = req.param('bidding');
 	var response;
 	
 	if(req.session.login)
@@ -136,9 +137,9 @@ function addItem(req,res)
 			}
 			else
 			{
-				if(req.length> 0)
+				if(results.length> 0)
 				{
-					var query = "insert into item (name,description,price,quantity,user_id,bid,quantity_remaining,category_id,view) values('"+name+"','"+description+"',"+price+","+quantity+","+req.session.login.id+",0,"+quantity+","+category+",1)";
+					var	query = "insert into item (name,description,price,quantity,user_id,bid,quantity_remaining,category_id,view) values('"+name+"','"+description+"',"+price+","+quantity+","+req.session.login.id+","+bidding+","+quantity+","+category+",1);";
 					mysql.fetchData(function(err,results){
 						if(err)
 						{
@@ -147,10 +148,37 @@ function addItem(req,res)
 						}
 						else
 						{
-							response = {"statusCode":200,"data":results};
-							res.send(JSON.stringify(response));
+							if(bidding)
+							{
+								var	query1 = "select max(id) as id from item";
+								mysql.fetchData(function(err,results){
+									if(err)
+									{
+										response = {"statusCode":403,"data":null};
+										res.send(JSON.stringify(response));
+									}
+									else
+									{
+										var item_id = results[0].id;
+										var	query2 = "insert into bidding values("+item_id+","+price+",(now() + INTERVAL 4 DAY),"+req.session.login.id+")";
+										mysql.fetchData(function(err,results){
+											if(err)
+											{
+												response = {"statusCode":403,"data":null};
+												res.send(JSON.stringify(response));
+											}
+											else
+											{
+												response = {"statusCode":200,"data":results};
+												res.send(JSON.stringify(response));
+											}
+										},query2);
+									}
+								},query1);
+							}	
 						}
 					},query);
+					
 				}
 				else
 				{

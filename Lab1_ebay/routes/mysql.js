@@ -2,7 +2,7 @@ var ejs= require('ejs');
 var mysql = require('mysql');
 var log = require('./log');
 
-var pool = [],available = [], req = [];
+var pool = [],available = [], req1 = [];
 var current_connection;
 function getConnection(){ 
 	var connection = mysql.createConnection({
@@ -37,7 +37,7 @@ Pool.prototype.get = function(request_name)
     }
 	else
 	{
-		req.push(request_name);
+		req1.push(request_name);
 		return null;
 	}
 }
@@ -45,10 +45,10 @@ Pool.prototype.get = function(request_name)
 Pool.prototype.release = function(number)
 {
 	available.push(number);
-	if(req.length > 0)
+	if(req1.length > 0)
 	{
-		Pool.get(req[0]);
-		req.slice(0,1);
+		this.get(req1[0]);
+		req1.slice(0,1);
 	}
 }
 
@@ -59,6 +59,7 @@ function fetchData(callback,sqlQuery){
 	 var connection = current_connection;
 	 console.log('Connection established');
 	 connection.query(sqlQuery, function(err, rows, fields) {
+		 p.release(number);
 		 if(err){ 
 			 console.log("ERROR: " + err.message);
 			 log.warn('Error in query '+err.message);
@@ -71,11 +72,10 @@ function fetchData(callback,sqlQuery){
 			 }
 		 }); 
 	 	console.log("\nConnection closed.."); 
-	 	p.release(number);
 	}
 
 
-function fetchData_DefaultConnectionPool(callback,sqlQuery) 
+function fetchData_MySQLDefaultConnectionPool(callback,sqlQuery) 
 {
 	mysql.createPool({
 		host     : 'localhost',
@@ -84,7 +84,7 @@ function fetchData_DefaultConnectionPool(callback,sqlQuery)
 		database : 'ebay',
 		port  : 3306 
 		});
-    mysql.getConnection(function(err,connection){
+    mysql.createConnection(function(err,connection){
         if (err) {
 		  console.log('Database connection could not be established');
           callback(err,'Database connection could not be established');
@@ -109,7 +109,7 @@ function fetchData_DefaultConnectionPool(callback,sqlQuery)
   });
 }
 
- function fetchData_WithoutPool(callback,sqlQuery){
+ function fetchData_Original(callback,sqlQuery){
 	 console.log("\nSQL Query::"+sqlQuery);
 	 var connection=getConnection();
 	 console.log('Connection established');

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Lab1_ebay/test/mocha_test.js&apos; to &apos;test.js&apos;" description="Rename resource &apos;mocha_test.js&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="test/mocha_test.js" name="test.js" stamp="1476681121830" updateReferences="true"/>
+</session>

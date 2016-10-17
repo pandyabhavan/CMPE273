@@ -1,7 +1,13 @@
 ebay.controller('profileController', function ($scope, $http, $window,$state) {
-	
+
 	$scope.category = "1";
+	$scope.quantity = 1;
 	
+	$scope.change = function()
+	{
+		$scope.quantity = 1;
+	}
+
 	$scope.basic = function()
 	{
 		$http({
@@ -45,7 +51,7 @@ ebay.controller('profileController', function ($scope, $http, $window,$state) {
 		}).error(function (error) {
 			$window.alert('Something went wrong.Please try again.');
 		});
-		
+
 		$http({
 			method: "POST",
 			url: "/getProfile",
@@ -95,7 +101,7 @@ ebay.controller('profileController', function ($scope, $http, $window,$state) {
 			$window.alert('Something went wrong.Please try again.');
 		});
 	};
-	
+
 	$scope.addItem = function () 
 	{
 		$http({
@@ -105,6 +111,7 @@ ebay.controller('profileController', function ($scope, $http, $window,$state) {
 				"name":$scope.name,
 				"description":$scope.description,
 				"price":$scope.price,
+				"bidding":$scope.bidding,
 				"quantity":$scope.quantity,
 				"category":$scope.category
 			}
@@ -131,31 +138,36 @@ ebay.controller('profileController', function ($scope, $http, $window,$state) {
 			$window.alert('Something went wrong.Please try again.');
 		});
 	};
-	
+
 	$scope.updateProfile = function()
 	{
-		$http({
-			method: "POST",
-			url: "/updateProfile",
-			data:{
-				"profile":$scope.profile
-			}
-		}).success(function (data) {
-			if(data.statusCode == 401)
-			{
-				$window.alert('Your session expired. Please Login again.');
-				$window.location = '/login';
-			}
-			else
-			{
-				$window.alert('Profile Updated Successfully.');
-				$scope.basic();
-			}
-		}).error(function (error) {
-			$window.alert('Something went wrong. Please try again');
-		});
+		if($scope.profile.birth_day > new Date() || $scope.profile.contact.length !== 10 || $scope.profile.pin_code !== 5)
+			$window.alert('Please enter data correctly');
+		else
+		{	
+			$http({
+				method: "POST",
+				url: "/updateProfile",
+				data:{
+					"profile":$scope.profile
+				}
+			}).success(function (data) {
+				if(data.statusCode == 401)
+				{
+					$window.alert('Your session expired. Please Login again.');
+					$window.location = '/login';
+				}
+				else
+				{
+					$window.alert('Profile Updated Successfully.');
+					$scope.basic();
+				}
+			}).error(function (error) {
+				$window.alert('Something went wrong. Please try again');
+			});
+		}
 	};
-	
+
 	$scope.logData = function(file,place)
 	{
 		$http({
