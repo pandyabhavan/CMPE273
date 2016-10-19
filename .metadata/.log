@@ -2335,3 +2335,162 @@ org.eclipse.jface.text.BadLocationException
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+!SESSION 2016-10-16 23:30:11.584 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-16 23:30:41.497
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\pandy'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.debug.ui 4 120 2016-10-16 23:35:34.597
+!MESSAGE org.eclipse.debug.ui.toggleBreakpointsTargetFactory extension failed to load breakpoint toggle target because the specified id is already registered.  Specified ID is: org.chromium.debug.ui.ChromiumToggleBreakpointTargetFactory
+!SESSION 2016-10-18 12:56:41.750 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-18 12:56:58.846
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\pandy'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-10-19 11:38:58.887 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-19 11:39:19.126
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\pandy'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.debug.ui 4 120 2016-10-19 11:39:54.385
+!MESSAGE org.eclipse.debug.ui.toggleBreakpointsTargetFactory extension failed to load breakpoint toggle target because the specified id is already registered.  Specified ID is: org.chromium.debug.ui.ChromiumToggleBreakpointTargetFactory
+
+!ENTRY tern.eclipse.ide.core 4 0 2016-10-19 12:01:58.915
+!MESSAGE TernError: No type found at the given position.
+!STACK 0
+tern.TernException: TernError: No type found at the given position.
+	at tern.server.DefaultResponseHandler.getData(DefaultResponseHandler.java:45)
+	at tern.server.protocol.TernResultsProcessorsFactory.makeRequestAndProcess(TernResultsProcessorsFactory.java:43)
+	at tern.eclipse.ide.internal.core.resources.IDETernServerAsyncReqProcessor.run(IDETernServerAsyncReqProcessor.java:104)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: tern.TernException: TernError: No type found at the given position.
+	at tern.server.nodejs.NodejsTernHelper.makeRequest(NodejsTernHelper.java:86)
+	at tern.server.nodejs.NodejsTernServer.makeRequest(NodejsTernServer.java:163)
+	at tern.server.nodejs.NodejsTernServer.request(NodejsTernServer.java:127)
+	at tern.server.protocol.TernResultsProcessorsFactory.makeRequestAndProcess(TernResultsProcessorsFactory.java:42)
+	... 2 more
+!SESSION 2016-10-19 14:56:33.975 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-19 14:56:50.272
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\pandy'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-10-19 14:57:00.428 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-19 14:57:14.045
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\pandy'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-10-19 16:29:19.429 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-19 16:29:36.149
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\pandy'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.217
+!MESSAGE RelativityFileSystemStructureProvider.cllectFiles() called. file count=6
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.223
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\pandy\AppData\Local\Temp\express-work\1476919798659\Lab2_ebay\app.js
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.228
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\pandy\AppData\Local\Temp\express-work\1476919798659\Lab2_ebay\package.json
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.233
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\pandy\AppData\Local\Temp\express-work\1476919798659\Lab2_ebay\public\stylesheets\style.css
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.237
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\pandy\AppData\Local\Temp\express-work\1476919798659\Lab2_ebay\routes\index.js
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.240
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\pandy\AppData\Local\Temp\express-work\1476919798659\Lab2_ebay\routes\user.js
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.243
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\pandy\AppData\Local\Temp\express-work\1476919798659\Lab2_ebay\views\index.ejs
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.306
+!MESSAGE templateRoot: C:\eclipse\configuration\org.eclipse.osgi\945\0\.cp\templates\common-templates
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.308
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\eclipse\configuration\org.eclipse.osgi\945\0\.cp\templates\common-templates\.jshintrc
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.312
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\eclipse\configuration\org.eclipse.osgi\945\0\.cp\templates\common-templates\.settings\.jsdtscope
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.314
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\eclipse\configuration\org.eclipse.osgi\945\0\.cp\templates\common-templates\.settings\com.eclipsesource.jshint.ui.prefs
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.357
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\eclipse\configuration\org.eclipse.osgi\945\0\.cp\templates\common-templates\.settings\org.eclipse.wst.jsdt.core.prefs
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.368
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\eclipse\configuration\org.eclipse.osgi\945\0\.cp\templates\common-templates\.settings\org.eclipse.wst.jsdt.ui.superType.container
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.372
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\eclipse\configuration\org.eclipse.osgi\945\0\.cp\templates\common-templates\.settings\org.eclipse.wst.jsdt.ui.superType.name
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.376
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\eclipse\configuration\org.eclipse.osgi\945\0\.cp\templates\common-templates\.sublime-project
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.381
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\eclipse\configuration\org.eclipse.osgi\945\0\.cp\templates\common-templates\README.md
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.506
+!MESSAGE templateRoot: C:\eclipse\configuration\org.eclipse.osgi\945\0\.cp\templates\tern-node
+
+!ENTRY org.nodeclipse.ui 1 0 2016-10-19 16:29:59.508
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\eclipse\configuration\org.eclipse.osgi\945\0\.cp\templates\tern-node\.tern-project

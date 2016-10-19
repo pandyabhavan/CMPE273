@@ -4275,3 +4275,18 @@
 2016-10-17T04:43:26.437Z - info: User with id pb clicked at remove_item in file cart
 2016-10-17T04:43:26.439Z - info: User with id pb clicked at item in file cart
 2016-10-17T04:43:31.564Z - info: User with id pb clicked at profile_link in file header
+2016-10-17T06:31:17.703Z - info: Guest user clicked at header-table in file home
+2016-10-17T06:31:18.628Z - info: Guest user clicked at header-table in file home
+2016-10-17T06:31:28.189Z - info: Guest user clicked at profile_link in file header
+2016-10-17T06:31:33.994Z - info: Guest user clicked at sign_in in file login
+2016-10-17T06:31:41.277Z - info: User with id pb clicked at profile_link in file header
+2016-10-17T06:32:08.439Z - info: Guest user clicked at profile_link in file header
+2016-10-17T06:32:10.026Z - info: Guest user clicked at register_tab in file login
+2016-10-17T06:32:23.526Z - info: Guest user clicked at register in file login
+2016-10-17T06:33:01.022Z - info: Guest user clicked at register in file login
+2016-10-17T06:33:12.641Z - warn: Error in query ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'where clause'
+2016-10-17T06:33:12.759Z - warn: Error in query ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'where clause'
+2016-10-17T06:34:20.478Z - warn: Error in query ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'where clause'
+2016-10-17T06:34:20.568Z - warn: Error in query ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'where clause'
+2016-10-17T06:34:39.718Z - info: Guest user clicked at profile_link in file header
+2016-10-17T06:34:43.070Z - info: Guest user clicked at sign_in in file login
