@@ -1,0 +1,11 @@
+var ebay = angular.module('ebay', ['ngRoute']);
+
+ebay.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "'Home.html'"
+    })
+    .when("/login", {
+        templateUrl : "'../templates/login.html'"
+    });
+});

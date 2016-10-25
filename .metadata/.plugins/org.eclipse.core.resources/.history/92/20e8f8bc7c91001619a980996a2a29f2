@@ -1,3 +1,0 @@
-ebay.controller('searchController', function ($scope, $http, $window,$state,$rootScope) {
-
-});

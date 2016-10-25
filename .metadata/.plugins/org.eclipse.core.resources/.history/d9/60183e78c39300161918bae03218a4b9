@@ -1,3 +1,0 @@
-ebay.controller('cartController', function ($scope, $http, $window,$state) {
-	
-});

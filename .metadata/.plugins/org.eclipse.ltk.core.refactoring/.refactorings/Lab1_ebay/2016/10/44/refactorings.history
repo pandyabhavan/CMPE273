@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Move &apos;app.js&apos; to &apos;views&apos;" description="Move &apos;app.js&apos; to &apos;views&apos;" destination="views" element1="app.js" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1477340053094" updateReferences="true"/>&#x0A;<refactoring comment="Move &apos;app.js&apos; to &apos;Lab1_ebay&apos;" description="Move &apos;app.js&apos; to &apos;Lab1_ebay&apos;" destination="/Lab1_ebay" element1="views/app.js" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1477341043902" updateReferences="true"/>
+</session>

@@ -4290,3 +4290,10 @@
 2016-10-17T06:34:20.568Z - warn: Error in query ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'where clause'
 2016-10-17T06:34:39.718Z - info: Guest user clicked at profile_link in file header
 2016-10-17T06:34:43.070Z - info: Guest user clicked at sign_in in file login
+2016-10-24T20:31:26.497Z - info: Guest user clicked at slideshow in file home
+2016-10-24T20:31:29.664Z - info: Guest user clicked at logo in file header
+2016-10-24T20:31:35.241Z - info: Guest user clicked at profile_link in file header
+2016-10-24T20:31:38.912Z - info: Guest user clicked at sign_in in file login
+2016-10-24T20:31:44.610Z - info: User with id pb clicked at cart in file header
+2016-10-24T20:33:20.333Z - info: User with id pb clicked at cart in file header
+2016-10-24T20:33:39.770Z - info: User with id pb clicked at cart in file header
