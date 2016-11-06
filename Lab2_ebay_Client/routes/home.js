@@ -1,5 +1,5 @@
 var ejs = require("ejs");
-var mysql = require("./mysql");
+var mongo = require('./mongo');
 var log = require('./log');
 
 function getLoginPage(req,res)

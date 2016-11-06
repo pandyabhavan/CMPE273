@@ -1,4 +1,4 @@
-var mysql = require("./mysql");
+var mongo = require('./mongo');
 var ejs = require("ejs");
 var log = require('./log');
 

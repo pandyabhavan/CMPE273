@@ -1,20 +1,6 @@
-var mysql = require("./mysql");
+var mongo = require('./mongo');
 var ejs = require("ejs");
 var log = require('./log');
-
-function getCartPage(req,res)
-{
-	ejs.renderFile('./views/cart.ejs',function(err, result) {
-		if (!err) {
-			res.end(result);
-		}
-		else {
-			log.warn('Unable to load cart page');
-			res.end('An error occurred');
-			console.log(err);
-		}
-	});
-}
 
 function getCart(req,res)
 {
@@ -94,7 +80,6 @@ function checkout(req,res)
 	res.send(JSON.stringify({"statusCode":200,"data":null}));
 }
 
-exports.getCartPage = getCartPage;
 exports.getCart = getCart;
 exports.removeFromCart = removeFromCart;
 exports.checkout = checkout;

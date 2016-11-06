@@ -1,6 +1,6 @@
 var ejs = require("ejs");
-var mysql = require("./mysql");
-var log = require('./log'); 
+var mongo = require('./mongo');
+var log = require('./log');
 
 function Login(req,res)
 {

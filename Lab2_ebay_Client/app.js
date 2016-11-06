@@ -3,7 +3,6 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
-  , session = require('client-sessions')
   , login = require('./routes/login')
   , header = require('./routes/header')
   , home = require('./routes/home')
@@ -15,16 +14,16 @@ require('./routes/passport')(passport);
 
 var app = express();
 
-var mongoSessionConnectURL = "mongodb://localhost:27017/login";
+var mongoSessionConnectURL = "mongodb://localhost:27017/ebay";
 var expressSession = require("express-session");
-var mongoStore = require("connect-mongo")(expressSession);
+var mongoStore = require("connect-mongo/es5")(expressSessions);
 
 
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.use(express.favicon());
+app.use(express.favicon(E));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -79,10 +78,33 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
 app.get('/', routes.index);
 
-app.post('/Login',login.Login);
+app.post('/Login', function(req, res, next) {
+	  passport.authenticate('login', function(err, user, info) {
+	    if(err) {
+	    	response = {"statusCode":403,"data":null};
+			res.send(JSON.stringify(response));
+	    }
+
+	    if(!user) {
+	      return res.redirect('/');
+	    }
+
+	    req.logIn(user, {session:false}, function(err) {
+	      if(err) {
+	    	  response = {"statusCode":401,"data":null};
+				res.send(JSON.stringify(response));
+	      }
+
+	      req.session.login = user;
+	      response = {"statusCode":200,"data":results[0]};
+		res.send(JSON.stringify(response));
+	    })
+	  })(req, res, next);
+	});
+
+//app.post('/Login',login.Login);
 app.post('/Register',login.register);
 app.post('/getLoginSessionValues',header.getLoginSessionValues);
 app.post('/logout',header.logout);
