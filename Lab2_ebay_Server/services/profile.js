@@ -1,31 +1,32 @@
 var mongo = require('./mongo');
 var ejs = require("ejs");
 var log = require('./log');
+var mongoURL = "mongodb://localhost:27017/ebay";
 
-function getPurchaseHistory(req,res)
+function getPurchaseHistory(msg,callback)
 {
-	var response;
-	if(req.session.login)
-	{
-		var query = "select u.first_name,i.name,i.description,i.price,b.quantity,b.purchase_date from user u,item i,buy_sell b where b.buyer_id = "+req.session.login.id+" and u.id = i.user_id and i.id = b.item_id";
-		mysql.fetchData(function(err,results){
-			if(err)
-			{
-				response = {"statusCode":403,"data":null};
-				res.send(JSON.stringify(response));
+	var res;
+	
+	mongo.connect(mongoURL, function(){
+		console.log('Connected to mongo at: ' + mongoURL);
+		var coll = mongo.collection('item');
+
+		coll.find({"buyer.handle_buyer":msg.user}, function(err, user){
+			if (user) {
+				console.log('in if');
+				// This way subsequent requests will know the user is logged in.
+				res.code = "200";
+				res.value = user;
+				console.log(res);
+
+			} else {
+				console.log("returned false");
+				res.code = "401";
+				res.value = "Failed Login";
 			}
-			else
-			{
-				response = {"statusCode":200,"data":results};
-				res.send(JSON.stringify(response));
-			}
-		},query);
-	}
-	else
-	{
-		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
-	}
+			callback(null, res);
+		});
+	});
 }
 
 function getProfilePage(req,res)

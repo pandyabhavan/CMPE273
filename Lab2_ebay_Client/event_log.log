@@ -145,3 +145,8 @@
 2016-11-03T01:06:30.878Z - info: Guest user clicked at sign_in in file login
 2016-11-03T01:06:32.505Z - info: User with id pb clicked at search_form in file header
 2016-11-03T01:06:35.442Z - info: User with id pb clicked at profile_link in file header
+2016-11-06T22:45:23.922Z - info: Guest user clicked at profile_link in file header
+2016-11-06T22:45:28.113Z - info: Guest user clicked at sign_in in file login
+2016-11-06T22:47:12.043Z - info: Guest user clicked at sign_in in file login
+2016-11-06T22:47:54.072Z - info: Guest user clicked at sign_in in file login
+2016-11-06T22:48:01.332Z - info: User with id a.a clicked at profile_link in file header

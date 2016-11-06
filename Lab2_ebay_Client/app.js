@@ -8,22 +8,24 @@ var express = require('express')
   , home = require('./routes/home')
   , product = require('./routes/product')
   , cart = require('./routes/cart')
+  , passport = require('passport')
   , checkout = require('./routes/checkout')
-  , profile = require('./routes/profile');
+  , profile = require('./routes/profile')
+  , mongo = require('mongodb');
 require('./routes/passport')(passport);
 
 var app = express();
 
-var mongoSessionConnectURL = "mongodb://localhost:27017/ebay";
+var mongoSessionURL = "mongodb://localhost:27017/ebay";
 var expressSession = require("express-session");
-var mongoStore = require("connect-mongo/es5")(expressSessions);
+var mongoStore = require("connect-mongo/es5")(expressSession);
 
 
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.use(express.favicon(E));
+app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -34,7 +36,7 @@ app.use(expressSession({
 	duration: 30 * 60 * 1000,    
 	activeDuration: 5 * 60 * 1000,
 	store: new mongoStore({
-		url: mongoSessionConnectURL
+		url: mongoSessionURL
 	})
 }));
 
@@ -98,7 +100,7 @@ app.post('/Login', function(req, res, next) {
 	      }
 
 	      req.session.login = user;
-	      response = {"statusCode":200,"data":results[0]};
+	      response = {"statusCode":200,"data":user};
 		res.send(JSON.stringify(response));
 	    })
 	  })(req, res, next);

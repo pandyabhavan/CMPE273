@@ -1,35 +1,34 @@
 var mongo = require('./mongo');
 var ejs = require("ejs");
 var log = require('./log');
+var mq_client = require('../rpc/client');
 
 function getCart(req,res)
 {
 	var response;
+	var response_data = {};
 	if(req.session.login)
 	{
-		var query = "select c.quantity,i.name,i.description,u.first_name,i.price,i.id from cart c,item i,user u where u.id = i.user_id and c.item_id = i.id and u.id = "+req.session.login.id+" and ((i.view=1 and i.bid=0) or (i.view =0 and bid=1))";
-		mysql.fetchData(function(err,results){
-			if(err)
-			{
-				console.log('in error');
+		var msg_payload = {"user":req.session.login.handle,"action":"getCart"};
+		mq_client.make_request('cart_queue',msg_payload, function(err,results){
+
+			console.log(results);
+			if(err){
 				response = {"statusCode":401,"data":null};
 				res.send(JSON.stringify(response));
 			}
-			else
+			else 
 			{
-				if(results.length > 0)
-				{
-					console.log(results);
+				if(results.code == 200){
 					response = {"statusCode":200,"data":results};
 					res.send(JSON.stringify(response));
 				}
-				else
-				{
+				else {    
 					response = {"statusCode":401,"data":null};
 					res.send(JSON.stringify(response));
 				}
-			}
-		},query);
+			}  
+		});
 	}
 	else
 	{
@@ -45,21 +44,26 @@ function removeFromCart(req,res)
 	
 	if(req.session.login)
 	{
-		var query = "delete from cart where item_id="+item_id+" and user_id="+req.session.login.id+"";
-		mysql.fetchData(function(err,results){
-			if(err)
-			{
-				console.log('in error');
+		var msg_payload = {"user":req.session.login.handle,"item_id":item_id,"action":"removeFromCart"};
+		mq_client.make_request('cart_queue',msg_payload, function(err,results){
+
+			console.log(results);
+			if(err){
 				response = {"statusCode":401,"data":null};
 				res.send(JSON.stringify(response));
 			}
-			else
+			else 
 			{
-				console.log(results);
-				response = {"statusCode":200,"data":results};
-				res.send(JSON.stringify(response));
-			}
-		},query);
+				if(results.code == 200){
+					response = {"statusCode":200,"data":results};
+					res.send(JSON.stringify(response));
+				}
+				else {    
+					response = {"statusCode":401,"data":null};
+					res.send(JSON.stringify(response));
+				}
+			}  
+		});
 	}
 	else
 	{

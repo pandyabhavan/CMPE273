@@ -6,14 +6,15 @@ var LocalStrategy = require("passport-local").Strategy;
 var mongo = require('./mongo');
 var loginDatabase = "mongodb://localhost:27017/ebay";
 
+
 module.exports = function(passport) {
     passport.use('login', new LocalStrategy(function(username, password, done) {
 
         mongo.connect(loginDatabase, function(connection) {
 
-            var loginCollection = mongo.connectToCollection('login', connection);
+            var loginCollection = mongo.connectToCollection('user', connection);
             var whereParams = {
-                "username":username,
+                "handle":username,
                 "password":password
             }
 
@@ -31,7 +32,9 @@ module.exports = function(passport) {
                     if(user.password != password) {
                         done(null, false);
                     }
-                    
+                    loginCollection.updateOne({"handle":user.handle},{$set:{"last_login":new Date()}},function(error,done){
+                    	
+                    });
                     connection.close();
                     console.log(user.username);
                     done(null, user);

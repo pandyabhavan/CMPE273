@@ -1,85 +1,62 @@
-var mongo = require('./mongo');
-var ejs = require("ejs");
-var log = require('./log');
+var mongo = msguire('./mongo');
+var ejs = msguire("ejs");
+var log = msguire('./log');
 
-function getCart(req,res)
+function getCart(msg,callback)
 {
-	var response;
-	if(req.session.login)
-	{
-		var query = "select c.quantity,i.name,i.description,u.first_name,i.price,i.id from cart c,item i,user u where u.id = i.user_id and c.item_id = i.id and u.id = "+req.session.login.id+" and ((i.view=1 and i.bid=0) or (i.view =0 and bid=1))";
-		mysql.fetchData(function(err,results){
-			if(err)
-			{
-				console.log('in error');
-				response = {"statusCode":401,"data":null};
-				res.send(JSON.stringify(response));
-			}
-			else
-			{
-				if(results.length > 0)
-				{
-					console.log(results);
-					response = {"statusCode":200,"data":results};
-					res.send(JSON.stringify(response));
-				}
-				else
-				{
-					response = {"statusCode":401,"data":null};
-					res.send(JSON.stringify(response));
-				}
-			}
-		},query);
-	}
-	else
-	{
-		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
-	}
-}
-
-function removeFromCart(req,res)
-{
-	var item_id = req.param('item_id');
-	var response;
+	var res = {};
 	
-	if(req.session.login)
-	{
-		var query = "delete from cart where item_id="+item_id+" and user_id="+req.session.login.id+"";
-		mysql.fetchData(function(err,results){
-			if(err)
+	mongo.connect(mongoURL, function(){
+		console.log('Connected to mongo at: ' + mongoURL);
+		var coll = mongo.collection('user');
+
+		coll.findOne({"handle": msg.user},{"_id":0,"first_name":1,"cart.quantity":1,"cart.item_id":1}, function(err, user){
+			if (user) 
 			{
-				console.log('in error');
-				response = {"statusCode":401,"data":null};
-				res.send(JSON.stringify(response));
+				console.log('in if');
+				var col = mongo.collection('item');
+				col.findOne({"item_id":user.cart.item_id},{"name":1,"description":1,"price":1,"item_id":1},function(error,result)
+				{
+					if(result)
+					{
+						for (var attrname in result) 
+						{ 
+							user[attrname] = result.attrname; 
+						}
+						res.code = "200",
+						res.value = user;
+					}	
+					else
+					{
+						console.log("returned false");
+						res.code = "401";
+					}	
+				});
+			} else {
+				console.log("returned false");
+				res.code = "401";
 			}
-			else
-			{
-				console.log(results);
-				response = {"statusCode":200,"data":results};
-				res.send(JSON.stringify(response));
-			}
-		},query);
-	}
-	else
-	{
-		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
-	}
+			callback(null, res);
+		});
+	});
 }
 
-function checkout(req,res)
+function removeFromCart(msg,callback)
 {
-	console.log('in checkout method');
-	var quantity = req.param('quantity');
-	
-	var total = req.param('total');
-	req.session.checkout = {"quantity":quantity,"total":total};
-	for(var i=0;i<quantity.length;i++)
-		console.log("Checkout session "+quantity[i]);
-	res.send(JSON.stringify({"statusCode":200,"data":null}));
+	var col = mongo.collection('user');
+	col.update({"user":msg.user},{$pull:{"cart":{"item_id":msg.item_id}}},function(error,result)
+	{
+		if(result)
+		{
+			res.code = "200",
+			res.value = user;
+		}	
+		else
+		{
+			console.log("returned false");
+			res.code = "401";
+		}	
+	});
 }
-
 exports.getCart = getCart;
 exports.removeFromCart = removeFromCart;
-exports.checkout = checkout;
