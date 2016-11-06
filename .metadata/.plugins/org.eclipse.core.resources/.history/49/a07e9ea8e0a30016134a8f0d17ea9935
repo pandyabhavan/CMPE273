@@ -1,0 +1,34 @@
+var mongo = require("./mongo");
+var mongoURL = "mongodb://localhost:27017/login";
+
+exports.register = function(msg,callback){
+	// These two variables come from the form on
+	// the views/login.hbs page
+	var email = msg.email;
+	var password = msg.password;
+	var first_name = msg.first_name;
+	var last_name = msg.last_name;
+	var handle = msg.handle;
+	var res = {};
+	console.log(password +" is the object");
+	
+
+	mongo.connect(mongoURL, function(){
+		console.log('Connected to mongo at: ' + mongoURL);
+		var coll = mongo.collection('login');
+
+		coll.insert({"email":email,"password":password,"first_name":first_name,"last_name":last_name,"handle":handle}, function(err, user){
+			if (user) {
+				// This way subsequent requests will know the user is logged in.
+				res.code = "200";
+				res.value = "Succes Login";
+	
+			} else {
+				console.log("returned false");
+				res.code = "401";
+				res.value = "Failed Login";
+			}
+			callback(null, res);
+		});
+	});
+};
