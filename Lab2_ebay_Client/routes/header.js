@@ -27,7 +27,7 @@ function search(req,res)
 	var search_txt = req.param('search_txt');
 	var search_category = req.param('search_category');
 	var response,query;
-	
+	console.log('search');
 	var msg_payload = {"search_txt":search_txt,"search_category":search_category,"action":"search"};
 	mq_client.make_request('header_queue',msg_payload, function(err,results){
 
@@ -79,8 +79,7 @@ function getCartNumber(req,res)
 			else 
 			{
 				if(results.code == 200){
-					response = {"statusCode":200,"data":results};
-					req.session.search = results;
+					response = {"statusCode":200,"data":results.value};
 					console.log(response);
 					res.send(JSON.stringify(response));
 				}

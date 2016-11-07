@@ -150,3 +150,40 @@
 2016-11-06T22:47:12.043Z - info: Guest user clicked at sign_in in file login
 2016-11-06T22:47:54.072Z - info: Guest user clicked at sign_in in file login
 2016-11-06T22:48:01.332Z - info: User with id a.a clicked at profile_link in file header
+2016-11-07T01:25:31.986Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:25:32.735Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:25:33.648Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:25:34.421Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:25:35.370Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:25:37.173Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:27:09.867Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:27:31.039Z - info: User with id a.a clicked at cart in file header
+2016-11-07T01:29:26.265Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:29:32.369Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:29:33.089Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:29:34.124Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:30:39.013Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:30:42.398Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:30:43.019Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:30:43.696Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:37:44.787Z - info: Guest user clicked at profile_link in file header
+2016-11-07T01:37:47.879Z - info: Guest user clicked at sign_in in file login
+2016-11-07T01:37:50.841Z - info: Guest user clicked at sign_in in file login
+2016-11-07T01:37:59.899Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:38:01.885Z - info: User with id a.a clicked at header-table in file home
+2016-11-07T01:38:02.868Z - info: User with id a.a clicked at header-table in file home
+2016-11-07T01:39:46.644Z - info: User with id a.a clicked at header-table in file home
+2016-11-07T01:51:31.377Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:54:06.747Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:54:08.851Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:54:09.420Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:54:10.146Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T01:55:32.393Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T02:07:33.455Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T02:07:35.557Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T02:07:36.154Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T02:07:36.808Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T02:09:39.266Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T02:10:13.174Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T02:10:47.329Z - info: User with id a.a clicked at search_form in file header
+2016-11-07T02:11:03.303Z - info: User with id a.a clicked at search_form in file header

@@ -1,0 +1,11 @@
+var mongo = require('./mongo');
+
+function getTwoItems(req,res)
+{
+	var res;
+	res.code = "200";
+	res.value=[{"id":1,"name":"Laptop","quantity":30,"first_name":"Bhavan"},{"id":2,"name":"Laptop","quantity":30,"first_name":"Bhavan"}]
+	}
+
+
+exports.getTwoItems = getTwoItems;

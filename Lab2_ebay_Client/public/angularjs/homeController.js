@@ -33,7 +33,7 @@ ebay.controller('homeController',function($scope, $http,$window) {
 		else if(data.statusCode == 200)
 		{
 			$scope.last_login1 = false;
-			$scope.last_login = data.data[0].last_login;
+			$scope.last_login = data.data;
 		}
 	}).error(function (error) {
 		$window.alert('Something went wrong.Please try again.');

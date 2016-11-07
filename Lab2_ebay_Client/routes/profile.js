@@ -115,7 +115,7 @@ function removeItem(req,res)
 	
 	if(req.session.login)
 	{
-		var msg_payload = {"user":req.session.login.handle,"item_name":item_name,"action":"getSellingHistory"};
+		var msg_payload = {"user":req.session.login.handle,"item_name":item_name,"action":"removeItem"};
 
 		mq_client.make_request('profile_queue',msg_payload, function(err,results){
 

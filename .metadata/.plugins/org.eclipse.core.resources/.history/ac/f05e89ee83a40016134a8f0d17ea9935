@@ -1,0 +1,11 @@
+var mongo = require('./mongo');
+
+function getTwoItems(req,res)
+{
+	var res;
+	res.
+	
+}
+
+
+exports.getTwoItems = getTwoItems;

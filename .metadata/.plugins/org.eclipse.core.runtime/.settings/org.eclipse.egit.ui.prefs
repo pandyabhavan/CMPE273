@@ -1,2 +1,2 @@
-commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>Converted code to ng route</message>\r\n<message>Installed NPM packages</message>\r\n</messages>
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>RabbitMQ Code</message>\r\n<message>PassportJS Authentication and server code for RabbitMQ</message>\r\n<message>Added passportjs and created server.js and services in server coding.</message>\r\n<message>RabbitMQ</message>\r\n<message>Updated for RabbitMQ</message>\r\n<message>Converted code to ng route</message>\r\n<message>Installed NPM packages</message>\r\n</messages>
 eclipse.preferences.version=1

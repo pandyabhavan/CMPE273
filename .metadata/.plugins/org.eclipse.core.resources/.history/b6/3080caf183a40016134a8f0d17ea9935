@@ -1,0 +1,12 @@
+var mongo = require('./mongo');
+
+function getTwoItems(req,res)
+{
+	var res;
+	res.code = "200";
+	res.value=
+	
+}
+
+
+exports.getTwoItems = getTwoItems;

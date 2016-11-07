@@ -1,6 +1,5 @@
-var mongo = msguire('./mongo');
-var ejs = msguire("ejs");
-var log = msguire('./log');
+var mongo = require('./mongo');
+var mongoURL = "mongodb://localhost:27017/ebay";
 
 function getCart(msg,callback)
 {
@@ -43,19 +42,24 @@ function getCart(msg,callback)
 
 function removeFromCart(msg,callback)
 {
-	var col = mongo.collection('user');
-	col.update({"user":msg.user},{$pull:{"cart":{"item_id":msg.item_id}}},function(error,result)
-	{
-		if(result)
-		{
-			res.code = "200",
-			res.value = user;
-		}	
-		else
-		{
-			console.log("returned false");
-			res.code = "401";
-		}	
+	var res = {};
+	mongo.connect(mongoURL, function(){
+		console.log('Connected to mongo at: ' + mongoURL);
+		var col = mongo.collection('user');
+		col.update({"user":msg.user},{$pull:{"cart":{"item_id":msg.item_id}}},function(error,result)
+				{
+			if(result)
+			{
+				res.code = "200",
+				res.value = result;
+			}	
+			else
+			{
+				console.log("returned false");
+				res.code = "401";
+			}	
+			callback(null, res);
+			});
 	});
 }
 exports.getCart = getCart;

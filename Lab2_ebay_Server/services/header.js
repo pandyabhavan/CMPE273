@@ -1,127 +1,62 @@
 var mongo = require('./mongo');
-var ejs = require("ejs");
-var log = require('./log');
+var mongoURL = "mongodb://localhost:27017/ebay";
 
-function getLoginSessionValues(req,res)
+function search(msg,callback)
 {
-	var json_response;
-	if(req.session.login)
-		json_response = {"statusCode":200,"data":req.session.login};
-	else
-		json_response = {"statusCode":401,"data":null};
-
-	res.send(JSON.stringify(json_response));
-}
-
-function logout(req,res)
-{
-	var response;
-	req.session.destroy();
-	response = {"statusCode":200,"data":null};
-	res.send(JSON.stringify(response));
-}
-
-function search(req,res)
-{
-	var search_txt = req.param('search_txt');
-	var search_category = req.param('search_category');
-	var response,query;
-
+	var search_txt = msg.search_txt;
+	var search_category = msg.search_category;
+	var res={},query;
 	if(search_category != "All Categories")
-		query = "select id,name,description,price from item where name like '%"+search_txt+"%' and category_id = (select id from category where name = '"+search_category+"') and quantity_remaining >0 and view=1 order by id desc";
+		query = {"name":"/"+search_txt+"/"};
 	else
-		query = "select id,name,description,price from item where name like '%"+search_txt+"%' and quantity_remaining >0 and view=1 order by id desc";
-
-	mysql.fetchData(function(err,results){
-		if(err)
-		{
-			console.log('in error');
-			response = {"statusCode":401,"data":null};
-			res.send(JSON.stringify(response));
-		}
-		else
-		{
-			if(results.length > 0)
+		query = {"name":"/"+search_txt+"/","category":search_category};
+	console.log("query"+query.name);
+	mongo.connect(mongoURL, function(){
+		console.log('Connected to mongo at: ' + mongoURL);
+		var col = mongo.collection('item');
+		col.find(query,function(error,result)
+				{
+			if(result)
 			{
-				console.log(results);
-				response = {"statusCode":200,"data":results};
-				req.session.search = results;
-				console.log(response);
-				res.send(JSON.stringify(response));
-			}
+				console.log(result);
+				res.code = "200";
+				res.value = result;
+			}	
 			else
 			{
-				response = {"statusCode":403,"data":null};
-				res.send(JSON.stringify(response));
-			}
-		}
-	},query);
-}
-
-function getSearchPage(req,res)
-{
-	ejs.renderFile('./views/search.ejs',function(err, result) {
-		if (!err) {
-			res.end(result);
-		}
-		else {
-			res.end('An error occurred');
-			console.log(err);
-		}
+				console.log("returned false");
+				res.code = "401";
+			}	
+			callback(null, res);
+				});
 	});
 }
 
-function getSearchSession(req,res)
+function getCartNumber(msg,callback)
 {
-	var json_response;
-	if(req.session.search)
-		json_response = {"statusCode":200,"data":req.session.search};
-	else
-		json_response = {"statusCode":401,"data":null};
+	var res={};
 
-	res.send(JSON.stringify(json_response));
-}
+	mongo.connect(mongoURL, function(){
+		console.log('Connected to mongo at: ' + mongoURL);
 
-function getCartNumber(req,res)
-{
-	var response;
-	if(req.session.login)
-	{
-		query = "select count(user_id) as count from cart where user_id= "+req.session.login.id+"";
-
-		mysql.fetchData(function(err,results){
-			if(err)
+		var col = mongo.collection('user');
+		col.find({"handle":msg.user},function(error,result)
+		{
+			console.log("result "+result);
+			if(result != null)
 			{
-				console.log('in error');
-				response = {"statusCode":401,"data":0};
-				res.send(JSON.stringify(response));
-			}
+				res.code = "200";
+				res.value = "0";//result.cart.length;
+			}	
 			else
 			{
-				if(results.length > 0)
-				{
-					response = {"statusCode":200,"data":results[0].count};
-					console.log(response);
-					res.send(JSON.stringify(response));
-				}
-				else
-				{
-					response = {"statusCode":403,"data":0};
-					res.send(JSON.stringify(response));
-				}
-			}
-		},query);
-	}
-	else
-	{
-		response = {"statusCode":401,data:0};
-		res.send(JSON.stringify(response));
-	}
+				console.log("returned false");
+				res.code = "401";
+			}	
+			callback(null, res);
+		});
+	});
 }
 
-exports.getLoginSessionValues = getLoginSessionValues;
-exports.logout = logout;
 exports.search = search;
-exports.getSearchPage = getSearchPage;
-exports.getSearchSession = getSearchSession;
 exports.getCartNumber = getCartNumber;
