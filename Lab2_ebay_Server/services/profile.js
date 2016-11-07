@@ -4,8 +4,8 @@ var mongoURL = "mongodb://localhost:27017/ebay";
 function getPurchaseHistory(msg,callback)
 {
 	var res = {};
-	
-	mongo.connect(mongoURL, function(){
+	console.log("in purchase history");
+	mongo.connect(mongURL, function(){
 		console.log('Connected to mongo at: ' + mongoURL);
 		var coll = mongo.collection('item');
 
@@ -15,7 +15,6 @@ function getPurchaseHistory(msg,callback)
 				// This way subsequent requests will know the user is logged in.
 				res.code = "200";
 				res.value = user;
-				console.log(res);
 
 			} else {
 				console.log("returned false");
@@ -27,7 +26,7 @@ function getPurchaseHistory(msg,callback)
 	});
 }
 
-function getSellingHistory(req,res)
+function getSellingHistory(msg,callback)
 {
 	var res = {};
 	
@@ -52,7 +51,7 @@ function getSellingHistory(req,res)
 	});
 }
 
-function removeItem(req,res)
+function removeItem(msg,callback)
 {
 	var res = {};
 	
@@ -102,7 +101,7 @@ function getState(msg,callback)
 	});
 }
 
-function addItem(req,res)
+function addItem(msg,callback)
 {
 	var name = msg.name;
 	var description = msg.description;
@@ -134,7 +133,7 @@ function addItem(req,res)
 	});
 }
 
-function getProfile(req,res)
+function getProfile(msg,callback)
 {
 	var res = {};
 	
@@ -160,7 +159,7 @@ function getProfile(req,res)
 	});
 }
 
-function updateProfile(req,res)
+function updateProfile(msg,callback)
 {
 	var profile = msg.profile;
 	var res = {};

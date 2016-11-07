@@ -15,17 +15,17 @@ function getCart(req,res)
 			console.log(results);
 			if(err){
 				response = {"statusCode":401,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else 
 			{
 				if(results.code == 200){
 					response = {"statusCode":200,"data":results};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 				else {    
 					response = {"statusCode":401,"data":null};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 			}  
 		});
@@ -33,7 +33,7 @@ function getCart(req,res)
 	else
 	{
 		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}
 }
 
@@ -50,17 +50,17 @@ function removeFromCart(req,res)
 			console.log(results);
 			if(err){
 				response = {"statusCode":401,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else 
 			{
 				if(results.code == 200){
 					response = {"statusCode":200,"data":results};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 				else {    
 					response = {"statusCode":401,"data":null};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 			}  
 		});
@@ -68,7 +68,7 @@ function removeFromCart(req,res)
 	else
 	{
 		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}
 }
 
@@ -81,7 +81,7 @@ function checkout(req,res)
 	req.session.checkout = {"quantity":quantity,"total":total};
 	for(var i=0;i<quantity.length;i++)
 		console.log("Checkout session "+quantity[i]);
-	res.send(JSON.stringify({"statusCode":200,"data":null}));
+	res.send(({"statusCode":200,"data":null}));
 }
 
 exports.getCart = getCart;

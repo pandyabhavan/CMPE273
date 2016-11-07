@@ -12,8 +12,6 @@ var profile = require('./services/profile');
 var cnn = amqp.createConnection({host:'127.0.0.1'});
 
 cnn.on('ready', function(){
-	console.log("listening on queue");
-
 	cnn.queue('cart_queue', function(q){
 		q.subscribe(function(message, headers, deliveryInfo, m){
 			util.log(util.format( deliveryInfo.routingKey, message));

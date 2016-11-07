@@ -11,7 +11,7 @@ function getLoginSessionValues(req,res)
 	else
 		json_response = {"statusCode":401,"data":null};
 
-	res.send(JSON.stringify(json_response));
+	res.send((json_response));
 }
 
 function logout(req,res)
@@ -19,7 +19,7 @@ function logout(req,res)
 	var response;
 	req.session.destroy();
 	response = {"statusCode":200,"data":null};
-	res.send(JSON.stringify(response));
+	res.send((response));
 }
 
 function search(req,res)
@@ -34,7 +34,7 @@ function search(req,res)
 		console.log(results);
 		if(err){
 			response = {"statusCode":403,"data":null};
-			res.send(JSON.stringify(response));
+			res.send((response));
 		}
 		else 
 		{
@@ -42,11 +42,11 @@ function search(req,res)
 				response = {"statusCode":200,"data":results};
 				req.session.search = results;
 				console.log(response);
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else {    
 				response = {"statusCode":401,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 		}  
 	});
@@ -60,7 +60,7 @@ function getSearchSession(req,res)
 	else
 		json_response = {"statusCode":401,"data":null};
 
-	res.send(JSON.stringify(json_response));
+	res.send((json_response));
 }
 
 function getCartNumber(req,res)
@@ -74,18 +74,18 @@ function getCartNumber(req,res)
 			console.log(results);
 			if(err){
 				response = {"statusCode":401,"data":0};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else 
 			{
 				if(results.code == 200){
 					response = {"statusCode":200,"data":results.value};
 					console.log(response);
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 				else {    
 					response = {"statusCode":403,"data":0};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 			}  
 		});
@@ -93,7 +93,7 @@ function getCartNumber(req,res)
 	else
 	{
 		response = {"statusCode":401,data:0};
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}
 }
 

@@ -10,12 +10,12 @@ function getCheckoutSession(req,res)
 	{
 		response = {"statusCode":200,"data":req.session.checkout.total};
 		console.log(req.session.checkout);
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}
 	else
 	{
 		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}
 }
 
@@ -33,17 +33,17 @@ function productSold(req,res)
 			console.log(results);
 			if(err){
 				response = {"statusCode":401,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else 
 			{
 				if(results.code == 200){
 					response = {"statusCode":200,"data":results};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 				else {    
 					response = {"statusCode":401,"data":null};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 			}  
 		});
@@ -51,7 +51,7 @@ function productSold(req,res)
 	else
 	{
 		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}
 }
 

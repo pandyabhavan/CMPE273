@@ -16,18 +16,18 @@ function getPurchaseHistory(req,res)
 			console.log(results);
 			if(err){
 				response = {"statusCode":403,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else 
 			{
 				if(results.code == 200){
 					results.first_name = req.session.login.first_name;
 					response = {"statusCode":200,"data":results};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 				else {    
 					response = {"statusCode":401,"data":null};
-					res.send(JSON.stringify(response));
+					res.send(response);
 				}
 			}  
 		});
@@ -35,7 +35,7 @@ function getPurchaseHistory(req,res)
 	else
 	{
 		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}	
 }
 
@@ -85,18 +85,18 @@ function getSellingHistory(req,res)
 			console.log(results);
 			if(err){
 				response = {"statusCode":403,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else 
 			{
 				if(results.code == 200){
 					results.first_name = req.session.login.first_name;
 					response = {"statusCode":200,"data":results};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 				else {    
 					response = {"statusCode":401,"data":null};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 			}  
 		});
@@ -104,7 +104,7 @@ function getSellingHistory(req,res)
 	else
 	{
 		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}
 }
 
@@ -122,18 +122,18 @@ function removeItem(req,res)
 			console.log(results);
 			if(err){
 				response = {"statusCode":401,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else 
 			{
 				if(results.code == 200){
 					results.first_name = req.session.login.first_name;
 					response = {"statusCode":200,"data":results};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 				else {    
 					response = {"statusCode":401,"data":null};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 			}  
 		});
@@ -141,7 +141,7 @@ function removeItem(req,res)
 	else
 	{
 		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}
 }
 
@@ -164,7 +164,7 @@ function addItem(req,res)
 			console.log(results);
 			if(err){
 				response = {"statusCode":401,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else 
 			{
@@ -175,24 +175,24 @@ function addItem(req,res)
 						console.log(results);
 						if(err){
 							response = {"statusCode":401,"data":null};
-							res.send(JSON.stringify(response));
+							res.send((response));
 						}
 						else 
 						{
 							if(results.code == 200){
 								response = {"statusCode":200,"data":results};
-								res.send(JSON.stringify(response));
+								res.send((response));
 							}
 							else {    
 								response = {"statusCode":401,"data":null};
-								res.send(JSON.stringify(response));
+								res.send((response));
 							}
 						}  
 					});
 				}
 				else {    
 					response = {"statusCode":401,"data":null};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 			}  
 		});
@@ -200,7 +200,7 @@ function addItem(req,res)
 	else
 	{
 		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}
 }
 
@@ -215,17 +215,17 @@ function getProfile(req,res)
 			console.log(results);
 			if(err){
 				response = {"statusCode":403,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else 
 			{
 				if(results.code == 200){
 					response = {"statusCode":200,"data":results};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 				else {    
 					response = {"statusCode":401,"data":null};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 			}  
 		});
@@ -233,7 +233,7 @@ function getProfile(req,res)
 	else
 	{
 		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}
 }
 
@@ -249,17 +249,17 @@ function updateProfile(req,res)
 			console.log(results);
 			if(err){
 				response = {"statusCode":403,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else 
 			{
 				if(results.code == 200){
 					response = {"statusCode":200,"data":results};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 				else {    
 					response = {"statusCode":401,"data":null};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 			}  
 		});
@@ -267,7 +267,7 @@ function updateProfile(req,res)
 	else
 	{
 		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}	
 }
 

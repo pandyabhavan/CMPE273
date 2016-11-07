@@ -13,7 +13,7 @@ function getProductDetails(req,res)
 		console.log(results);
 		if(err){
 			response = {"statusCode":401,"data":null};
-			res.send(JSON.stringify(response));
+			res.send((response));
 		}
 		else 
 		{
@@ -21,11 +21,11 @@ function getProductDetails(req,res)
 				response = {"statusCode":200,"data":results};
 				console.log(response);
 				req.session.product = results;
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else {    
 				response = {"statusCode":403,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 		}  
 	});
@@ -39,7 +39,7 @@ function getProductSession(req,res)
 	else
 		json_response = {"statusCode":401,"data":null};
 
-	res.send(JSON.stringify(json_response));
+	res.send((json_response));
 }
 
 function add_to_cart(req,res)
@@ -51,7 +51,7 @@ function add_to_cart(req,res)
 	if(!req.session.login)
 	{
 		response = {"statusCode":401,data:null};
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}
 	else
 	{
@@ -60,18 +60,18 @@ function add_to_cart(req,res)
 			console.log(results);
 			if(err){
 				response = {"statusCode":401,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else 
 			{
 				if(results.code == 200){
 					response = {"statusCode":200,"data":results};
 					console.log(response);
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 				else {    
 					response = {"statusCode":401,"data":null};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 			}  
 		});
@@ -89,7 +89,7 @@ function placebid(req,res)
 			console.log(results);
 			if(err){
 				response = {"statusCode":403,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else 
 			{
@@ -97,18 +97,18 @@ function placebid(req,res)
 					bidding_log.info("Bid placed for item id "+item_id+" for "+req.param('bid')+" by user "+req.session.login.handle+"");
 					response = {"statusCode":200,"data":results};
 					console.log(response);
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 				else if(results.code == 405)
 				{
 					bidding_log.info("Item id "+item_id +" sold to "+req.session.login.handle);
 					response = {"statusCode":405,"data":results};
 					console.log(response);
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 				else {    
 					response = {"statusCode":401,"data":null};
-					res.send(JSON.stringify(response));
+					res.send((response));
 				}
 			}  
 		});
@@ -116,7 +116,7 @@ function placebid(req,res)
 	else
 	{
 		response = {"statusCode":401,"data":null};
-		res.send(JSON.stringify(response));
+		res.send((response));
 	}	
 }
 

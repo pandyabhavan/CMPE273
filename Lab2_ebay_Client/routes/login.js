@@ -17,7 +17,7 @@ function Register(req,res)
 		console.log(results);
 		if(err){
 			response = {"statusCode":401,"data":null};
-			res.send(JSON.stringify(response));
+			res.send((response));
 		}
 		else 
 		{
@@ -25,11 +25,11 @@ function Register(req,res)
 				response = {"statusCode":200,"data":results};
 				req.session.login = {"first_name":first_name,"email":email,"handle":handle,"last_login":new Date()};
 				console.log(response);
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 			else {    
 				response = {"statusCode":403,"data":null};
-				res.send(JSON.stringify(response));
+				res.send((response));
 			}
 		}  
 	});
