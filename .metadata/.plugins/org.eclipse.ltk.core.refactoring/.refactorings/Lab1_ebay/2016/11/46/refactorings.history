@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 1 elements(s) to &apos;Lab2_ebay_Client&apos;&#x0D;&#x0A;- Original project: &apos;Lab1_ebay&apos;&#x0D;&#x0A;- Destination element: &apos;Lab2_ebay_Client&apos;&#x0D;&#x0A;- Original element: &apos;test&apos;" description="Copy folder" element1="test" files="0" flags="589830" folders="1" id="org.eclipse.wst.jsdt.ui.copy" log="test&#x09;true&#x09;false" policy="org.eclipse.wst.jsdt.ui.copyResources" stamp="1478485400365" target="/Lab2_ebay_Client" units="0" version="1.0"/>
+</session>
