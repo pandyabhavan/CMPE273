@@ -1,0 +1,52 @@
+package com.lab3.calculator;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+@WebService
+public class calculator 
+{
+	Return r = new Return();
+	@WebMethod
+	public Return calculate(int number1,int number2,String operation)
+	{
+		try
+		{
+			System.out.println(operation);
+			if(operation == "Addition")
+			{
+				r.setStatusCode(200);
+				r.setData(number1 + number2) ;
+			}
+			else if(operation == "Substraction")
+			{
+				r.setStatusCode(200);
+				r.setData(number1 - number2) ;
+			}
+			else if(operation == "Multiplication")
+			{
+				r.setStatusCode(200);
+				r.setData(number1 * number2) ;
+			}
+			else if(operation == "Division")
+			{
+				r.setStatusCode(200);
+				r.setData(number1 / number2) ;
+			}
+			else
+			{
+				r.setStatusCode(401);
+				r.setData(0) ;
+			}
+			System.out.println(r.getStatusCode()+r.getData());
+			return r;
+		}
+		catch (Exception e) 
+		{
+			System.out.println(e.getMessage());
+			r.setStatusCode(401);
+			r.setData(0) ;
+			return r;
+		}
+	}
+}

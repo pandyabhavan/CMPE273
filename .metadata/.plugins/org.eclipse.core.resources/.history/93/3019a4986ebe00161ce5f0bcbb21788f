@@ -1,0 +1,62 @@
+var soap = require('soap');
+var baseURL = "http://localhost:8080/LoginApp/services";
+
+function calculate(req,res)
+{
+	var option = {
+			ignoredNamespaces : true	
+		};
+	 var url = baseURL+"/Validate?wsdl";
+	  var args = {"number1": req.param('number1'),"number2": req.param('number2'),"operation":req.param("operation")};
+	  soap.createClient(url,option, function(err, client) {
+	      client.validate(args, function(err, result) {
+	    	  if(result.statusCode === 200){
+	    		  res.send({statusCode:200,data:result.data});
+	    	  }
+	    	  else{
+	    		  res.send({statusCode:401});
+	    	  }
+	      });
+	  });
+	var returnObj = {"statusCode":401,"data":0};
+	try
+	{
+		var number1 = req.param("number1");
+		var number2 = req.param("number2");
+		var operation = req.param("operation");
+		
+		if(operation === "Addition")
+		{
+			returnObj.statusCode = 200;
+			returnObj.data = number1 + number2;
+		}
+		else if(operation === "Substraction")
+		{
+			returnObj.statusCode = 200;
+			returnObj.data = number1 - number2;
+		}
+		else if(operation === "Multiplication")
+		{
+			returnObj.statusCode = 200;
+			returnObj.data = number1 * number2;
+		}
+		else if(operation === "Division")
+		{
+			returnObj.statusCode = 200;
+			returnObj.data = number1 / number2;
+		}
+		else
+		{
+			returnObj.statusCode = 401;
+			returnObj.data = 0;
+		}
+	}
+	catch (e) 
+	{
+		returnObj.statusCode = 401;
+		returnObj.data = e.message;
+	}
+	res.send(JSON.stringify(returnObj));
+}
+
+exports.calculate = calculate;

@@ -2,30 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="var res = {};" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="ng-repeat"/>
+			<item value="logout"/>
+			<item value="JSON.stringify"/>
+			<item value="(req,res)"/>
+			<item value="console.log"/>
 			<item value="var res;"/>
 			<item value="search"/>
 			<item value="&apos;)"/>
-			<item value="req.param(&apos;"/>
-			<item value="log"/>
-			<item value="results"/>
-			<item value="res"/>
-			<item value="req"/>
 		</list>
 		<list key="replacehistory">
-			<item value="var res = {};"/>
 			<item value=""/>
+			<item value="(msg,callback)"/>
+			<item value="var res = {};"/>
 			<item value="msg."/>
 			<item value="callback"/>
 			<item value="msg"/>
 			<item value="a"/>
 			<item value="search_category("/>
-			<item value="li"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

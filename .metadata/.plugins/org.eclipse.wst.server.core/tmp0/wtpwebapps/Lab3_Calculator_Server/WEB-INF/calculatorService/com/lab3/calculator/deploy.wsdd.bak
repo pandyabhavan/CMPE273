@@ -1,0 +1,31 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from calculatorService WSDL service -->
+
+  <service name="calculator" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://calculator.lab3.com"/>
+      <parameter name="wsdlServiceElement" value="calculatorService"/>
+      <parameter name="schemaQualified" value="http://calculator.lab3.com"/>
+      <parameter name="wsdlServicePort" value="calculator"/>
+      <parameter name="className" value="com.lab3.calculator.CalculatorSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="calculator"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="calculate" qname="operNS:calculate" xmlns:operNS="http://calculator.lab3.com" returnQName="retNS:calculateReturn" xmlns:retNS="http://calculator.lab3.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:number1" xmlns:pns="http://calculator.lab3.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:number2" xmlns:pns="http://calculator.lab3.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:operation" xmlns:pns="http://calculator.lab3.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="calculate"/>
+
+  </service>
+</deployment>

@@ -1,0 +1,19 @@
+package com.lab3.calculator;
+
+public class Return extends org.apache.axis.client.Service 
+{
+	private int statusCode;
+	private int data;
+	public int getStatusCode() {
+		return statusCode;
+	}
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+	public int getData() {
+		return data;
+	}
+	public void setData(int data) {
+		this.data = data;
+	}
+}

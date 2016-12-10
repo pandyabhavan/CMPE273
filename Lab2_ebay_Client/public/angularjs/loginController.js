@@ -1,5 +1,4 @@
 ﻿ebay.controller('loginController', function ($scope, $http, $window) {
-
 	$scope.invalid_login = true;
 	$scope.login = function (username, password) {
 		$http({

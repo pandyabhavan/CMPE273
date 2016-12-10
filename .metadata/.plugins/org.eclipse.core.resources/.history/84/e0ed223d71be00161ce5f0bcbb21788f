@@ -1,0 +1,23 @@
+var soap = require('soap');
+var baseURL = "http://localhost:8080/Lab3_Calculator_Server/services";
+
+function calculate(req,res)
+{
+	var option = {
+			ignoredNamespaces : true	
+		};
+	 var url = baseURL+"/calculator?wsdl";
+	  var args = {"number1": req.param('number1'),"number2": req.param('number2'),"operation":req.param("operation")};
+	  soap.createClient(url,option, function(err, client) {
+	      client.calculate(args, function(err, result) {
+	    	  if(result.calculateReturn != 0){
+	    		  res.send({"statusCode":200,"data":result.data});
+	    	  }
+	    	  else{
+	    		  res.send({"statusCode":401,"data":0});
+	    	  }
+	      });
+	  });
+}
+
+exports.calculate = calculate;

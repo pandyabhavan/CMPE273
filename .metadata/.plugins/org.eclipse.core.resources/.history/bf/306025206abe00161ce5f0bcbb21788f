@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Lab3_Calculator_Server">
+        <property name="context-root" value="Lab3_Calculator_Server"/>
+        <property name="java-output-path" value="/Lab3_Calculator_Server/build/classes"/>
+    </wb-module>
+</project-modules>

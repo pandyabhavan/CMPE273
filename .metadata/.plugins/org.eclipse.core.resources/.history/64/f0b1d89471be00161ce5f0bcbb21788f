@@ -1,0 +1,13 @@
+package com.lab3.calculator;
+
+import javax.jws.WebService;
+
+@WebService
+public class calculator 
+{
+	public Return calculate(int number1,int number2,String operation)
+	{
+		
+		return number1+number2;
+	}
+}

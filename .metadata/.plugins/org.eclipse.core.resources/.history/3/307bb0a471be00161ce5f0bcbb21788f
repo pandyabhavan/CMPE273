@@ -1,0 +1,42 @@
+package com.lab3.calculator;
+
+import javax.jws.WebService;
+
+@WebService
+public class calculator 
+{
+	public Return calculate(int number1,int number2,String operation)
+	{
+		if(operation === "Addition")
+		{
+			returnObj.statusCode = 200;
+			returnObj.data = number1 + number2;
+		}
+		else if(operation === "Substraction")
+		{
+			returnObj.statusCode = 200;
+			returnObj.data = number1 - number2;
+		}
+		else if(operation === "Multiplication")
+		{
+			returnObj.statusCode = 200;
+			returnObj.data = number1 * number2;
+		}
+		else if(operation === "Division")
+		{
+			returnObj.statusCode = 200;
+			returnObj.data = number1 / number2;
+		}
+		else
+		{
+			returnObj.statusCode = 401;
+			returnObj.data = 0;
+		}
+	}
+	catch (e) 
+	{
+		returnObj.statusCode = 401;
+		returnObj.data = e.message;
+	}
+	}
+}

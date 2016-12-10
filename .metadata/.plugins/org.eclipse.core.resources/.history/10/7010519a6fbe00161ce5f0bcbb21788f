@@ -1,0 +1,9 @@
+package com.lab3.calculator;
+
+import javax.jws.WebService;
+
+@WebService
+public class calculator 
+{
+
+}

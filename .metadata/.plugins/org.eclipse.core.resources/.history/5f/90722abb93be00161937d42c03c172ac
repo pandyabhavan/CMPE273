@@ -1,0 +1,46 @@
+package com.lab3.calculator;
+
+import java.io.StringWriter;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+import javax.xml.bind.*;
+
+@WebService
+public class calculator 
+{
+	StringWriter sw = new StringWriter();
+	Return r = new Return();
+	@WebMethod
+	public int calculate(int number1,int number2,String operation)
+	{
+		try
+		{
+			System.out.println(operation);
+			if(operation == "Addition")
+			{
+				return number1 + number2 ;
+			}
+			else if(operation == "Substraction")
+			{
+				return number1 - number2 ;
+			}
+			else if(operation == "Multiplication")
+			{
+				return number1 * number2 ;
+			}
+			else if(operation == "Division")
+			{
+				return number1 / number2 ;
+			}
+			else
+			{
+				return -1;
+			}
+		}
+		catch (Exception e) 
+		{
+			return -1;
+		}
+	}
+}

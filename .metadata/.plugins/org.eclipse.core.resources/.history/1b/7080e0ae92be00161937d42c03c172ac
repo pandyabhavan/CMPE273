@@ -1,0 +1,65 @@
+package com.lab3.calculator;
+
+import java.io.StringWriter;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+import javax.xml.bind.*;
+
+@WebService
+public class calculator 
+{
+	StringWriter sw = new StringWriter();
+	Return r = new Return();
+	@WebMethod
+	public String calculate(int number1,int number2,String operation)
+	{
+		try
+		{
+			System.out.println(operation);
+			if(operation == "Addition")
+			{
+				r.setStatusCode(200);
+				r.setData(number1 + number2) ;
+			}
+			else if(operation == "Substraction")
+			{
+				r.setStatusCode(200);
+				r.setData(number1 - number2) ;
+			}
+			else if(operation == "Multiplication")
+			{
+				r.setStatusCode(200);
+				r.setData(number1 * number2) ;
+			}
+			else if(operation == "Division")
+			{
+				r.setStatusCode(200);
+				r.setData(number1 / number2) ;
+			}
+			else
+			{
+				r.setStatusCode(401);
+				r.setData(0) ;
+			}
+		    			return sw.toString();
+		}
+		catch (Exception e) 
+		{
+			try{
+			JAXBContext context = JAXBContext.newInstance(Return.class);
+	        Marshaller m = context.createMarshaller();
+
+	        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE); // To format XML
+
+			System.out.println(e.getMessage());
+			r.setStatusCode(401);
+			r.setData(0) ;
+			m.marshal(r, sw);
+			System.out.println("sw "+sw.toString());
+			return sw.toString();
+			}
+			catch(Exception e1){return "";}
+		}
+	}
+}

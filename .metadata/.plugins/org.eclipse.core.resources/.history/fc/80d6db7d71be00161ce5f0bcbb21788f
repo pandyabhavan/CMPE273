@@ -1,0 +1,8 @@
+package com.lab3.calculator;
+
+public class Return 
+{
+	private int statusCode;
+	private int data;
+
+}

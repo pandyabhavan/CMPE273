@@ -1,0 +1,22 @@
+package com.lab3.calculator;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "Return")
+public class Return{
+{
+	private int statusCode;
+	private int data;
+	public int getStatusCode() {
+		return statusCode;
+	}
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+	public int getData() {
+		return data;
+	}
+	public void setData(int data) {
+		this.data = data;
+	}
+}
