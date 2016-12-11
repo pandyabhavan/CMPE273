@@ -1,0 +1,14 @@
+package com.lab3.ebay;
+
+import java.sql.ResultSet;
+
+import javax.jws.WebService;
+
+@WebService
+public class Home 
+{
+	public ResultSet getTwoItems()
+	{
+		return MySQL.fetchData("select i.id,i.name,quantity,u.first_name from item i,user u where i.user_id = u.id order by id desc limit 2");
+	}
+}

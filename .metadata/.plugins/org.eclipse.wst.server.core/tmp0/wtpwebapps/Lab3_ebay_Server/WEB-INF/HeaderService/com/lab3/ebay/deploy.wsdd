@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from HeaderService WSDL service -->
+
+  <service name="Header" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ebay.lab3.com"/>
+      <parameter name="wsdlServiceElement" value="HeaderService"/>
+      <parameter name="schemaQualified" value="http://ebay.lab3.com"/>
+      <parameter name="wsdlServicePort" value="Header"/>
+      <parameter name="className" value="com.lab3.ebay.Header"/>
+      <parameter name="wsdlPortType" value="Header"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://ebay.lab3.com" xmlns:retNS="http://ebay.lab3.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="search" qname="operNS:search" returnQName="retNS:searchReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://ebay.lab3.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:query" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://ebay.lab3.com" xmlns:retNS="http://ebay.lab3.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getCartNumber" qname="operNS:getCartNumber" returnQName="retNS:getCartNumberReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://ebay.lab3.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:query" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="search getCartNumber"/>
+
+  </service>
+</deployment>

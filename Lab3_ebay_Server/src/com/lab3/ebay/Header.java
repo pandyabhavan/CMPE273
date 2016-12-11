@@ -1,0 +1,33 @@
+package com.lab3.ebay;
+
+import java.sql.ResultSet;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+@WebService
+public class Header 
+{
+	@WebMethod
+	public String search(String query)
+	{
+		return MySQL.fetchData(query);
+	}
+	
+	@WebMethod
+	public int getCartNumber(String query)
+	{
+		ResultSet rs = MySQL.fetchResultSet(query);
+		int count = 0;
+		try
+		{
+			while(rs.next())
+			{	
+				count = rs.getInt(1);
+			}
+		}
+		catch(Exception e)
+		{}
+		return count;
+	}
+}

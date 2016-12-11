@@ -1,0 +1,59 @@
+package com.lab3.ebay;
+
+import java.sql.*;
+
+import com.google.gson.Gson;
+
+
+public class MySQL 
+{
+	private static Connection con = null;
+	private static ResultSet rs = null;
+	private static int output = 0;
+	private static String jsonInString = "";
+	
+	public static String fetchData(String query)
+	{
+		try
+		{
+			System.out.println(query);
+			Class.forName("com.mysql.jdbc.Driver");  
+			con= DriverManager.getConnection("jdbc:mysql://localhost:3306/ebay","root","Bhavan@123");
+			Statement stmt=con.createStatement();  
+			rs=stmt.executeQuery(query);
+			Gson gson = new Gson();
+			String json = gson.toJson(rs);
+			con.close();		
+		}
+		catch(Exception e)
+		{ 
+			System.out.println(e);
+		}
+		return jsonInString;
+	}
+	
+	@SuppressWarnings("finally")
+	public static int updateData(String query)
+	{
+		try
+		{  
+			Class.forName("com.mysql.jdbc.Driver");  
+			con= DriverManager.getConnection("jdbc:mysql://localhost:3306/ebay","root","Bhavan@123");
+			Statement stmt=con.createStatement();  
+			output=stmt.executeUpdate("select * from user");  
+		}
+		catch(Exception e)
+		{ 
+			System.out.println(e);
+		}
+		finally
+		{
+			try
+			{
+			if(con != null)
+				con.close();
+			}catch(Exception e1){}
+			return output;  
+		}
+	}
+}

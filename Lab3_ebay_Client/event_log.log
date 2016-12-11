@@ -1,0 +1,92 @@
+2016-12-10T05:17:06.703Z - info: Guest user clicked at profile_link in file header
+2016-12-10T05:17:10.811Z - info: Guest user clicked at sign_in in file login
+2016-12-10T05:17:16.099Z - info: Guest user clicked at sign_in in file login
+2016-12-10T05:25:23.104Z - info: Guest user clicked at profile_link in file header
+2016-12-10T05:25:26.818Z - info: Guest user clicked at sign_in in file login
+2016-12-10T05:25:44.783Z - info: User with id pb clicked at search_form in file header
+2016-12-10T05:25:45.903Z - info: User with id pb clicked at search_form in file header
+2016-12-10T05:25:46.522Z - info: User with id pb clicked at search_form in file header
+2016-12-10T05:25:47.590Z - info: User with id pb clicked at search_form in file header
+2016-12-10T05:25:49.651Z - info: User with id pb clicked at item in file product
+2016-12-10T05:25:53.056Z - info: User with id pb clicked at add_to_cart in file product
+2016-12-10T05:25:53.058Z - info: User with id pb clicked at product_details in file product
+2016-12-10T05:25:56.154Z - info: User with id pb clicked at remove_item in file cart
+2016-12-10T05:25:56.156Z - info: User with id pb clicked at item in file cart
+2016-12-10T05:26:00.333Z - info: User with id pb clicked at checkout in file cart
+2016-12-10T05:26:02.868Z - info: User with id pb clicked at checkout in file checkout
+2016-12-10T05:26:22.490Z - info: User with id pb clicked at checkout in file checkout
+2016-12-10T05:27:36.879Z - info: User with id pb clicked at checkout in file checkout
+2016-12-10T05:27:43.122Z - info: User with id pb clicked at search_form in file header
+2016-12-10T05:27:43.978Z - info: User with id pb clicked at search_form in file header
+2016-12-10T05:27:46.855Z - info: User with id pb clicked at profile_link in file header
+2016-12-10T05:27:49.797Z - info: User with id pb clicked at sell in file profile
+2016-12-10T05:27:50.947Z - info: User with id pb clicked at profile_update in file profile
+2016-12-10T05:27:56.306Z - info: User with id pb clicked at logo in file header
+2016-12-10T19:00:16.034Z - info: Guest user clicked at search_form in file header
+2016-12-10T19:00:16.883Z - info: Guest user clicked at search_form in file header
+2016-12-10T19:00:17.284Z - info: Guest user clicked at search_form in file header
+2016-12-10T19:00:18.601Z - info: Guest user clicked at search_form in file header
+2016-12-10T19:00:21.454Z - info: Guest user clicked at item in file product
+2016-12-10T19:00:28.954Z - info: Guest user clicked at add_to_cart in file product
+2016-12-10T19:00:28.956Z - info: Guest user clicked at product_details in file product
+2016-12-10T19:00:34.861Z - info: Guest user clicked at sign_in in file login
+2016-12-10T19:00:37.726Z - info: User with id pb clicked at cart in file header
+2016-12-10T19:00:45.292Z - info: User with id pb clicked at search_form in file header
+2016-12-10T19:00:45.935Z - info: User with id pb clicked at search_form in file header
+2016-12-10T19:00:48.081Z - info: User with id pb clicked at checkout in file cart
+2016-12-10T19:01:04.145Z - info: User with id pb clicked at checkout in file checkout
+2016-12-10T19:01:13.397Z - info: User with id pb clicked at profile_link in file header
+2016-12-10T19:01:24.709Z - info: User with id pb clicked at sell in file profile
+2016-12-10T19:01:25.693Z - info: User with id pb clicked at profile_update in file profile
+2016-12-10T19:02:06.213Z - info: User with id pb clicked at sell in file profile
+2016-12-10T19:02:10.831Z - info: User with id pb clicked at add_item in file profile
+2016-12-11T04:53:04.381Z - info: Guest user clicked at recently added items in file home
+2016-12-11T08:55:50.331Z - info: Guest user clicked at profile_link in file header
+2016-12-11T08:55:53.321Z - info: Guest user clicked at sign_in in file login
+2016-12-11T09:00:23.763Z - info: User with id pb clicked at profile_link in file header
+2016-12-11T09:00:26.382Z - info: User with id pb clicked at sell in file profile
+2016-12-11T09:00:27.226Z - info: User with id pb clicked at profile_update in file profile
+2016-12-11T09:00:28.567Z - info: User with id pb clicked at purchase in file profile
+2016-12-11T09:00:29.517Z - info: User with id pb clicked at logo in file header
+2016-12-11T09:00:32.362Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:00:33.218Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:00:34.140Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:00:35.307Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:01:14.250Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:01:15.969Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:01:17.193Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:01:18.880Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:01:32.378Z - info: Guest user clicked at search_form in file header
+2016-12-11T09:01:33.803Z - info: Guest user clicked at search_form in file header
+2016-12-11T09:01:58.737Z - info: Guest user clicked at header-table in file home
+2016-12-11T09:02:08.367Z - info: Guest user clicked at header-table in file home
+2016-12-11T09:02:16.930Z - info: Guest user clicked at search_form in file header
+2016-12-11T09:02:21.334Z - info: Guest user clicked at search_form in file header
+2016-12-11T09:05:41.736Z - info: Guest user clicked at profile_link in file header
+2016-12-11T09:05:44.140Z - info: Guest user clicked at sign_in in file login
+2016-12-11T09:05:46.212Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:05:48.177Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:05:49.683Z - info: User with id pb clicked at item in file product
+2016-12-11T09:05:50.559Z - info: User with id pb clicked at item in file product
+2016-12-11T09:05:50.934Z - info: User with id pb clicked at item in file product
+2016-12-11T09:06:13.833Z - info: User with id pb clicked at item in file product
+2016-12-11T09:07:29.873Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:07:32.037Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:07:34.307Z - info: User with id pb clicked at item in file product
+2016-12-11T09:07:36.646Z - info: User with id pb clicked at add_to_cart in file product
+2016-12-11T09:07:36.647Z - info: User with id pb clicked at product_details in file product
+2016-12-11T09:07:38.923Z - info: User with id pb clicked at cart in file header
+2016-12-11T09:07:39.667Z - info: User with id pb clicked at cart in file header
+2016-12-11T09:07:50.158Z - info: User with id pb clicked at checkout in file cart
+2016-12-11T09:07:52.347Z - info: User with id pb clicked at logo in file header
+2016-12-11T09:07:54.132Z - info: User with id pb clicked at cart in file header
+2016-12-11T09:07:57.821Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:08:00.116Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:08:04.511Z - info: User with id pb clicked at item in file product
+2016-12-11T09:08:22.317Z - info: User with id pb clicked at add_to_cart in file product
+2016-12-11T09:08:22.319Z - info: User with id pb clicked at product_details in file product
+2016-12-11T09:08:46.409Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:08:50.538Z - info: User with id pb clicked at search_form in file header
+2016-12-11T09:08:51.654Z - info: User with id pb clicked at item in file product
+2016-12-11T09:08:56.985Z - info: User with id pb clicked at add_to_cart in file product
+2016-12-11T09:08:56.987Z - info: User with id pb clicked at product_details in file product

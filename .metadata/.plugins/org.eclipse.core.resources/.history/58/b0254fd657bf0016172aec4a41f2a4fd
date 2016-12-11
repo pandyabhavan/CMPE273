@@ -1,0 +1,87 @@
+package com.lab3.ebay;
+
+import java.sql.*;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.google.gson.Gson;
+
+
+public class MySQL 
+{
+	private static Connection con = null;
+	private static ResultSet rs = null;
+	private static int output = 0;
+	private static String jsonInString = "";
+	
+	public static String fetchData(String query)
+	{
+		try
+		{
+			System.out.println(query);
+			Class.forName("com.mysql.jdbc.Driver");  
+			con= DriverManager.getConnection("jdbc:mysql://localhost:3306/ebay","root","Bhavan@123");
+			Statement stmt=con.createStatement();  
+			rs=stmt.executeQuery(query);
+			JSONArray ja = convertResultSetIntoJSON(rs);
+			Gson gson = new Gson();
+			jsonInString = gson.toJson(rs);
+			System.out.println(jsonInString);
+			con.close();
+			return jsonInString;
+		}
+		catch(Exception e)
+		{ 
+			System.out.println(e);
+			return null;
+		}
+	}
+	
+	@SuppressWarnings("finally")
+	public static int updateData(String query)
+	{
+		try
+		{  
+			Class.forName("com.mysql.jdbc.Driver");  
+			con= DriverManager.getConnection("jdbc:mysql://localhost:3306/ebay","root","Bhavan@123");
+			Statement stmt=con.createStatement();  
+			output=stmt.executeUpdate("select * from user");  
+		}
+		catch(Exception e)
+		{ 
+			System.out.println(e);
+		}
+		finally
+		{
+			try
+			{
+			if(con != null)
+				con.close();
+			}catch(Exception e1){}
+			return output;  
+		}
+	}
+	
+	public static JSONArray convertResultSetIntoJSON(ResultSet resultSet) throws Exception {
+        JSONArray jsonArray = new JSONArray();
+        while (resultSet.next()) {
+            int total_rows = resultSet.getMetaData().getColumnCount();
+            JSONObject obj = new JSONObject();
+            for (int i = 0; i < total_rows; i++) {
+                String columnName = resultSet.getMetaData().getColumnLabel(i + 1).toLowerCase();
+                Object columnValue = resultSet.getObject(i + 1);
+                // if value in DB is null, then we set it to default value
+                if (columnValue == null){
+                    columnValue = "null";
+                }
+                if (obj.has(columnName)){
+                    columnName += "1";
+                }
+                obj.put(columnName, columnValue);
+            }
+            jsonArray.put(obj);
+        }
+        return jsonArray;
+    }
+}

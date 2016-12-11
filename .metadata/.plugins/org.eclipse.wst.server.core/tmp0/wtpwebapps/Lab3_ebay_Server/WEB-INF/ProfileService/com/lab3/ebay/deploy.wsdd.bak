@@ -1,0 +1,38 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ProfileService WSDL service -->
+
+  <service name="Profile" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ebay.lab3.com"/>
+      <parameter name="wsdlServiceElement" value="ProfileService"/>
+      <parameter name="schemaQualified" value="http://ebay.lab3.com"/>
+      <parameter name="wsdlServicePort" value="Profile"/>
+      <parameter name="className" value="com.lab3.ebay.ProfileSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Profile"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="removeItem" qname="operNS:removeItem" xmlns:operNS="http://ebay.lab3.com" returnQName="retNS:removeItemReturn" xmlns:retNS="http://ebay.lab3.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:item_id" xmlns:pns="http://ebay.lab3.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getProfile" qname="operNS:getProfile" xmlns:operNS="http://ebay.lab3.com" returnQName="retNS:getProfileReturn" xmlns:retNS="http://ebay.lab3.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:user_id" xmlns:pns="http://ebay.lab3.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getPurchaseHistory" qname="operNS:getPurchaseHistory" xmlns:operNS="http://ebay.lab3.com" returnQName="retNS:getPurchaseHistoryReturn" xmlns:retNS="http://ebay.lab3.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:user_id" xmlns:pns="http://ebay.lab3.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getSellingHistory" qname="operNS:getSellingHistory" xmlns:operNS="http://ebay.lab3.com" returnQName="retNS:getSellingHistoryReturn" xmlns:retNS="http://ebay.lab3.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:user_id" xmlns:pns="http://ebay.lab3.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="removeItem getProfile getSellingHistory getPurchaseHistory"/>
+
+  </service>
+</deployment>

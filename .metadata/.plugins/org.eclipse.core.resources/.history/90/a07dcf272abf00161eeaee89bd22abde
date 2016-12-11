@@ -1,0 +1,10 @@
+package com.lab3.ebay;
+
+public class Home 
+{
+	public ResultSet getTwoItems()
+	{
+		MySQL ms = new MySQL();
+		return null;
+	}
+}

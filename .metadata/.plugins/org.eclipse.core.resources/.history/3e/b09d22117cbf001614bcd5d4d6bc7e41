@@ -1,0 +1,20 @@
+package com.lab3.ebay;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+@WebService
+public class Login 
+{
+	@WebMethod
+	public String login(String username,String password)
+	{
+		return MySQL.fetchData("select id,first_name,email,handle,last_login,password from user where (handle='"+username+"' or email='"+username+"')");
+	}
+	
+	@WebMethod
+	public int updateLastLogin(String query)
+	{
+		return MySQL.updateData(query);
+	}
+}

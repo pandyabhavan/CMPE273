@@ -1,0 +1,13 @@
+package com.lab3.ebay;
+
+import javax.jws.WebService;
+
+@WebService
+public class Checkout {
+	
+	public int deleteCart(String user_id,String item_id)
+	{
+		
+	}
+
+}

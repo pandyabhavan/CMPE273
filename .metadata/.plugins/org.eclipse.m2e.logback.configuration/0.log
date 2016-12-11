@@ -2491,3 +2491,19 @@
 2016-12-09 20:55:37,035 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pandy\Documents\GitHub\CMPE273\homework1\src\main\resources
 2016-12-09 20:55:37,043 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2016-12-09 20:55:37,043 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pandy\Documents\GitHub\CMPE273\homework1\src\test\resources
+2016-12-10 10:28:30,137 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-10 10:28:30,145 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pandy\Documents\GitHub\CMPE273\homework1\src\main\resources
+2016-12-10 10:28:30,148 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-10 10:28:30,148 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pandy\Documents\GitHub\CMPE273\homework1\src\test\resources
+2016-12-10 14:40:57,696 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-10 14:40:57,699 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pandy\Documents\GitHub\CMPE273\homework1\src\main\resources
+2016-12-10 14:40:57,702 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-10 14:40:57,702 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pandy\Documents\GitHub\CMPE273\homework1\src\test\resources
+2016-12-10 21:20:16,320 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-10 21:20:16,324 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pandy\Documents\GitHub\CMPE273\homework1\src\main\resources
+2016-12-10 21:20:16,326 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-10 21:20:16,327 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pandy\Documents\GitHub\CMPE273\homework1\src\test\resources
+2016-12-10 21:34:45,019 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-10 21:34:45,084 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pandy\Documents\GitHub\CMPE273\homework1\src\main\resources
+2016-12-10 21:34:45,088 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-10 21:34:45,089 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pandy\Documents\GitHub\CMPE273\homework1\src\test\resources

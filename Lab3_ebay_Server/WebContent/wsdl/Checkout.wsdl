@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ebay.lab3.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ebay.lab3.com" xmlns:intf="http://ebay.lab3.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ebay.lab3.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="insertBuySell">
+    <complexType>
+     <sequence>
+      <element name="user_id" type="xsd:string"/>
+      <element name="quantity" type="xsd:string"/>
+      <element name="item_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertBuySellResponse">
+    <complexType>
+     <sequence>
+      <element name="insertBuySellReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateItem">
+    <complexType>
+     <sequence>
+      <element name="quantity" type="xsd:string"/>
+      <element name="item_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateItemResponse">
+    <complexType>
+     <sequence>
+      <element name="updateItemReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteCart">
+    <complexType>
+     <sequence>
+      <element name="user_id" type="xsd:string"/>
+      <element name="item_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteCartResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteCartReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="deleteCartResponse">
+
+      <wsdl:part element="impl:deleteCartResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertBuySellRequest">
+
+      <wsdl:part element="impl:insertBuySell" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteCartRequest">
+
+      <wsdl:part element="impl:deleteCart" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateItemRequest">
+
+      <wsdl:part element="impl:updateItem" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateItemResponse">
+
+      <wsdl:part element="impl:updateItemResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertBuySellResponse">
+
+      <wsdl:part element="impl:insertBuySellResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Checkout">
+
+      <wsdl:operation name="insertBuySell">
+
+         <wsdl:input message="impl:insertBuySellRequest" name="insertBuySellRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertBuySellResponse" name="insertBuySellResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateItem">
+
+         <wsdl:input message="impl:updateItemRequest" name="updateItemRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateItemResponse" name="updateItemResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCart">
+
+         <wsdl:input message="impl:deleteCartRequest" name="deleteCartRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteCartResponse" name="deleteCartResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CheckoutSoapBinding" type="impl:Checkout">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="insertBuySell">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertBuySellRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertBuySellResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateItem">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateItemRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateItemResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCart">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteCartRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteCartResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CheckoutService">
+
+      <wsdl:port binding="impl:CheckoutSoapBinding" name="Checkout">
+
+         <wsdlsoap:address location="http://localhost:8080/Lab3_ebay_Server/services/Checkout"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

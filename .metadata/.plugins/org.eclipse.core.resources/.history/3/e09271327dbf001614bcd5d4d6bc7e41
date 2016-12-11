@@ -1,0 +1,11 @@
+package com.lab3.ebay;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+@WebService
+public class Profile 
+{
+	@WebMethod
+	public String
+}

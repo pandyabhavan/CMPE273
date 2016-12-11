@@ -1,0 +1,34 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ProductService WSDL service -->
+
+  <service name="Product" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ebay.lab3.com"/>
+      <parameter name="wsdlServiceElement" value="ProductService"/>
+      <parameter name="schemaQualified" value="http://ebay.lab3.com"/>
+      <parameter name="wsdlServicePort" value="Product"/>
+      <parameter name="className" value="com.lab3.ebay.ProductSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Product"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="add_to_cart" qname="operNS:add_to_cart" xmlns:operNS="http://ebay.lab3.com" returnQName="retNS:add_to_cartReturn" xmlns:retNS="http://ebay.lab3.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:user_id" xmlns:pns="http://ebay.lab3.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:item_id" xmlns:pns="http://ebay.lab3.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:quantity" xmlns:pns="http://ebay.lab3.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getProductDetails" qname="operNS:getProductDetails" xmlns:operNS="http://ebay.lab3.com" returnQName="retNS:getProductDetailsReturn" xmlns:retNS="http://ebay.lab3.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:item_id" xmlns:pns="http://ebay.lab3.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="add_to_cart getProductDetails"/>
+
+  </service>
+</deployment>

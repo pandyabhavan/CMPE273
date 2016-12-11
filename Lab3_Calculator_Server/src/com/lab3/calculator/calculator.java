@@ -1,20 +1,16 @@
 package com.lab3.calculator;
 
-import java.io.StringWriter;
-
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 @WebService
 public class calculator 
 {
-	StringWriter sw = new StringWriter();
 	@WebMethod
 	public int calculate(int number1,int number2,String operation)
 	{
 		try
 		{
-			System.out.println(operation);
 			if(operation.equals( "Addition"))
 			{
 				System.out.println(number1 + number2);

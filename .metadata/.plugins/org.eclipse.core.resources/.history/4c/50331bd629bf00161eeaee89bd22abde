@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Lab3_ebay_Server">
+        <property name="context-root" value="Lab3_ebay_Server"/>
+    </wb-module>
+</project-modules>

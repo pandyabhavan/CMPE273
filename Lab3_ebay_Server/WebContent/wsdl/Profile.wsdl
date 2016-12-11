@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ebay.lab3.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ebay.lab3.com" xmlns:intf="http://ebay.lab3.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ebay.lab3.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="removeItem">
+    <complexType>
+     <sequence>
+      <element name="item_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeItemResponse">
+    <complexType>
+     <sequence>
+      <element name="removeItemReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProfile">
+    <complexType>
+     <sequence>
+      <element name="user_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProfileResponse">
+    <complexType>
+     <sequence>
+      <element name="getProfileReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPurchaseHistory">
+    <complexType>
+     <sequence>
+      <element name="user_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPurchaseHistoryResponse">
+    <complexType>
+     <sequence>
+      <element name="getPurchaseHistoryReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSellingHistory">
+    <complexType>
+     <sequence>
+      <element name="user_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSellingHistoryResponse">
+    <complexType>
+     <sequence>
+      <element name="getSellingHistoryReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="removeItemResponse">
+
+      <wsdl:part element="impl:removeItemResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProfileRequest">
+
+      <wsdl:part element="impl:getProfile" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeItemRequest">
+
+      <wsdl:part element="impl:removeItem" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPurchaseHistoryResponse">
+
+      <wsdl:part element="impl:getPurchaseHistoryResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProfileResponse">
+
+      <wsdl:part element="impl:getProfileResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSellingHistoryResponse">
+
+      <wsdl:part element="impl:getSellingHistoryResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPurchaseHistoryRequest">
+
+      <wsdl:part element="impl:getPurchaseHistory" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSellingHistoryRequest">
+
+      <wsdl:part element="impl:getSellingHistory" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Profile">
+
+      <wsdl:operation name="removeItem">
+
+         <wsdl:input message="impl:removeItemRequest" name="removeItemRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeItemResponse" name="removeItemResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProfile">
+
+         <wsdl:input message="impl:getProfileRequest" name="getProfileRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getProfileResponse" name="getProfileResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPurchaseHistory">
+
+         <wsdl:input message="impl:getPurchaseHistoryRequest" name="getPurchaseHistoryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPurchaseHistoryResponse" name="getPurchaseHistoryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSellingHistory">
+
+         <wsdl:input message="impl:getSellingHistoryRequest" name="getSellingHistoryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSellingHistoryResponse" name="getSellingHistoryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ProfileSoapBinding" type="impl:Profile">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="removeItem">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeItemRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeItemResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProfile">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getProfileRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getProfileResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPurchaseHistory">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPurchaseHistoryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPurchaseHistoryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSellingHistory">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSellingHistoryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSellingHistoryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ProfileService">
+
+      <wsdl:port binding="impl:ProfileSoapBinding" name="Profile">
+
+         <wsdlsoap:address location="http://localhost:8080/Lab3_ebay_Server/services/Profile"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

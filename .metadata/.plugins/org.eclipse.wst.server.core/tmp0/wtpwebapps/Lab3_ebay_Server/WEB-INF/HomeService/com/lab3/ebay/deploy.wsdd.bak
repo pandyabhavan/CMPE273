@@ -1,0 +1,28 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from HomeService WSDL service -->
+
+  <service name="Home" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ebay.lab3.com"/>
+      <parameter name="wsdlServiceElement" value="HomeService"/>
+      <parameter name="schemaQualified" value="http://ebay.lab3.com"/>
+      <parameter name="wsdlServicePort" value="Home"/>
+      <parameter name="className" value="com.lab3.ebay.HomeSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Home"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getTwoItems" qname="operNS:getTwoItems" xmlns:operNS="http://ebay.lab3.com" returnQName="retNS:getTwoItemsReturn" xmlns:retNS="http://ebay.lab3.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="getTwoItems"/>
+
+  </service>
+</deployment>

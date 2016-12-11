@@ -1,0 +1,15 @@
+package com.lab3.ebay;
+
+import java.sql.ResultSet;
+
+import javax.jws.WebService;
+
+@WebService
+public class Home 
+{
+	public ResultSet getTwoItems()
+	{
+		MySQL ms = new MySQL();
+		return null;
+	}
+}

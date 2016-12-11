@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ebay.lab3.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ebay.lab3.com" xmlns:intf="http://ebay.lab3.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ebay.lab3.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getCart">
+    <complexType>
+     <sequence>
+      <element name="user_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCartResponse">
+    <complexType>
+     <sequence>
+      <element name="getCartReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeFromCart">
+    <complexType>
+     <sequence>
+      <element name="user_id" type="xsd:string"/>
+      <element name="item_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeFromCartResponse">
+    <complexType>
+     <sequence>
+      <element name="removeFromCartReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="removeFromCartResponse">
+
+      <wsdl:part element="impl:removeFromCartResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCartResponse">
+
+      <wsdl:part element="impl:getCartResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCartRequest">
+
+      <wsdl:part element="impl:getCart" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeFromCartRequest">
+
+      <wsdl:part element="impl:removeFromCart" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Cart">
+
+      <wsdl:operation name="getCart">
+
+         <wsdl:input message="impl:getCartRequest" name="getCartRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCartResponse" name="getCartResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeFromCart">
+
+         <wsdl:input message="impl:removeFromCartRequest" name="removeFromCartRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeFromCartResponse" name="removeFromCartResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CartSoapBinding" type="impl:Cart">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getCart">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCartRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCartResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeFromCart">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeFromCartRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeFromCartResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CartService">
+
+      <wsdl:port binding="impl:CartSoapBinding" name="Cart">
+
+         <wsdlsoap:address location="http://localhost:8080/Lab3_ebay_Server/services/Cart"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,161 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="C:\Users\pandy\Documents\GitHub\CMPE273\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Lab3_ebay_Server\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Checkout" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="insertBuySell" qname="ns1:insertBuySell" returnQName="ns1:insertBuySellReturn" returnType="xsd:int" soapAction="" xmlns:ns1="http://ebay.lab3.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:user_id" type="xsd:string"/>
+   <ns2:parameter qname="ns1:quantity" type="xsd:string"/>
+   <ns2:parameter qname="ns1:item_id" type="xsd:string"/>
+  </ns2:operation>
+  <ns1:operation name="updateItem" qname="ns2:updateItem" returnQName="ns2:updateItemReturn" returnType="xsd:int" soapAction="" xmlns:ns2="http://ebay.lab3.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:quantity" type="xsd:string"/>
+   <ns1:parameter qname="ns2:item_id" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="deleteCart" qname="ns3:deleteCart" returnQName="ns3:deleteCartReturn" returnType="xsd:int" soapAction="" xmlns:ns3="http://ebay.lab3.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:user_id" type="xsd:string"/>
+   <ns1:parameter qname="ns3:item_id" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="insertBuySell updateItem deleteCart"/>
+  <ns1:parameter name="wsdlPortType" value="Checkout"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://ebay.lab3.com"/>
+  <ns1:parameter name="wsdlServicePort" value="Checkout"/>
+  <ns1:parameter name="className" value="com.lab3.ebay.Checkout"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://ebay.lab3.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="CheckoutService"/>
+ </ns1:service>
+ <ns1:service name="Header" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="search" qname="ns4:search" returnQName="ns4:searchReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://ebay.lab3.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:query" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getCartNumber" qname="ns5:getCartNumber" returnQName="ns5:getCartNumberReturn" returnType="xsd:int" soapAction="" xmlns:ns5="http://ebay.lab3.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:query" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="search getCartNumber"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="Header"/>
+  <ns1:parameter name="className" value="com.lab3.ebay.Header"/>
+  <ns1:parameter name="wsdlServicePort" value="Header"/>
+  <ns1:parameter name="schemaQualified" value="http://ebay.lab3.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://ebay.lab3.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="HeaderService"/>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="Product" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="add_to_cart" qname="ns6:add_to_cart" returnQName="ns6:add_to_cartReturn" returnType="xsd:int" soapAction="" xmlns:ns6="http://ebay.lab3.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:user_id" type="xsd:string"/>
+   <ns1:parameter qname="ns6:item_id" type="xsd:string"/>
+   <ns1:parameter qname="ns6:quantity" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getProductDetails" qname="ns7:getProductDetails" returnQName="ns7:getProductDetailsReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://ebay.lab3.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:item_id" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="add_to_cart getProductDetails"/>
+  <ns1:parameter name="wsdlPortType" value="Product"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://ebay.lab3.com"/>
+  <ns1:parameter name="wsdlServicePort" value="Product"/>
+  <ns1:parameter name="className" value="com.lab3.ebay.Product"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://ebay.lab3.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="ProductService"/>
+ </ns1:service>
+ <ns1:service name="Login" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="register" qname="ns8:register" returnQName="ns8:registerReturn" returnType="xsd:int" soapAction="" xmlns:ns8="http://ebay.lab3.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns8:first_name" type="xsd:string"/>
+   <ns1:parameter qname="ns8:last_name" type="xsd:string"/>
+   <ns1:parameter qname="ns8:email" type="xsd:string"/>
+   <ns1:parameter qname="ns8:password" type="xsd:string"/>
+   <ns1:parameter qname="ns8:handle" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="login" qname="ns9:login" returnQName="ns9:loginReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://ebay.lab3.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:username" type="xsd:string"/>
+   <ns1:parameter qname="ns9:password" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="updateLastLogin" qname="ns10:updateLastLogin" returnQName="ns10:updateLastLoginReturn" returnType="xsd:int" soapAction="" xmlns:ns10="http://ebay.lab3.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns10:query" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="updateLastLogin login register"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="Login"/>
+  <ns1:parameter name="className" value="com.lab3.ebay.Login"/>
+  <ns1:parameter name="wsdlServicePort" value="Login"/>
+  <ns1:parameter name="schemaQualified" value="http://ebay.lab3.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://ebay.lab3.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="LoginService"/>
+ </ns1:service>
+ <ns1:service name="Home" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="getTwoItems" qname="ns11:getTwoItems" returnQName="ns11:getTwoItemsReturn" returnType="xsd:string" soapAction="" xmlns:ns11="http://ebay.lab3.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:parameter name="allowedMethods" value="getTwoItems"/>
+  <ns1:parameter name="wsdlPortType" value="Home"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://ebay.lab3.com"/>
+  <ns1:parameter name="wsdlServicePort" value="Home"/>
+  <ns1:parameter name="className" value="com.lab3.ebay.Home"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://ebay.lab3.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="HomeService"/>
+ </ns1:service>
+ <ns1:service name="Cart" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="getCart" qname="ns12:getCart" returnQName="ns12:getCartReturn" returnType="xsd:string" soapAction="" xmlns:ns12="http://ebay.lab3.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns12:user_id" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="removeFromCart" qname="ns13:removeFromCart" returnQName="ns13:removeFromCartReturn" returnType="xsd:int" soapAction="" xmlns:ns13="http://ebay.lab3.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns13:user_id" type="xsd:string"/>
+   <ns1:parameter qname="ns13:item_id" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="removeFromCart getCart"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="Cart"/>
+  <ns1:parameter name="className" value="com.lab3.ebay.Cart"/>
+  <ns1:parameter name="wsdlServicePort" value="Cart"/>
+  <ns1:parameter name="schemaQualified" value="http://ebay.lab3.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://ebay.lab3.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="CartService"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

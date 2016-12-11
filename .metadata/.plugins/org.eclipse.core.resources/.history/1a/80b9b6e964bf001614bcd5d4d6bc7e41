@@ -1,0 +1,14 @@
+package com.lab3.ebay;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+@WebService
+public class Cart 
+{
+	@WebMethod
+	public String 
+	{
+		return MySQL.fetchData("select c.quantity,i.name,i.description,u.first_name,i.price,i.id from cart c,item i,user u where u.id = i.user_id and c.item_id = i.id and u.id = "+req.session.login.id+" and ((i.view=1 and i.bid=0) or (i.view =0 and bid=1))");
+	}
+}

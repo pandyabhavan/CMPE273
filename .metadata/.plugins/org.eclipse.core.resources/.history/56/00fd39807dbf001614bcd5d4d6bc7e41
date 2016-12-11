@@ -1,0 +1,17 @@
+package com.lab3.ebay;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+@WebService
+public class Profile 
+{
+	@WebMethod
+	public String getPurchaseHistory(String user_id) 
+	{
+		return MySQL.fetchData("select u.first_name,i.name,i.description,i.price,b.quantity,b.purchase_date from user u,item i,buy_sell b where b.buyer_id = "+user_id+" and u.id = i.user_id and i.id = b.item_id");
+	}
+	
+	@WebMethod
+	
+}

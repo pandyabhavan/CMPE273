@@ -1,0 +1,16 @@
+package com.lab3.ebay;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+@WebService
+public class Checkout {
+	
+	@WebMethod
+	public int deleteCart(String user_id,String item_id)
+	{
+		return MySQL.updateData("delete from cart where user_id="+user_id+" and item_id = "+item_id+"");
+	}
+	
+
+}

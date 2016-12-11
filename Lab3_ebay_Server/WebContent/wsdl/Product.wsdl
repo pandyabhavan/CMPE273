@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ebay.lab3.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ebay.lab3.com" xmlns:intf="http://ebay.lab3.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ebay.lab3.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="add_to_cart">
+    <complexType>
+     <sequence>
+      <element name="user_id" type="xsd:string"/>
+      <element name="item_id" type="xsd:string"/>
+      <element name="quantity" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="add_to_cartResponse">
+    <complexType>
+     <sequence>
+      <element name="add_to_cartReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProductDetails">
+    <complexType>
+     <sequence>
+      <element name="item_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProductDetailsResponse">
+    <complexType>
+     <sequence>
+      <element name="getProductDetailsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="add_to_cartResponse">
+
+      <wsdl:part element="impl:add_to_cartResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProductDetailsResponse">
+
+      <wsdl:part element="impl:getProductDetailsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProductDetailsRequest">
+
+      <wsdl:part element="impl:getProductDetails" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="add_to_cartRequest">
+
+      <wsdl:part element="impl:add_to_cart" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Product">
+
+      <wsdl:operation name="add_to_cart">
+
+         <wsdl:input message="impl:add_to_cartRequest" name="add_to_cartRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:add_to_cartResponse" name="add_to_cartResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProductDetails">
+
+         <wsdl:input message="impl:getProductDetailsRequest" name="getProductDetailsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getProductDetailsResponse" name="getProductDetailsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ProductSoapBinding" type="impl:Product">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="add_to_cart">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="add_to_cartRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="add_to_cartResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProductDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getProductDetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getProductDetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ProductService">
+
+      <wsdl:port binding="impl:ProductSoapBinding" name="Product">
+
+         <wsdlsoap:address location="http://localhost:8080/Lab3_ebay_Server/services/Product"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
